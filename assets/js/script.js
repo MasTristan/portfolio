@@ -630,6 +630,9 @@ document.addEventListener("DOMContentLoaded", function () {
       const startY = window.pageYOffset;
       const targetY = element.getBoundingClientRect().top + startY;
       const startTime = performance.now();
+      const root = document.documentElement;
+      const originalScrollBehavior = root.style.scrollBehavior;
+      root.style.scrollBehavior = "auto";
 
       // Ease in-out cubic for a natural feel
       const easeInOutCubic = (t) =>
@@ -642,6 +645,8 @@ document.addEventListener("DOMContentLoaded", function () {
         window.scrollTo(0, startY + (targetY - startY) * eased);
         if (elapsed < duration) {
           requestAnimationFrame(scroll);
+        } else {
+          root.style.scrollBehavior = originalScrollBehavior;
         }
       }
 
