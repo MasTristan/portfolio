@@ -625,6 +625,29 @@ document.addEventListener("DOMContentLoaded", function () {
   function initSideNavScroll() {
     const navLinks = document.querySelectorAll(".side-nav .nav-circle");
 
+    // Custom smooth scroll with easing for a more polished animation
+    function smoothScrollTo(element, duration = 800) {
+      const startY = window.pageYOffset;
+      const targetY = element.getBoundingClientRect().top + startY;
+      const startTime = performance.now();
+
+      // Ease in-out cubic for a natural feel
+      const easeInOutCubic = (t) =>
+        t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+      function scroll() {
+        const elapsed = performance.now() - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = easeInOutCubic(progress);
+        window.scrollTo(0, startY + (targetY - startY) * eased);
+        if (elapsed < duration) {
+          requestAnimationFrame(scroll);
+        }
+      }
+
+      requestAnimationFrame(scroll);
+    }
+
     navLinks.forEach((link) => {
       link.addEventListener("click", function (e) {
         e.preventDefault();
@@ -632,7 +655,11 @@ document.addEventListener("DOMContentLoaded", function () {
         const targetSection = document.querySelector(targetId);
 
         if (targetSection) {
-          targetSection.scrollIntoView({ behavior: "smooth" });
+          if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            targetSection.scrollIntoView();
+          } else {
+            smoothScrollTo(targetSection);
+          }
         }
       });
     });
