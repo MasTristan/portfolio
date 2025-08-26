@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initContactForm();
     initTypingEffect();
     initScrollAnimations();
+    initThemeToggle();
     
     // Navigation functionality
     function initNavigation() {
@@ -251,6 +252,27 @@ document.addEventListener('DOMContentLoaded', function() {
         animateElements.forEach(el => {
             observer.observe(el);
         });
+    }
+
+    // Dark mode toggle
+    function initThemeToggle() {
+        const toggleBtn = document.getElementById('theme-toggle');
+        if (!toggleBtn) return;
+
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const savedTheme = localStorage.getItem('theme') || (prefersDark ? 'dark' : 'light');
+        setTheme(savedTheme);
+
+        toggleBtn.addEventListener('click', () => {
+            const newTheme = document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            setTheme(newTheme);
+        });
+
+        function setTheme(theme) {
+            document.body.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            toggleBtn.textContent = theme === 'dark' ? '☀️' : '🌙';
+        }
     }
     
     // Smooth scroll to top functionality
