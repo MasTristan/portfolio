@@ -625,8 +625,8 @@ document.addEventListener("DOMContentLoaded", function () {
   function initSideNavScroll() {
     const navLinks = document.querySelectorAll(".side-nav .nav-circle");
 
-    // Custom smooth scroll with easing for a more polished animation
-    function smoothScrollTo(element, duration = 800) {
+    // Custom smooth scroll with easing for a more polished animation (~1s)
+    function smoothScrollTo(element, duration = 1000) {
       const startY = window.pageYOffset;
       const targetY = element.getBoundingClientRect().top + startY;
       const startTime = performance.now();
@@ -658,7 +658,7 @@ document.addEventListener("DOMContentLoaded", function () {
           if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
             targetSection.scrollIntoView();
           } else {
-            smoothScrollTo(targetSection);
+            smoothScrollTo(targetSection, 1000);
           }
         }
       });
