@@ -300,6 +300,7 @@ document.addEventListener("DOMContentLoaded", function () {
     typingTexts = trans["typing-texts"];
     if (window.updateTypingTexts) {
       window.updateTypingTexts(typingTexts);
+
     }
 
     localStorage.setItem("lang", lang);
@@ -513,6 +514,7 @@ document.addEventListener("DOMContentLoaded", function () {
       document.body.setAttribute("data-theme", theme);
       localStorage.setItem("theme", theme);
       toggleBtn.textContent = theme === "dark" ? "☀️" : "🌙";
+
     }
   }
 
