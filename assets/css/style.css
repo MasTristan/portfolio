@@ -13,6 +13,17 @@
     --transition: all 0.3s ease;
 }
 
+[data-theme="dark"] {
+    --primary-color: #f1f1f1;
+    --secondary-color: #aaa;
+    --accent-color: #0d6efd;
+    --bg-color: #121212;
+    --bg-dark: #1e1e1e;
+    --text-color: #f1f1f1;
+    --text-light: #ccc;
+    --border-color: #333;
+}
+
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -108,6 +119,19 @@ a:hover {
     display: flex;
     align-items: center;
     gap: 2rem;
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--text-color);
+    transition: var(--transition);
+}
+
+.theme-toggle:hover {
+    color: var(--accent-color);
 }
 
 .language-switcher {
