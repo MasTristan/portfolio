@@ -600,6 +600,27 @@ document.addEventListener("DOMContentLoaded", function () {
   // Initialize image error handling
   handleImageErrors();
 
+  // Reveal sections on scroll
+  function initSectionReveal() {
+    document.querySelectorAll("section").forEach((sec) => sec.classList.add("reveal"));
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+  }
+
+  initSectionReveal();
+
   // Mobile menu toggle (if needed in future)
   function initMobileMenu() {
     // This can be expanded for mobile hamburger menu functionality
@@ -621,6 +642,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Initialize mobile menu
   initMobileMenu();
+
+  // Initialize scroll animations
+  AOS.init({ duration: 800, once: true });
 
   // Console log for debugging
   console.log("Portfolio website initialized successfully!");
