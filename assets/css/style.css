@@ -331,7 +331,7 @@ section {
 
 .about-item {
   padding: 1.5rem;
-  background: white;
+  background: var(--bg-dark);
   border-radius: 8px;
   box-shadow: var(--shadow);
   transition: var(--transition);
@@ -371,7 +371,7 @@ section {
 }
 
 .personal-info {
-  background: white;
+  background: var(--bg-dark);
   padding: 2rem;
   border-radius: 8px;
   box-shadow: var(--shadow);
@@ -390,7 +390,7 @@ section {
 }
 
 .about-summary {
-  background: white;
+  background: var(--bg-dark);
   padding: 2rem;
   border-radius: 8px;
   box-shadow: var(--shadow);
@@ -412,7 +412,7 @@ section {
 }
 
 .skill-category {
-  background: white;
+  background: var(--bg-dark);
   padding: 2rem;
   border-radius: 8px;
   box-shadow: var(--shadow);
@@ -481,7 +481,7 @@ section {
 
 .resume-summary,
 .resume-section {
-  background: white;
+  background: var(--bg-dark);
   padding: 2rem;
   border-radius: 8px;
   box-shadow: var(--shadow);
@@ -638,7 +638,7 @@ section {
 }
 
 .testimonial-item {
-  background: white;
+  background: var(--bg-dark);
   padding: 2rem;
   border-radius: 8px;
   box-shadow: var(--shadow);
@@ -687,7 +687,7 @@ section {
 }
 
 .contact-info {
-  background: white;
+  background: var(--bg-dark);
   padding: 2rem;
   border-radius: 8px;
   box-shadow: var(--shadow);
@@ -712,7 +712,7 @@ section {
 }
 
 .contact-form {
-  background: white;
+  background: var(--bg-dark);
   padding: 2rem;
   border-radius: 8px;
   box-shadow: var(--shadow);
@@ -730,6 +730,8 @@ section {
   border-radius: 4px;
   font-family: var(--font-family);
   font-size: 1rem;
+  background: var(--bg-color);
+  color: var(--text-color);
   transition: var(--transition);
 }
 
