@@ -643,6 +643,9 @@ document.addEventListener("DOMContentLoaded", function () {
   // Initialize mobile menu
   initMobileMenu();
 
+  // Initialize scroll animations
+  AOS.init({ duration: 800, once: true });
+
   // Console log for debugging
   console.log("Portfolio website initialized successfully!");
 });

@@ -22,7 +22,7 @@
   --bg-color: #121212;
   --bg-dark: #1e1e1e;
   --text-color: #f1f1f1;
-  --text-light: #ddd;
+  --text-light: #f1f1f1;
   --border-color: #333;
   --header-bg: rgba(18, 18, 18, 0.95);
 
@@ -90,7 +90,7 @@ h5 {
 
 p {
   margin-bottom: 1rem;
-  color: var(--text-light);
+  color: var(--text-color);
 }
 
 a {

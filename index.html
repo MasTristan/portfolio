@@ -12,6 +12,10 @@
       const theme = storedTheme || (prefersDark ? "dark" : "light");
       document.documentElement.setAttribute("data-theme", theme);
     </script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/aos@2.3.4/dist/aos.css"
+    />
     <link rel="stylesheet" href="assets/css/style.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
@@ -64,7 +68,7 @@
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section id="home" class="hero" data-aos="fade-up">
       <div class="container">
         <div class="hero-content">
           <h1 class="hero-title">Tristan Mas</h1>
@@ -93,7 +97,7 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about">
+    <section id="about" class="about" data-aos="fade-up">
       <div class="container">
         <h2 class="section-title" data-i18n="about-title">About</h2>
         <div class="about-content">
@@ -171,7 +175,7 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="skills">
+    <section id="skills" class="skills" data-aos="fade-up">
       <div class="container">
         <h2 class="section-title" data-i18n="skills-title">Skills</h2>
         <p class="skills-description" data-i18n="skills-description">
@@ -355,7 +359,7 @@
     </section>
 
     <!-- Resume Section -->
-    <section id="resume" class="resume">
+    <section id="resume" class="resume" data-aos="fade-up">
       <div class="container">
         <h2 class="section-title" data-i18n="resume-title">Resume</h2>
 
@@ -469,7 +473,7 @@
     </section>
 
     <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio">
+    <section id="portfolio" class="portfolio" data-aos="fade-up">
       <div class="container">
         <h2 class="section-title" data-i18n="portfolio-title">Portfolio</h2>
         <p class="portfolio-description" data-i18n="portfolio-description">
@@ -628,7 +632,7 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials">
+    <section id="testimonials" class="testimonials" data-aos="fade-up">
       <div class="container">
         <h2 class="section-title" data-i18n="testimonials-title">
           Testimonials
@@ -670,7 +674,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <section id="contact" class="contact" data-aos="fade-up">
       <div class="container">
         <h2 class="section-title" data-i18n="contact-title">Contact</h2>
 
@@ -749,6 +753,7 @@
       </div>
     </footer>
 
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script src="assets/js/script.js"></script>
   </body>
 </html>
