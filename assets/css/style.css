@@ -12,9 +12,10 @@
   --font-family:
     "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --transition: all 0.3s ease;
+  --header-bg: rgba(255, 255, 255, 0.95);
 }
 
-[data-theme="dark"] {
+:root[data-theme="dark"] {
   --primary-color: #f1f1f1;
   --secondary-color: #aaa;
   --accent-color: #0d6efd;
@@ -23,17 +24,7 @@
   --text-color: #f1f1f1;
   --text-light: #ccc;
   --border-color: #333;
-}
-
-[data-theme="dark"] {
-    --primary-color: #f1f1f1;
-    --secondary-color: #aaa;
-    --accent-color: #0d6efd;
-    --bg-color: #121212;
-    --bg-dark: #1e1e1e;
-    --text-color: #f1f1f1;
-    --text-light: #ccc;
-    --border-color: #333;
+  --header-bg: rgba(18, 18, 18, 0.95);
 }
 
 /* Reset and Base Styles */
@@ -52,6 +43,9 @@ body {
   line-height: 1.6;
   color: var(--text-color);
   background-color: var(--bg-color);
+  transition:
+    background-color 0.3s,
+    color 0.3s;
 }
 
 .container {
@@ -114,11 +108,12 @@ a:hover {
   top: 0;
   left: 0;
   right: 0;
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--header-bg);
   backdrop-filter: blur(10px);
   z-index: 1000;
   padding: 1rem 0;
   box-shadow: var(--shadow);
+  transition: background 0.3s;
 }
 
 .header-content {
@@ -144,24 +139,17 @@ a:hover {
   font-size: 1.2rem;
   cursor: pointer;
   color: var(--text-color);
-  transition: var(--transition);
+  transition:
+    transform 0.3s,
+    color 0.3s;
 }
 
 .theme-toggle:hover {
   color: var(--accent-color);
 }
 
-.theme-toggle {
-    background: none;
-    border: none;
-    font-size: 1.2rem;
-    cursor: pointer;
-    color: var(--text-color);
-    transition: var(--transition);
-}
-
-.theme-toggle:hover {
-    color: var(--accent-color);
+.theme-toggle.is-dark {
+  transform: rotate(180deg);
 }
 
 .language-switcher {

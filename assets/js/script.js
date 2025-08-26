@@ -298,7 +298,6 @@ document.addEventListener("DOMContentLoaded", function () {
     typingTexts = trans["typing-texts"];
     if (window.updateTypingTexts) {
       window.updateTypingTexts(typingTexts);
-
     }
 
     localStorage.setItem("lang", lang);
@@ -495,6 +494,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const toggleBtn = document.getElementById("theme-toggle");
     if (!toggleBtn) return;
 
+    const root = document.documentElement;
     const prefersDark = window.matchMedia(
       "(prefers-color-scheme: dark)",
     ).matches;
@@ -504,15 +504,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
     toggleBtn.addEventListener("click", () => {
       const newTheme =
-        document.body.getAttribute("data-theme") === "dark" ? "light" : "dark";
+        root.getAttribute("data-theme") === "dark" ? "light" : "dark";
       setTheme(newTheme);
     });
 
     function setTheme(theme) {
-      document.body.setAttribute("data-theme", theme);
+      root.setAttribute("data-theme", theme);
       localStorage.setItem("theme", theme);
       toggleBtn.textContent = theme === "dark" ? "☀️" : "🌙";
-
+      toggleBtn.classList.toggle("is-dark", theme === "dark");
+      toggleBtn.setAttribute(
+        "aria-label",
+        theme === "dark" ? "Switch to light mode" : "Switch to dark mode",
+      );
     }
   }
 
