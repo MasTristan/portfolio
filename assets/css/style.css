@@ -911,8 +911,8 @@ section {
 }
 
 .side-nav .nav-circle {
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   background: var(--secondary-color);
   color: var(--bg-color);
@@ -923,9 +923,13 @@ section {
   transition: background 0.3s;
 }
 
+.side-nav .nav-circle .nav-icon {
+  font-size: 1.5rem;
+}
+
 .side-nav .nav-circle .nav-text {
   position: absolute;
-  left: 50px;
+  left: 70px;
   background: var(--primary-color);
   color: var(--bg-color);
   padding: 4px 8px;
