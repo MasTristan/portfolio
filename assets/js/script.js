@@ -621,6 +621,37 @@ document.addEventListener("DOMContentLoaded", function () {
 
   initSectionReveal();
 
+  // Highlight side navigation based on scroll position
+  function initSideNavHighlight() {
+    const navLinks = document.querySelectorAll(".side-nav .nav-circle");
+    const sections = Array.from(navLinks).map((link) =>
+      document.querySelector(link.getAttribute("href"))
+    );
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const index = sections.indexOf(entry.target);
+          if (entry.isIntersecting) {
+            navLinks.forEach((l) => l.classList.remove("active"));
+            if (index >= 0) {
+              navLinks[index].classList.add("active");
+            }
+          }
+        });
+      },
+      { rootMargin: "-50% 0px -50% 0px" }
+    );
+
+    sections.forEach((sec) => observer.observe(sec));
+
+    if (navLinks.length > 0) {
+      navLinks[0].classList.add("active");
+    }
+  }
+
+  initSideNavHighlight();
+
   // Mobile menu toggle (if needed in future)
   function initMobileMenu() {
     // This can be expanded for mobile hamburger menu functionality
