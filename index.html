@@ -1,453 +1,782 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio Tristan Mas</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body data-theme="light">
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body data-theme="light">
     <!-- Header -->
     <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <img src="https://flagcdn.com/24x18/gb.png" alt="EN" class="flag-icon">
-                </div>
-                <nav class="nav">
-                    <div class="language-switcher">
-                        <a href="#" class="lang-link active">
-                            <img src="https://flagcdn.com/24x18/gb.png" alt="EN"> English
-                        </a>
-                        <a href="#" class="lang-link">
-                            <img src="https://flagcdn.com/24x18/fr.png" alt="FR"> Français
-                        </a>
-                    </div>
-                    <ul class="nav-menu">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#skills">Skills</a></li>
-                        <li><a href="#resume">Resume</a></li>
-                        <li><a href="#portfolio">Portfolio</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
-                </nav>
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">
+            <img
+              src="https://flagcdn.com/24x18/gb.png"
+              alt="EN"
+              class="flag-icon"
+            />
+          </div>
+          <nav class="nav">
+            <div class="language-switcher">
+              <a href="#" class="lang-link" data-lang="en">
+                <img src="https://flagcdn.com/24x18/gb.png" alt="EN" />
+                <span data-i18n="lang-english">English</span>
+              </a>
+              <a href="#" class="lang-link" data-lang="fr">
+                <img src="https://flagcdn.com/24x18/fr.png" alt="FR" />
+                <span data-i18n="lang-french">Français</span>
+              </a>
+
             </div>
+            <ul class="nav-menu">
+              <li><a href="#home" data-i18n="nav-home">Home</a></li>
+              <li><a href="#about" data-i18n="nav-about">About</a></li>
+              <li><a href="#skills" data-i18n="nav-skills">Skills</a></li>
+              <li><a href="#resume" data-i18n="nav-resume">Resume</a></li>
+              <li>
+                <a href="#portfolio" data-i18n="nav-portfolio">Portfolio</a>
+              </li>
+              <li><a href="#contact" data-i18n="nav-contact">Contact</a></li>
+            </ul>
+            <button
+              id="theme-toggle"
+              class="theme-toggle"
+              aria-label="Toggle dark mode"
+            >
+              🌙
+            </button>
+          </nav>
         </div>
+      </div>
     </header>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">Tristan Mas</h1>
-                <div class="hero-subtitle">
-                    <span>I'm </span><span class="typing-text">D</span><span class="cursor">|</span>
-                </div>
-                <div class="social-links">
-                    <a href="https://github.com/TristanMas" target="_blank" class="social-link">
-                        <span>GitHub</span>
-                    </a>
-                    <a href="https://www.linkedin.com/in/tristan-mas-848a7a299/" target="_blank" class="social-link">
-                        <span>LinkedIn</span>
-                    </a>
-                </div>
-            </div>
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="hero-title">Tristan Mas</h1>
+          <div class="hero-subtitle">
+            <span data-i18n="hero-im">I'm </span
+            ><span class="typing-text">D</span><span class="cursor">|</span>
+          </div>
+          <div class="social-links">
+            <a
+              href="https://github.com/TristanMas"
+              target="_blank"
+              class="social-link"
+            >
+              <span>GitHub</span>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/tristan-mas-848a7a299/"
+              target="_blank"
+              class="social-link"
+            >
+              <span>LinkedIn</span>
+            </a>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">About</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p class="about-description">Data Engineer passionate about computer science, data and new technologies.</p>
-                    
-                    <div class="about-grid">
-                        <div class="about-item">
-                            <div class="about-icon">
-                                <img src="https://cdn-icons-png.flaticon.com/512/5784/5784725.png" alt="Formula 1" class="f1-icon">
-                            </div>
-                            <h5>Origin</h5>
-                            <p>This passion started in Formula 1, where every piece of data helps improve the car's performance and gain an edge over the competition.</p>
-                        </div>
-                        
-                        <div class="about-item">
-                            <h5>At Work</h5>
-                            <p>I design and maintain data pipelines, analyze system performance, and develop KPI reports to inform decision-making.</p>
-                        </div>
-                        
-                        <div class="about-item">
-                            <h5>Outside Work</h5>
-                            <p>I use connected tools to track my fitness, expenses, and investments, enabling me to make the best decisions at the right time.</p>
-                        </div>
-                    </div>
+      <div class="container">
+        <h2 class="section-title" data-i18n="about-title">About</h2>
+        <div class="about-content">
+          <div class="about-text">
+            <p class="about-description" data-i18n="about-description">
+              Data Engineer passionate about computer science, data and new
+              technologies.
+            </p>
+
+            <div class="about-grid">
+              <div class="about-item">
+                <div class="about-icon">
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/512/5784/5784725.png"
+                    alt="Formula 1"
+                    class="f1-icon"
+                  />
                 </div>
-                
-                <div class="about-info">
-                    <div class="profile-image">
-                        <img src="assets/img/IMG_5258.png" alt="Photo de profil">
-                    </div>
-                    
-                    <div class="personal-info">
-                        <div class="info-item">
-                            <strong>Age:</strong> 22
-                        </div>
-                        <div class="info-item">
-                            <strong>Phone:</strong> +33 6 52 08 76 28
-                        </div>
-                        <div class="info-item">
-                            <strong>Email:</strong> tristan.mas@icloud.com
-                        </div>
-                        <div class="info-item">
-                            <strong>Degree:</strong> Data Engineer
-                        </div>
-                    </div>
-                    
-                    <p class="about-summary">
-                        Passionate about leveraging data in all its forms, from collection and analysis to structuring and visualization, I'm looking for a company where I can put my skills to work on innovative projects.
-                    </p>
-                </div>
+                <h5 data-i18n="about-origin-title">Origin</h5>
+                <p data-i18n="about-origin-content">
+                  This passion started in Formula 1, where every piece of data
+                  helps improve the car's performance and gain an edge over the
+                  competition.
+                </p>
+              </div>
+
+              <div class="about-item">
+                <h5 data-i18n="about-work-title">At Work</h5>
+                <p data-i18n="about-work-content">
+                  I design and maintain data pipelines, analyze system
+                  performance, and develop KPI reports to inform
+                  decision-making.
+                </p>
+              </div>
+
+              <div class="about-item">
+                <h5 data-i18n="about-outside-title">Outside Work</h5>
+                <p data-i18n="about-outside-content">
+                  I use connected tools to track my fitness, expenses, and
+                  investments, enabling me to make the best decisions at the
+                  right time.
+                </p>
+              </div>
             </div>
+          </div>
+
+          <div class="about-info">
+            <div class="profile-image">
+              <img src="assets/img/IMG_5258.png" alt="Photo de profil" />
+            </div>
+
+            <div class="personal-info">
+              <div class="info-item">
+                <strong data-i18n="about-age-label">Age:</strong> 22
+              </div>
+              <div class="info-item">
+                <strong data-i18n="about-phone-label">Phone:</strong> +33 6 52
+                08 76 28
+              </div>
+              <div class="info-item">
+                <strong data-i18n="about-email-label">Email:</strong>
+                tristan.mas@icloud.com
+              </div>
+              <div class="info-item">
+                <strong data-i18n="about-degree-label">Degree:</strong>
+                <span data-i18n="about-degree-value">Data Engineer</span>
+              </div>
+            </div>
+
+            <p class="about-summary" data-i18n="about-summary">
+              Passionate about leveraging data in all its forms, from collection
+              and analysis to structuring and visualization, I'm looking for a
+              company where I can put my skills to work on innovative projects.
+            </p>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Skills Section -->
     <section id="skills" class="skills">
-        <div class="container">
-            <h2 class="section-title">Skills</h2>
-            <p class="skills-description">
-                Versatile data analysis specialist with a broad toolkit: expert in statistical modeling, data wrangling, visualization, and pipeline architecture, complemented by solid foundations in web development. Comfortable picking up new technologies and frameworks quickly to deliver robust, scalable solutions.
-            </p>
-            
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h4>Front-end Development</h4>
-                    <div class="skill-icons">
-                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="HTML5" title="HTML5">
-                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="CSS3" title="CSS3">
-                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript" title="JavaScript">
-                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg" alt="Bootstrap" title="Bootstrap">
-                        <img src="https://cdn.simpleicons.org/tailwindcss" alt="Tailwind CSS" title="Tailwind CSS">
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h4>Data Visualization</h4>
-                    <div class="skill-icons">
-                        <img src="https://www.vectorlogo.zone/logos/microsoft_powerbi/microsoft_powerbi-icon.svg" alt="Power BI" title="Power BI">
-                        <img src="https://www.tableau.com/themes/custom/tableau_www/logo.v2.svg" alt="Tableau" title="Tableau">
-                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/grafana/grafana-original.svg" alt="Grafana" title="Grafana">
-                        <img src="https://cdn.simpleicons.org/apacheecharts" alt="ECharts" title="ECharts">
-                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/d3js/d3js-original.svg" alt="D3.js" title="D3.js">
-                        <img src="https://raw.githubusercontent.com/devicons/devicon/2ae2a900d2f041da66e950e4d48052658d850630/icons/pandas/pandas-original.svg" alt="Pandas" title="Pandas">
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h4>Back-end Development</h4>
-                    <div class="skill-icons">
-                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" alt="PHP" title="PHP">
-                        <img src="https://cdn.simpleicons.org/laravel" alt="Laravel" title="Laravel">
-                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" title="Python">
-                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="Java" title="Java">
-                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/csharp/csharp-original.svg" alt="C#" title="C#">
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h4>Machine Learning</h4>
-                    <div class="skill-icons">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" alt="Scikit Learn" title="Scikit Learn">
-                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" title="Python">
-                        <img src="https://cdn.simpleicons.org/nvidia" alt="CUDA" title="CUDA">
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h4>Database Administration</h4>
-                    <div class="skill-icons">
-                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="MySQL" title="MySQL">
-                        <img src="https://www.vectorlogo.zone/logos/mariadb/mariadb-icon.svg" alt="MariaDB" title="MariaDB">
-                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="PostgreSQL" title="PostgreSQL">
-                        <img src="https://www.svgrepo.com/show/303229/microsoft-sql-server-logo.svg" alt="MS SQL" title="MS SQL">
-                        <img src="https://www.vectorlogo.zone/logos/sqlite/sqlite-icon.svg" alt="SQLite" title="SQLite">
-                        <img src="https://www.vectorlogo.zone/logos/apache_hadoop/apache_hadoop-icon.svg" alt="Hadoop" title="Hadoop">
-                        <img src="https://www.vectorlogo.zone/logos/apache_hive/apache_hive-icon.svg" alt="Hive" title="Hive">
-                        <img src="https://cdn.simpleicons.org/teradata" alt="Teradata" title="Teradata">
-                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/elasticsearch/elasticsearch-original.svg" alt="Elasticsearch" title="Elasticsearch">
-                    </div>
-                </div>
+      <div class="container">
+        <h2 class="section-title" data-i18n="skills-title">Skills</h2>
+        <p class="skills-description" data-i18n="skills-description">
+          Versatile data analysis specialist with a broad toolkit: expert in
+          statistical modeling, data wrangling, visualization, and pipeline
+          architecture, complemented by solid foundations in web development.
+          Comfortable picking up new technologies and frameworks quickly to
+          deliver robust, scalable solutions.
+        </p>
+
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h4 data-i18n="skills-frontend">Front-end Development</h4>
+            <div class="skill-icons">
+              <img
+                src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg"
+                alt="HTML5"
+                title="HTML5"
+              />
+              <img
+                src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg"
+                alt="CSS3"
+                title="CSS3"
+              />
+              <img
+                src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg"
+                alt="JavaScript"
+                title="JavaScript"
+              />
+              <img
+                src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg"
+                alt="Bootstrap"
+                title="Bootstrap"
+              />
+              <img
+                src="https://cdn.simpleicons.org/tailwindcss"
+                alt="Tailwind CSS"
+                title="Tailwind CSS"
+              />
             </div>
+          </div>
+
+          <div class="skill-category">
+            <h4 data-i18n="skills-dataviz">Data Visualization</h4>
+            <div class="skill-icons">
+              <img
+                src="https://www.vectorlogo.zone/logos/microsoft_powerbi/microsoft_powerbi-icon.svg"
+                alt="Power BI"
+                title="Power BI"
+              />
+              <img
+                src="https://www.tableau.com/themes/custom/tableau_www/logo.v2.svg"
+                alt="Tableau"
+                title="Tableau"
+              />
+              <img
+                src="https://raw.githubusercontent.com/devicons/devicon/master/icons/grafana/grafana-original.svg"
+                alt="Grafana"
+                title="Grafana"
+              />
+              <img
+                src="https://cdn.simpleicons.org/apacheecharts"
+                alt="ECharts"
+                title="ECharts"
+              />
+              <img
+                src="https://raw.githubusercontent.com/devicons/devicon/master/icons/d3js/d3js-original.svg"
+                alt="D3.js"
+                title="D3.js"
+              />
+              <img
+                src="https://raw.githubusercontent.com/devicons/devicon/2ae2a900d2f041da66e950e4d48052658d850630/icons/pandas/pandas-original.svg"
+                alt="Pandas"
+                title="Pandas"
+              />
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h4 data-i18n="skills-backend">Back-end Development</h4>
+            <div class="skill-icons">
+              <img
+                src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg"
+                alt="PHP"
+                title="PHP"
+              />
+              <img
+                src="https://cdn.simpleicons.org/laravel"
+                alt="Laravel"
+                title="Laravel"
+              />
+              <img
+                src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg"
+                alt="Python"
+                title="Python"
+              />
+              <img
+                src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg"
+                alt="Java"
+                title="Java"
+              />
+              <img
+                src="https://raw.githubusercontent.com/devicons/devicon/master/icons/csharp/csharp-original.svg"
+                alt="C#"
+                title="C#"
+              />
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h4 data-i18n="skills-ml">Machine Learning</h4>
+            <div class="skill-icons">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg"
+                alt="Scikit Learn"
+                title="Scikit Learn"
+              />
+              <img
+                src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg"
+                alt="Python"
+                title="Python"
+              />
+              <img
+                src="https://cdn.simpleicons.org/nvidia"
+                alt="CUDA"
+                title="CUDA"
+              />
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h4 data-i18n="skills-db">Database Administration</h4>
+            <div class="skill-icons">
+              <img
+                src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg"
+                alt="MySQL"
+                title="MySQL"
+              />
+              <img
+                src="https://www.vectorlogo.zone/logos/mariadb/mariadb-icon.svg"
+                alt="MariaDB"
+                title="MariaDB"
+              />
+              <img
+                src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg"
+                alt="PostgreSQL"
+                title="PostgreSQL"
+              />
+              <img
+                src="https://www.svgrepo.com/show/303229/microsoft-sql-server-logo.svg"
+                alt="MS SQL"
+                title="MS SQL"
+              />
+              <img
+                src="https://www.vectorlogo.zone/logos/sqlite/sqlite-icon.svg"
+                alt="SQLite"
+                title="SQLite"
+              />
+              <img
+                src="https://www.vectorlogo.zone/logos/apache_hadoop/apache_hadoop-icon.svg"
+                alt="Hadoop"
+                title="Hadoop"
+              />
+              <img
+                src="https://www.vectorlogo.zone/logos/apache_hive/apache_hive-icon.svg"
+                alt="Hive"
+                title="Hive"
+              />
+              <img
+                src="https://cdn.simpleicons.org/teradata"
+                alt="Teradata"
+                title="Teradata"
+              />
+              <img
+                src="https://raw.githubusercontent.com/devicons/devicon/master/icons/elasticsearch/elasticsearch-original.svg"
+                alt="Elasticsearch"
+                title="Elasticsearch"
+              />
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Resume Section -->
     <section id="resume" class="resume">
-        <div class="container">
-            <h2 class="section-title">Resume</h2>
-            
-            <div class="resume-download">
-                <a href="assets/cv/CV_Tristan_Mas_EN.pdf" class="download-btn" target="_blank">Download my resume</a>
-            </div>
-            
-            <div class="resume-content">
-                <div class="resume-summary">
-                    <h3>Summary</h3>
-                    <h4>Tristan Mas</h4>
-                    <p><em>Recent Data Engineering graduate with hands-on experience in building data pipelines and analytics solutions. Eager to leverage data to drive insights and efficiency in a fast-paced, growth-oriented company.</em></p>
-                    <ul class="contact-list">
-                        <li>+33 6 52 08 76 28</li>
-                        <li>tristan.mas@icloud.com</li>
-                    </ul>
-                </div>
-                
-                <div class="resume-section">
-                    <h3>Education</h3>
-                    
-                    <div class="resume-item">
-                        <div class="resume-header">
-                            <h4>Graduated • Bachelor of Engineering Degree</h4>
-                            <span class="date">2022 - 2025</span>
-                        </div>
-                        <h5><em>Télécom Saint-Étienne</em></h5>
-                        <p>Data Engineering Program in Apprenticeship</p>
-                    </div>
-                    
-                    <div class="resume-item">
-                        <div class="resume-header">
-                            <h4>Graduated • EEIC UIT</h4>
-                            <span class="date">2020 - 2022</span>
-                        </div>
-                        <h5><em>UIT Saint-Étienne</em></h5>
-                        <p>Electronic and Industrial Computing Engineering diploma</p>
-                    </div>
-                </div>
-                
-                <div class="resume-section">
-                    <h3>Professional Experience</h3>
-                    
-                    <div class="resume-item">
-                        <div class="resume-header">
-                            <h4>Apprenticeship • Data Analyst</h4>
-                            <span class="date">2024 - 2025</span>
-                        </div>
-                        <h5><em>e-Totem, Saint-Étienne, France</em></h5>
-                        <ul>
-                            <li>Working in the rapidly expanding sector of electric vehicle charging stations, I've conducted various missions as a Data Analyst:</li>
-                            <li>Extraction, collection, and processing of charging and related data.</li>
-                            <li>Management and maintenance of databases (ElasticSearch, MariaDB).</li>
-                            <li>Data analysis and creation of tailored reports for financial, operational, and commercial departments using Power BI.</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="resume-item">
-                        <div class="resume-header">
-                            <h4>International Experience • Data Analyst</h4>
-                            <span class="date">2024</span>
-                        </div>
-                        <h5><em>DF Electric, Barcelona, Spain</em></h5>
-                        <ul>
-                            <li>Completed a 2-month international assignment as a Data Analyst in fuse production, analyzing manufacturing data to optimize processes.</li>
-                            <li>Migration and optimization of reporting tools to enhance performance monitoring.</li>
-                            <li>Created insights from production data to analyze key performance indicators.</li>
-                            <li>Adapted to a different linguistic and cultural environment to successfully deliver projects.</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="resume-item">
-                        <div class="resume-header">
-                            <h4>Apprenticeship • Data Project Manager</h4>
-                            <span class="date">2022 - 2024</span>
-                        </div>
-                        <h5><em>Groupe Casino (Easydis), Saint-Étienne, France</em></h5>
-                        <ul>
-                            <li>Engaged in various logistics projects as an apprentice Data Project Manager.</li>
-                            <li>Developed reporting tools using HTML, CSS, JavaScript, and PHP.</li>
-                            <li>Managed project timelines and deliverables.</li>
-                            <li>Conducted data processing and analysis using SQL.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+      <div class="container">
+        <h2 class="section-title" data-i18n="resume-title">Resume</h2>
+
+        <div class="resume-download">
+          <a
+            href="assets/cv/CV_Tristan_Mas_EN.pdf"
+            class="download-btn"
+            target="_blank"
+            data-i18n="resume-download"
+            >Download my resume</a
+          >
         </div>
+
+        <div class="resume-content">
+          <div class="resume-summary">
+            <h3 data-i18n="resume-summary-title">Summary</h3>
+            <h4>Tristan Mas</h4>
+            <p data-i18n="resume-summary-text">
+              <em
+                >Recent Data Engineering graduate with hands-on experience in
+                building data pipelines and analytics solutions. Eager to
+                leverage data to drive insights and efficiency in a fast-paced,
+                growth-oriented company.</em
+              >
+            </p>
+            <ul class="contact-list">
+              <li>+33 6 52 08 76 28</li>
+              <li>tristan.mas@icloud.com</li>
+            </ul>
+          </div>
+
+          <div class="resume-section">
+            <h3 data-i18n="resume-education">Education</h3>
+
+            <div class="resume-item">
+              <div class="resume-header">
+                <h4 data-i18n="resume-edu1-title">
+                  Graduated • Bachelor of Engineering Degree
+                </h4>
+                <span class="date">2022 - 2025</span>
+              </div>
+              <h5><em>Télécom Saint-Étienne</em></h5>
+              <p>Data Engineering Program in Apprenticeship</p>
+            </div>
+
+            <div class="resume-item">
+              <div class="resume-header">
+                <h4 data-i18n="resume-edu2-title">Graduated • EEIC UIT</h4>
+                <span class="date">2020 - 2022</span>
+              </div>
+              <h5><em>UIT Saint-Étienne</em></h5>
+              <p>Electronic and Industrial Computing Engineering diploma</p>
+            </div>
+          </div>
+
+          <div class="resume-section">
+            <h3 data-i18n="resume-experience">Professional Experience</h3>
+
+            <div class="resume-item">
+              <div class="resume-header">
+                <h4 data-i18n="resume-exp1-title">
+                  Apprenticeship • Data Analyst
+                </h4>
+                <span class="date">2024 - 2025</span>
+              </div>
+              <h5><em>e-Totem, Saint-Étienne, France</em></h5>
+              <ul>
+                <li>
+                  Working in the rapidly expanding sector of electric vehicle
+                  charging stations, I've conducted various missions as a Data
+                  Analyst:
+                </li>
+                <li>
+                  Extraction, collection, and processing of charging and related
+                  data.
+                </li>
+                <li>
+                  Management and maintenance of databases (ElasticSearch,
+                  MariaDB).
+                </li>
+                <li>
+                  Data analysis and creation of tailored reports for financial,
+                  operational, and commercial departments using Power BI.
+                </li>
+              </ul>
+            </div>
+
+            <div class="resume-item">
+              <div class="resume-header">
+                <h4 data-i18n="resume-exp2-title">
+                  International Experience • Data Analyst
+                </h4>
+                <span class="date">2024</span>
+              </div>
+              <h5><em>DF Electric, Barcelona, Spain</em></h5>
+              <ul>
+                <li>
+                  Completed a 2-month international assignment as a Data Analyst
+                  in fuse production, analyzing manufacturing data to optimize
+                  processes.
+                </li>
+                <li>
+                  Migration and optimization of reporting tools to enhance
+                  performance monitoring.
+                </li>
+                <li>
+                  Created insights from production data to analyze key
+                  performance indicators.
+                </li>
+                <li>
+                  Adapted to a different linguistic and cultural environment to
+                  successfully deliver projects.
+                </li>
+              </ul>
+            </div>
+
+            <div class="resume-item">
+              <div class="resume-header">
+                <h4 data-i18n="resume-exp3-title">
+                  Apprenticeship • Data Project Manager
+                </h4>
+                <span class="date">2022 - 2024</span>
+              </div>
+              <h5><em>Groupe Casino (Easydis), Saint-Étienne, France</em></h5>
+              <ul>
+                <li>
+                  Engaged in various logistics projects as an apprentice Data
+                  Project Manager.
+                </li>
+                <li>
+                  Developed reporting tools using HTML, CSS, JavaScript, and
+                  PHP.
+                </li>
+                <li>Managed project timelines and deliverables.</li>
+                <li>Conducted data processing and analysis using SQL.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Portfolio Section -->
     <section id="portfolio" class="portfolio">
-        <div class="container">
-            <h2 class="section-title">Portfolio</h2>
-            <p class="portfolio-description">Here are some of my web development and data visualization projects, built as a Data Engineer.</p>
-            
-            <div class="portfolio-filters">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="webapp">Web App</button>
-                <button class="filter-btn" data-filter="dataviz">Data Viz</button>
-            </div>
-            
-            <div class="portfolio-grid">
-                <div class="portfolio-item" data-category="webapp">
-                    <div class="portfolio-image">
-                        <img src="assets/img/portfolio/Gribouillon/home.jpg" alt="Gribouillon QuickDraw">
-                    </div>
-                    <div class="portfolio-content">
-                        <h4>Gribouillon QuickDraw</h4>
-                        <p class="portfolio-tech">React • Flask • Machine Learning • AWS Cloud</p>
-                        <p>Reproduction of the QuickDraw game: free-hand drawing app with real-time pattern recognition. Front-end in React, back-end in Flask, and ML model for inference.</p>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item" data-category="webapp">
-                    <div class="portfolio-image">
-                        <img src="assets/img/portfolio/Smart_library/home.jpg" alt="Smart Library">
-                    </div>
-                    <div class="portfolio-content">
-                        <h4>Smart Library</h4>
-                        <p class="portfolio-tech">React • Laravel • AWS Cloud</p>
-                        <p>Web application for library management: user administration, tracking dashboard, and full features of a connected library system.</p>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item" data-category="dataviz">
-                    <div class="portfolio-image">
-                        <img src="assets/img/portfolio/PowerBI/Dashboard sales.png" alt="Sales Dashboard">
-                    </div>
-                    <div class="portfolio-content">
-                        <h4>Sales Dashboard</h4>
-                        <p class="portfolio-tech">Power BI</p>
-                        <p>Personal project analyzing a large volume of sales data 📈.</p>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item" data-category="dataviz">
-                    <div class="portfolio-image">
-                        <img src="assets/img/portfolio/PowerBI/eau-ptimiz.png" alt="eau'ptimiz Dashboard">
-                    </div>
-                    <div class="portfolio-content">
-                        <h4>eau'ptimiz Dashboard</h4>
-                        <p class="portfolio-tech">Power BI</p>
-                        <p>Project in partnership with the Loire department 🌍 to analyze and monitor pipe conditions and water leaks.</p>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item" data-category="dataviz">
-                    <div class="portfolio-image">
-                        <img src="assets/img/portfolio/PowerBI/airFrance.png" alt="Air France Dashboard">
-                    </div>
-                    <div class="portfolio-content">
-                        <h4>Air France Dashboard</h4>
-                        <p class="portfolio-tech">Power BI</p>
-                        <p>Personal project to track Air France flight data in real time ✈️.</p>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item" data-category="dataviz">
-                    <div class="portfolio-image">
-                        <img src="assets/img/portfolio/PowerBI/f1.png" alt="Formula 1 Dashboard">
-                    </div>
-                    <div class="portfolio-content">
-                        <h4>Formula 1 Dashboard</h4>
-                        <p class="portfolio-tech">Power BI</p>
-                        <p>Personal project to monitor real-time performance of my favorite team, McLaren 🏎️.</p>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item" data-category="dataviz">
-                    <div class="portfolio-image">
-                        <img src="assets/img/portfolio/Tableau/home.png" alt="F1 Tableau Dashboard">
-                    </div>
-                    <div class="portfolio-content">
-                        <h4>F1 Tableau Dashboard</h4>
-                        <p class="portfolio-tech">Tableau</p>
-                        <p>Tableau project combining current analysis and McLaren's historical legacy (1980s–90s).</p>
-                    </div>
-                </div>
-            </div>
+      <div class="container">
+        <h2 class="section-title" data-i18n="portfolio-title">Portfolio</h2>
+        <p class="portfolio-description" data-i18n="portfolio-description">
+          Here are some of my web development and data visualization projects,
+          built as a Data Engineer.
+        </p>
+
+        <div class="portfolio-filters">
+          <button
+            class="filter-btn active"
+            data-filter="all"
+            data-i18n="portfolio-filter-all"
+          >
+            All
+          </button>
+          <button
+            class="filter-btn"
+            data-filter="webapp"
+            data-i18n="portfolio-filter-webapp"
+          >
+            Web App
+          </button>
+          <button
+            class="filter-btn"
+            data-filter="dataviz"
+            data-i18n="portfolio-filter-dataviz"
+          >
+            Data Viz
+          </button>
         </div>
+
+        <div class="portfolio-grid">
+          <div class="portfolio-item" data-category="webapp">
+            <div class="portfolio-image">
+              <img
+                src="assets/img/portfolio/Gribouillon/home.jpg"
+                alt="Gribouillon QuickDraw"
+              />
+            </div>
+            <div class="portfolio-content">
+              <h4 data-i18n="portfolio-item1-title">Gribouillon QuickDraw</h4>
+              <p class="portfolio-tech">
+                React • Flask • Machine Learning • AWS Cloud
+              </p>
+              <p data-i18n="portfolio-item1-desc">
+                Reproduction of the QuickDraw game: free-hand drawing app with
+                real-time pattern recognition. Front-end in React, back-end in
+                Flask, and ML model for inference.
+              </p>
+            </div>
+          </div>
+
+          <div class="portfolio-item" data-category="webapp">
+            <div class="portfolio-image">
+              <img
+                src="assets/img/portfolio/Smart_library/home.jpg"
+                alt="Smart Library"
+              />
+            </div>
+            <div class="portfolio-content">
+              <h4 data-i18n="portfolio-item2-title">Smart Library</h4>
+              <p class="portfolio-tech">React • Laravel • AWS Cloud</p>
+              <p data-i18n="portfolio-item2-desc">
+                Web application for library management: user administration,
+                tracking dashboard, and full features of a connected library
+                system.
+              </p>
+            </div>
+          </div>
+
+          <div class="portfolio-item" data-category="dataviz">
+            <div class="portfolio-image">
+              <img
+                src="assets/img/portfolio/PowerBI/Dashboard sales.png"
+                alt="Sales Dashboard"
+              />
+            </div>
+            <div class="portfolio-content">
+              <h4 data-i18n="portfolio-item3-title">Sales Dashboard</h4>
+              <p class="portfolio-tech">Power BI</p>
+              <p data-i18n="portfolio-item3-desc">
+                Personal project analyzing a large volume of sales data 📈.
+              </p>
+            </div>
+          </div>
+
+          <div class="portfolio-item" data-category="dataviz">
+            <div class="portfolio-image">
+              <img
+                src="assets/img/portfolio/PowerBI/eau-ptimiz.png"
+                alt="eau'ptimiz Dashboard"
+              />
+            </div>
+            <div class="portfolio-content">
+              <h4 data-i18n="portfolio-item4-title">eau'ptimiz Dashboard</h4>
+              <p class="portfolio-tech">Power BI</p>
+              <p data-i18n="portfolio-item4-desc">
+                Project in partnership with the Loire department 🌍 to analyze
+                and monitor pipe conditions and water leaks.
+              </p>
+            </div>
+          </div>
+
+          <div class="portfolio-item" data-category="dataviz">
+            <div class="portfolio-image">
+              <img
+                src="assets/img/portfolio/PowerBI/airFrance.png"
+                alt="Air France Dashboard"
+              />
+            </div>
+            <div class="portfolio-content">
+              <h4 data-i18n="portfolio-item5-title">Air France Dashboard</h4>
+              <p class="portfolio-tech">Power BI</p>
+              <p data-i18n="portfolio-item5-desc">
+                Personal project to track Air France flight data in real time
+                ✈️.
+              </p>
+            </div>
+          </div>
+
+          <div class="portfolio-item" data-category="dataviz">
+            <div class="portfolio-image">
+              <img
+                src="assets/img/portfolio/PowerBI/f1.png"
+                alt="Formula 1 Dashboard"
+              />
+            </div>
+            <div class="portfolio-content">
+              <h4 data-i18n="portfolio-item6-title">Formula 1 Dashboard</h4>
+              <p class="portfolio-tech">Power BI</p>
+              <p data-i18n="portfolio-item6-desc">
+                Personal project to monitor real-time performance of my favorite
+                team, McLaren 🏎️.
+              </p>
+            </div>
+          </div>
+
+          <div class="portfolio-item" data-category="dataviz">
+            <div class="portfolio-image">
+              <img
+                src="assets/img/portfolio/Tableau/home.png"
+                alt="F1 Tableau Dashboard"
+              />
+            </div>
+            <div class="portfolio-content">
+              <h4 data-i18n="portfolio-item7-title">F1 Tableau Dashboard</h4>
+              <p class="portfolio-tech">Tableau</p>
+              <p data-i18n="portfolio-item7-desc">
+                Tableau project combining current analysis and McLaren's
+                historical legacy (1980s–90s).
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials">
-        <div class="container">
-            <h2 class="section-title">Testimonials</h2>
-            
-            <div class="testimonials-grid">
-                <div class="testimonial-item">
-                    <div class="testimonial-image">
-                        <img src="assets/img/testimonials/picture.png" alt="Martin">
-                    </div>
-                    <div class="testimonial-content">
-                        <h3>Martin</h3>
-                        <h4>Operations Director</h4>
-                        <p>I am really happy with the work done! He took the time to understand my needs and when he did, he delivered flawlessly. I will definitely work with Tristan again soon. Thanks!</p>
-                    </div>
-                </div>
-                
-                <div class="testimonial-item">
-                    <div class="testimonial-image">
-                        <img src="assets/img/testimonials/picture.png" alt="Jordi">
-                    </div>
-                    <div class="testimonial-content">
-                        <h3>Jordi</h3>
-                        <h4>CTO</h4>
-                        <p>He has excellent communication and comprehension skills, as well as the ability to analyze and carry out tasks. He has expanded his knowledge of data management in the business, and learned to identify and extract valuable KPIs.</p>
-                    </div>
-                </div>
+      <div class="container">
+        <h2 class="section-title" data-i18n="testimonials-title">
+          Testimonials
+        </h2>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-item">
+            <div class="testimonial-image">
+              <img src="assets/img/testimonials/picture.png" alt="Martin" />
             </div>
+            <div class="testimonial-content">
+              <h3 data-i18n="testimonial1-name">Martin</h3>
+              <h4 data-i18n="testimonial1-role">Operations Director</h4>
+              <p data-i18n="testimonial1-text">
+                I am really happy with the work done! He took the time to
+                understand my needs and when he did, he delivered flawlessly. I
+                will definitely work with Tristan again soon. Thanks!
+              </p>
+            </div>
+          </div>
+
+          <div class="testimonial-item">
+            <div class="testimonial-image">
+              <img src="assets/img/testimonials/picture.png" alt="Jordi" />
+            </div>
+            <div class="testimonial-content">
+              <h3 data-i18n="testimonial2-name">Jordi</h3>
+              <h4 data-i18n="testimonial2-role">CTO</h4>
+              <p data-i18n="testimonial2-text">
+                He has excellent communication and comprehension skills, as well
+                as the ability to analyze and carry out tasks. He has expanded
+                his knowledge of data management in the business, and learned to
+                identify and extract valuable KPIs.
+              </p>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Contact</h2>
-            
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <h4>Email:</h4>
-                        <p>tristan.mas@icloud.com</p>
-                    </div>
-                    <div class="contact-item">
-                        <h4>Call:</h4>
-                        <p>+33 6 52 08 76 28</p>
-                    </div>
-                </div>
-                
-                <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="email" name="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="subject" name="subject" placeholder="Subject" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" name="message" placeholder="Message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Send Message</button>
-                    <div id="form-status" class="form-status"></div>
-                </form>
+      <div class="container">
+        <h2 class="section-title" data-i18n="contact-title">Contact</h2>
+
+        <div class="contact-content">
+          <div class="contact-info">
+            <div class="contact-item">
+              <h4 data-i18n="contact-email-label">Email:</h4>
+              <p>tristan.mas@icloud.com</p>
             </div>
+            <div class="contact-item">
+              <h4 data-i18n="contact-phone-label">Call:</h4>
+              <p>+33 6 52 08 76 28</p>
+            </div>
+          </div>
+
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Your Name"
+                required
+                data-i18n-placeholder="form-name"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Your Email"
+                required
+                data-i18n-placeholder="form-email"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                placeholder="Subject"
+                required
+                data-i18n-placeholder="form-subject"
+              />
+            </div>
+            <div class="form-group">
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Message"
+                rows="5"
+                required
+                data-i18n-placeholder="form-message"
+              ></textarea>
+            </div>
+            <button type="submit" class="submit-btn" data-i18n="form-send">
+              Send Message
+            </button>
+            <div id="form-status" class="form-status"></div>
+          </form>
         </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <h3>Tristan Mas</h3>
-                <p>Data Engineer</p>
-                <p>&copy; 2025 Tristan Mas. All rights reserved.</p>
-            </div>
+      <div class="container">
+        <div class="footer-content">
+          <h3>Tristan Mas</h3>
+          <p data-i18n="footer-role">Data Engineer</p>
+          <p data-i18n="footer-rights">
+            &copy; 2025 Tristan Mas. All rights reserved.
+          </p>
         </div>
+      </div>
     </footer>
 
     <script src="assets/js/script.js"></script>
-</body>
+  </body>
 </html>
