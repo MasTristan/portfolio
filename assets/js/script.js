@@ -298,7 +298,6 @@ document.addEventListener("DOMContentLoaded", function () {
     typingTexts = trans["typing-texts"];
     if (window.updateTypingTexts) {
       window.updateTypingTexts(typingTexts);
-
     }
 
     localStorage.setItem("lang", lang);
@@ -513,7 +512,11 @@ document.addEventListener("DOMContentLoaded", function () {
       root.setAttribute("data-theme", theme);
       localStorage.setItem("theme", theme);
       toggleBtn.textContent = theme === "dark" ? "☀️" : "🌙";
-
+      toggleBtn.classList.toggle("is-dark", theme === "dark");
+      toggleBtn.setAttribute(
+        "aria-label",
+        theme === "dark" ? "Switch to light mode" : "Switch to dark mode",
+      );
     }
   }
 

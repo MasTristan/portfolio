@@ -4,6 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio Tristan Mas</title>
+    <script>
+      const storedTheme = localStorage.getItem("theme");
+      const prefersDark = window.matchMedia(
+        "(prefers-color-scheme: dark)",
+      ).matches;
+      const theme = storedTheme || (prefersDark ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    </script>
     <link rel="stylesheet" href="assets/css/style.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
@@ -32,7 +40,6 @@
                 <img src="https://flagcdn.com/24x18/fr.png" alt="FR" />
                 <span data-i18n="lang-french">Français</span>
               </a>
-
             </div>
             <ul class="nav-menu">
               <li><a href="#home" data-i18n="nav-home">Home</a></li>
@@ -395,7 +402,9 @@
 
             <div class="resume-item">
               <div class="resume-header">
-                <h4 data-i18n="resume-edu2-title">Data Analyst Associate • DataCamp</h4>
+                <h4 data-i18n="resume-edu2-title">
+                  Data Analyst Associate • DataCamp
+                </h4>
                 <span class="date">Sep 2023</span>
               </div>
               <h5><em>DataCamp</em></h5>
@@ -408,9 +417,7 @@
 
             <div class="resume-item">
               <div class="resume-header">
-                <h4 data-i18n="resume-exp1-title">
-                  Data Engineer Apprentice
-                </h4>
+                <h4 data-i18n="resume-exp1-title">Data Engineer Apprentice</h4>
                 <span class="date">Sep 2022 - Present</span>
               </div>
               <h5><em>Lennox EMEA, Lyon</em></h5>
@@ -441,9 +448,7 @@
 
             <div class="resume-item">
               <div class="resume-header">
-                <h4 data-i18n="resume-exp2-title">
-                  IT Technician Intern
-                </h4>
+                <h4 data-i18n="resume-exp2-title">IT Technician Intern</h4>
                 <span class="date">Apr 2022 - Jun 2022</span>
               </div>
               <h5><em>SunAero, Genay</em></h5>
@@ -453,12 +458,11 @@
                   processing by 40%.
                 </li>
                 <li>
-                  Built SQL-driven KPIs and dashboards for inventory and capacity
-                  planning.
+                  Built SQL-driven KPIs and dashboards for inventory and
+                  capacity planning.
                 </li>
               </ul>
             </div>
-
           </div>
         </div>
       </div>
