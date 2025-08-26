@@ -621,6 +621,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
   initSectionReveal();
 
+  // Smooth scrolling for side navigation links
+  function initSideNavScroll() {
+    const navLinks = document.querySelectorAll(".side-nav .nav-circle");
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute("href");
+        const targetSection = document.querySelector(targetId);
+
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: "smooth" });
+        }
+      });
+    });
+  }
+
+  initSideNavScroll();
+
   // Highlight side navigation based on scroll position
   function initSideNavHighlight() {
     const navLinks = document.querySelectorAll(".side-nav .nav-circle");
