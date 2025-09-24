@@ -15,6 +15,7 @@ import { initNavigation } from '@/modules/navigation.js';
 import { initPortfolioFilters } from '@/modules/portfolioFilters.js';
 import { initContactForm } from '@/modules/contactForm.js';
 import { initTypingEffect } from '@/modules/typing.js';
+import { initHeroCarousel } from '@/modules/heroCarousel.js';
 import {
   initScrollAnimations,
   initSectionReveal,
@@ -37,6 +38,10 @@ function render() {
     theme: getCurrentTheme(),
   };
 
+  document
+    .querySelectorAll('[data-hero-carousel]')
+    .forEach((carousel) => carousel.dispatchEvent(new Event('carousel:destroy')));
+
   app.innerHTML = renderApp(context);
 
   bindLanguageSwitcher();
@@ -44,6 +49,7 @@ function render() {
   initNavigation();
   initPortfolioFilters();
   initContactForm(translate);
+  initHeroCarousel();
   initTypingEffect(translate('typing-texts'));
   initScrollAnimations();
   initSectionReveal();
