@@ -12,7 +12,7 @@ export function createAbout({ translate }) {
             <p class="about-description">${translate('about-description')}</p>
             <div class="about-grid">
               ${cards
-                .map((card) => {
+                .map((card, index) => {
                   const iconMarkup = card.icon
                     ? `
                         <div class="about-icon">
@@ -22,7 +22,7 @@ export function createAbout({ translate }) {
                     : '';
 
                   return `
-                    <div class="about-item">
+                    <div class="about-item${index === 0 ? ' about-item--full' : ''}">
                       ${iconMarkup}
                       <h5>${translate(card.titleKey)}</h5>
                       <p>${translate(card.contentKey)}</p>
