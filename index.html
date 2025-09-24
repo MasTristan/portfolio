@@ -28,11 +28,7 @@
       <div class="container">
         <div class="header-content">
           <div class="logo">
-            <img
-              src="https://flagcdn.com/24x18/gb.png"
-              alt="EN"
-              class="flag-icon"
-            />
+            <span class="logo-text">Tristan Mas</span>
           </div>
           <nav class="nav">
             <div class="language-switcher">
@@ -42,15 +38,21 @@
               </a>
               <a href="#" class="lang-link" data-lang="fr">
                 <img src="https://flagcdn.com/24x18/fr.png" alt="FR" />
-                <span data-i18n="lang-french">Français</span>
+                <span data-i18n="lang-french">French</span>
               </a>
             </div>
             <button
               id="theme-toggle"
               class="theme-toggle"
-              aria-label="Toggle dark mode"
+              type="button"
+              aria-label="Switch to dark mode"
+              aria-pressed="false"
             >
-              🌙
+              <span class="switch-track">
+                <span class="switch-icon moon" aria-hidden="true">🌙</span>
+                <span class="switch-icon sun" aria-hidden="true">☀️</span>
+                <span class="switch-thumb" aria-hidden="true"></span>
+              </span>
             </button>
           </nav>
         </div>
@@ -197,179 +199,375 @@
       <div class="container">
         <h2 class="section-title" data-i18n="skills-title">Skills</h2>
         <p class="skills-description" data-i18n="skills-description">
-          Expert in Python, advanced SQL, and modern BI tools. Build end-to-end
-          ETL/ELT workflows, design scalable schemas, and surface analytics for
-          finance, operations, and product teams.
+          Expert in Python, advanced SQL, and modern BI tools. I build end-to-
+          end ETL/ELT workflows, design scalable schemas, and surface analytics
+          for finance, operations, and product teams.
         </p>
 
         <div class="skills-grid">
           <div class="skill-category">
             <h4 data-i18n="skills-frontend">Front-end Development</h4>
             <div class="skill-icons">
-              <img
-                src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg"
-                alt="HTML5"
-                title="HTML5"
-              />
-              <img
-                src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg"
-                alt="CSS3"
-                title="CSS3"
-              />
-              <img
-                src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg"
-                alt="JavaScript"
-                title="JavaScript"
-              />
-              <img
-                src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg"
-                alt="Bootstrap"
-                title="Bootstrap"
-              />
-              <img
-                src="https://cdn.simpleicons.org/tailwindcss"
-                alt="Tailwind CSS"
-                title="Tailwind CSS"
-              />
+              <a
+                href="https://html.spec.whatwg.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="HTML5"
+              >
+                <img
+                  src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg"
+                  alt="HTML5"
+                  title="HTML5"
+                />
+              </a>
+              <a
+                href="https://www.w3.org/Style/CSS/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="CSS3"
+              >
+                <img
+                  src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg"
+                  alt="CSS3"
+                  title="CSS3"
+                />
+              </a>
+              <a
+                href="https://www.ecma-international.org/publications-and-standards/standards/ecma-262/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="JavaScript"
+              >
+                <img
+                  src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg"
+                  alt="JavaScript"
+                  title="JavaScript"
+                />
+              </a>
+              <a
+                href="https://getbootstrap.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Bootstrap"
+              >
+                <img
+                  src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg"
+                  alt="Bootstrap"
+                  title="Bootstrap"
+                />
+              </a>
+              <a
+                href="https://tailwindcss.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Tailwind CSS"
+              >
+                <img
+                  src="https://cdn.simpleicons.org/tailwindcss"
+                  alt="Tailwind CSS"
+                  title="Tailwind CSS"
+                />
+              </a>
             </div>
           </div>
 
           <div class="skill-category">
             <h4 data-i18n="skills-dataviz">Data Visualization</h4>
             <div class="skill-icons">
-              <img
-                src="https://www.vectorlogo.zone/logos/microsoft_powerbi/microsoft_powerbi-icon.svg"
-                alt="Power BI"
-                title="Power BI"
-              />
-              <img
-                src="https://www.tableau.com/themes/custom/tableau_www/logo.v2.svg"
-                alt="Tableau"
-                title="Tableau"
-              />
-              <img
-                src="https://raw.githubusercontent.com/devicons/devicon/master/icons/grafana/grafana-original.svg"
-                alt="Grafana"
-                title="Grafana"
-              />
-              <img
-                src="https://cdn.simpleicons.org/apacheecharts"
-                alt="ECharts"
-                title="ECharts"
-              />
-              <img
-                src="https://raw.githubusercontent.com/devicons/devicon/master/icons/d3js/d3js-original.svg"
-                alt="D3.js"
-                title="D3.js"
-              />
-              <img
-                src="https://raw.githubusercontent.com/devicons/devicon/2ae2a900d2f041da66e950e4d48052658d850630/icons/pandas/pandas-original.svg"
-                alt="Pandas"
-                title="Pandas"
-              />
+              <a
+                href="https://powerbi.microsoft.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Power BI"
+              >
+                <img
+                  src="https://www.vectorlogo.zone/logos/microsoft_powerbi/microsoft_powerbi-icon.svg"
+                  alt="Power BI"
+                  title="Power BI"
+                />
+              </a>
+              <a
+                href="https://www.tableau.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Tableau"
+              >
+                <img
+                  src="https://www.tableau.com/themes/custom/tableau_www/logo.v2.svg"
+                  alt="Tableau"
+                  title="Tableau"
+                />
+              </a>
+              <a
+                href="https://grafana.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Grafana"
+              >
+                <img
+                  src="https://raw.githubusercontent.com/devicons/devicon/master/icons/grafana/grafana-original.svg"
+                  alt="Grafana"
+                  title="Grafana"
+                />
+              </a>
+              <a
+                href="https://echarts.apache.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="ECharts"
+              >
+                <img
+                  src="https://cdn.simpleicons.org/apacheecharts"
+                  alt="ECharts"
+                  title="ECharts"
+                />
+              </a>
+              <a
+                href="https://d3js.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="D3.js"
+              >
+                <img
+                  src="https://raw.githubusercontent.com/devicons/devicon/master/icons/d3js/d3js-original.svg"
+                  alt="D3.js"
+                  title="D3.js"
+                />
+              </a>
+              <a
+                href="https://pandas.pydata.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Pandas"
+              >
+                <img
+                  src="https://raw.githubusercontent.com/devicons/devicon/2ae2a900d2f041da66e950e4d48052658d850630/icons/pandas/pandas-original.svg"
+                  alt="Pandas"
+                  title="Pandas"
+                />
+              </a>
             </div>
           </div>
 
           <div class="skill-category">
             <h4 data-i18n="skills-backend">Back-end Development</h4>
             <div class="skill-icons">
-              <img
-                src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg"
-                alt="PHP"
-                title="PHP"
-              />
-              <img
-                src="https://cdn.simpleicons.org/laravel"
-                alt="Laravel"
-                title="Laravel"
-              />
-              <img
-                src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg"
-                alt="Python"
-                title="Python"
-              />
-              <img
-                src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg"
-                alt="Java"
-                title="Java"
-              />
-              <img
-                src="https://raw.githubusercontent.com/devicons/devicon/master/icons/csharp/csharp-original.svg"
-                alt="C#"
-                title="C#"
-              />
+              <a
+                href="https://www.php.net/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="PHP"
+              >
+                <img
+                  src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg"
+                  alt="PHP"
+                  title="PHP"
+                />
+              </a>
+              <a
+                href="https://laravel.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Laravel"
+              >
+                <img
+                  src="https://cdn.simpleicons.org/laravel"
+                  alt="Laravel"
+                  title="Laravel"
+                />
+              </a>
+              <a
+                href="https://www.python.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Python"
+              >
+                <img
+                  src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg"
+                  alt="Python"
+                  title="Python"
+                />
+              </a>
+              <a
+                href="https://www.oracle.com/java/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Java"
+              >
+                <img
+                  src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg"
+                  alt="Java"
+                  title="Java"
+                />
+              </a>
+              <a
+                href="https://dotnet.microsoft.com/languages/csharp"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="C#"
+              >
+                <img
+                  src="https://raw.githubusercontent.com/devicons/devicon/master/icons/csharp/csharp-original.svg"
+                  alt="C#"
+                  title="C#"
+                />
+              </a>
             </div>
           </div>
 
           <div class="skill-category">
             <h4 data-i18n="skills-ml">Machine Learning</h4>
             <div class="skill-icons">
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg"
-                alt="Scikit Learn"
-                title="Scikit Learn"
-              />
-              <img
-                src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg"
-                alt="Python"
-                title="Python"
-              />
-              <img
-                src="https://cdn.simpleicons.org/nvidia"
-                alt="CUDA"
-                title="CUDA"
-              />
+              <a
+                href="https://scikit-learn.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Scikit-learn"
+              >
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg"
+                  alt="Scikit Learn"
+                  title="Scikit Learn"
+                />
+              </a>
+              <a
+                href="https://www.python.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Python"
+              >
+                <img
+                  src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg"
+                  alt="Python"
+                  title="Python"
+                />
+              </a>
+              <a
+                href="https://developer.nvidia.com/cuda-zone"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="CUDA"
+              >
+                <img
+                  src="https://cdn.simpleicons.org/nvidia"
+                  alt="CUDA"
+                  title="CUDA"
+                />
+              </a>
             </div>
           </div>
 
           <div class="skill-category">
             <h4 data-i18n="skills-db">Database Administration</h4>
             <div class="skill-icons">
-              <img
-                src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg"
-                alt="MySQL"
-                title="MySQL"
-              />
-              <img
-                src="https://www.vectorlogo.zone/logos/mariadb/mariadb-icon.svg"
-                alt="MariaDB"
-                title="MariaDB"
-              />
-              <img
-                src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg"
-                alt="PostgreSQL"
-                title="PostgreSQL"
-              />
-              <img
-                src="https://www.svgrepo.com/show/303229/microsoft-sql-server-logo.svg"
-                alt="MS SQL"
-                title="MS SQL"
-              />
-              <img
-                src="https://www.vectorlogo.zone/logos/sqlite/sqlite-icon.svg"
-                alt="SQLite"
-                title="SQLite"
-              />
-              <img
-                src="https://www.vectorlogo.zone/logos/apache_hadoop/apache_hadoop-icon.svg"
-                alt="Hadoop"
-                title="Hadoop"
-              />
-              <img
-                src="https://www.vectorlogo.zone/logos/apache_hive/apache_hive-icon.svg"
-                alt="Hive"
-                title="Hive"
-              />
-              <img
-                src="https://cdn.simpleicons.org/teradata"
-                alt="Teradata"
-                title="Teradata"
-              />
-              <img
-                src="https://raw.githubusercontent.com/devicons/devicon/master/icons/elasticsearch/elasticsearch-original.svg"
-                alt="Elasticsearch"
-                title="Elasticsearch"
-              />
+              <a
+                href="https://www.mysql.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="MySQL"
+              >
+                <img
+                  src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg"
+                  alt="MySQL"
+                  title="MySQL"
+                />
+              </a>
+              <a
+                href="https://mariadb.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="MariaDB"
+              >
+                <img
+                  src="https://www.vectorlogo.zone/logos/mariadb/mariadb-icon.svg"
+                  alt="MariaDB"
+                  title="MariaDB"
+                />
+              </a>
+              <a
+                href="https://www.postgresql.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="PostgreSQL"
+              >
+                <img
+                  src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg"
+                  alt="PostgreSQL"
+                  title="PostgreSQL"
+                />
+              </a>
+              <a
+                href="https://www.microsoft.com/sql-server"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Microsoft SQL Server"
+              >
+                <img
+                  src="https://www.svgrepo.com/show/303229/microsoft-sql-server-logo.svg"
+                  alt="MS SQL"
+                  title="MS SQL"
+                />
+              </a>
+              <a
+                href="https://www.sqlite.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="SQLite"
+              >
+                <img
+                  src="https://www.vectorlogo.zone/logos/sqlite/sqlite-icon.svg"
+                  alt="SQLite"
+                  title="SQLite"
+                />
+              </a>
+              <a
+                href="https://hadoop.apache.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Hadoop"
+              >
+                <img
+                  src="https://www.vectorlogo.zone/logos/apache_hadoop/apache_hadoop-icon.svg"
+                  alt="Hadoop"
+                  title="Hadoop"
+                />
+              </a>
+              <a
+                href="https://hive.apache.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Hive"
+              >
+                <img
+                  src="https://www.vectorlogo.zone/logos/apache_hive/apache_hive-icon.svg"
+                  alt="Hive"
+                  title="Hive"
+                />
+              </a>
+              <a
+                href="https://www.teradata.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Teradata"
+              >
+                <img
+                  src="https://cdn.simpleicons.org/teradata"
+                  alt="Teradata"
+                  title="Teradata"
+                />
+              </a>
+              <a
+                href="https://www.elastic.co/elasticsearch"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Elasticsearch"
+              >
+                <img
+                  src="https://raw.githubusercontent.com/devicons/devicon/master/icons/elasticsearch/elasticsearch-original.svg"
+                  alt="Elasticsearch"
+                  title="Elasticsearch"
+                />
+              </a>
             </div>
           </div>
         </div>
@@ -495,8 +693,8 @@
       <div class="container">
         <h2 class="section-title" data-i18n="portfolio-title">Portfolio</h2>
         <p class="portfolio-description" data-i18n="portfolio-description">
-          Here are some of my web development and data visualization projects,
-          built as a Data Engineer.
+          Here are some of my machine learning and data visualization
+          projects, built as a Data Engineer.
         </p>
 
         <div class="portfolio-filters">
@@ -509,10 +707,10 @@
           </button>
           <button
             class="filter-btn"
-            data-filter="webapp"
-            data-i18n="portfolio-filter-webapp"
+            data-filter="ml"
+            data-i18n="portfolio-filter-ml"
           >
-            Web App
+            Machine Learning/IA
           </button>
           <button
             class="filter-btn"
@@ -524,7 +722,7 @@
         </div>
 
         <div class="portfolio-grid">
-          <div class="portfolio-item" data-category="webapp">
+          <div class="portfolio-item" data-category="ml">
             <div class="portfolio-image">
               <img
                 src="assets/img/portfolio/Gribouillon/home.jpg"
@@ -544,7 +742,7 @@
             </div>
           </div>
 
-          <div class="portfolio-item" data-category="webapp">
+          <div class="portfolio-item" data-category="ml">
             <div class="portfolio-image">
               <img
                 src="assets/img/portfolio/Smart_library/home.jpg"
