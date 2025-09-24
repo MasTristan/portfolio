@@ -3,13 +3,15 @@ document.addEventListener("DOMContentLoaded", function () {
   const translations = {
     en: {
       "lang-english": "English",
-      "lang-french": "Français",
+      "lang-french": "French",
       "nav-home": "Home",
       "nav-about": "About",
       "nav-skills": "Skills",
       "nav-resume": "Resume",
       "nav-portfolio": "Portfolio",
       "nav-contact": "Contact",
+      "theme-toggle-dark": "Switch to dark mode",
+      "theme-toggle-light": "Switch to light mode",
       "hero-im": "I'm ",
       "typing-texts": ["Data Engineer", "Data Analyst", "Developer"],
       "about-title": "About",
@@ -33,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "Hands-on Data Analyst with 3 years of experience turning complex, high-volume data into trusted pipelines, robust models, and clear business insight.",
       "skills-title": "Skills",
       "skills-description":
-        "Expert in Python, advanced SQL, and modern BI tools. Build end-to-end ETL/ELT workflows, design scalable schemas, and surface analytics for finance, operations, and product teams.",
+        "Expert in Python, advanced SQL, and modern BI tools. I build end-to-end ETL/ELT workflows, design scalable schemas, and surface analytics for finance, operations, and product teams.",
       "skills-frontend": "Front-end Development",
       "skills-dataviz": "Data Visualization",
       "skills-backend": "Back-end Development",
@@ -52,9 +54,9 @@ document.addEventListener("DOMContentLoaded", function () {
       "resume-exp2-title": "IT Technician Intern",
       "portfolio-title": "Portfolio",
       "portfolio-description":
-        "Here are some of my web development and data visualization projects, built as a Data Engineer.",
+        "Here are some of my machine learning and data visualization projects, built as a Data Engineer.",
       "portfolio-filter-all": "All",
-      "portfolio-filter-webapp": "Web App",
+      "portfolio-filter-ml": "Machine Learning/IA",
       "portfolio-filter-dataviz": "Data Viz",
       "portfolio-item1-title": "Gribouillon QuickDraw",
       "portfolio-item1-desc":
@@ -77,6 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "portfolio-item7-title": "F1 Tableau Dashboard",
       "portfolio-item7-desc":
         "Tableau project combining current analysis and McLaren's historical legacy (1980s–90s).",
+      "image-not-found": "Image not found",
       "testimonials-title": "Testimonials",
       "testimonial1-name": "Martin",
       "testimonial1-role": "Operations Director",
@@ -94,6 +97,13 @@ document.addEventListener("DOMContentLoaded", function () {
       "form-subject": "Subject",
       "form-message": "Message",
       "form-send": "Send Message",
+      "form-error-name": "Name is required",
+      "form-error-email": "Email is required",
+      "form-error-email-invalid": "Please enter a valid email address",
+      "form-error-subject": "Subject is required",
+      "form-error-message": "Message is required",
+      "form-loading": "Loading...",
+      "form-success": "Your message has been sent. Thank you!",
       "footer-role": "Data Engineer",
       "footer-rights": "© 2025 Tristan Mas. All rights reserved.",
     },
@@ -106,6 +116,8 @@ document.addEventListener("DOMContentLoaded", function () {
       "nav-resume": "CV",
       "nav-portfolio": "Portfolio",
       "nav-contact": "Contact",
+      "theme-toggle-dark": "Passer en mode sombre",
+      "theme-toggle-light": "Passer en mode clair",
       "hero-im": "Je suis ",
       "typing-texts": ["Ingénieur Data", "Analyste de données", "Développeur"],
       "about-title": "À propos",
@@ -129,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "Analyste de données opérationnel avec 3 ans d'expérience transformant des données complexes en pipelines fiables, modèles robustes et insights clairs.",
       "skills-title": "Compétences",
       "skills-description":
-        "Expert en Python, SQL avancé et outils BI modernes. Construis des workflows ETL/ELT de bout en bout, des schémas scalables et des analyses pour les équipes finance, opérations et produit.",
+        "Expert en Python, SQL avancé et outils BI modernes. Je construis des workflows ETL/ELT de bout en bout, des schémas scalables et des analyses pour les équipes finance, opérations et produit.",
       "skills-frontend": "Développement Front-end",
       "skills-dataviz": "Visualisation de données",
       "skills-backend": "Développement Back-end",
@@ -148,9 +160,9 @@ document.addEventListener("DOMContentLoaded", function () {
       "resume-exp2-title": "Stage • Technicien IT",
       "portfolio-title": "Portfolio",
       "portfolio-description":
-        "Voici quelques-uns de mes projets de développement web et de visualisation de données, réalisés en tant qu'Ingénieur Data.",
+        "Voici quelques-uns de mes projets de machine learning et de visualisation de données, réalisés en tant qu'ingénieur data.",
       "portfolio-filter-all": "Tous",
-      "portfolio-filter-webapp": "Application Web",
+      "portfolio-filter-ml": "Machine Learning/IA",
       "portfolio-filter-dataviz": "Data Viz",
       "portfolio-item1-title": "Gribouillon QuickDraw",
       "portfolio-item1-desc":
@@ -173,6 +185,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "portfolio-item7-title": "Tableau de bord F1 Tableau",
       "portfolio-item7-desc":
         "Projet Tableau combinant analyse actuelle et héritage historique de McLaren (années 1980–90).",
+      "image-not-found": "Image introuvable",
       "testimonials-title": "Témoignages",
       "testimonial1-name": "Martin",
       "testimonial1-role": "Directeur des opérations",
@@ -190,13 +203,28 @@ document.addEventListener("DOMContentLoaded", function () {
       "form-subject": "Sujet",
       "form-message": "Message",
       "form-send": "Envoyer",
+      "form-error-name": "Le nom est requis",
+      "form-error-email": "L'email est requis",
+      "form-error-email-invalid": "Veuillez saisir une adresse email valide",
+      "form-error-subject": "Le sujet est requis",
+      "form-error-message": "Le message est requis",
+      "form-loading": "Envoi en cours...",
+      "form-success": "Votre message a été envoyé. Merci !",
       "footer-role": "Ingénieur Data",
       "footer-rights": "© 2025 Tristan Mas. Tous droits réservés.",
     },
   };
 
-  let typingTexts = translations.en["typing-texts"];
-  const savedLang = localStorage.getItem("lang") || "en";
+  const fallbackLang = "en";
+  let typingTexts = translations[fallbackLang]["typing-texts"];
+  const savedLang = localStorage.getItem("lang") || fallbackLang;
+  let currentLang = translations[savedLang] ? savedLang : fallbackLang;
+
+  function getTranslation(key) {
+    const langStrings = translations[currentLang] || translations[fallbackLang];
+    const fallbackStrings = translations[fallbackLang] || {};
+    return (langStrings && langStrings[key]) || fallbackStrings[key] || key;
+  }
 
   // Initialize all functionality
   initNavigation();
@@ -206,7 +234,7 @@ document.addEventListener("DOMContentLoaded", function () {
   initTypingEffect();
   initScrollAnimations();
   initThemeToggle();
-  setLanguage(savedLang);
+  setLanguage(currentLang);
 
   // Navigation functionality
   function initNavigation() {
@@ -276,35 +304,52 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function setLanguage(lang) {
-    const trans = translations[lang];
-    if (!trans) return;
+    const hasLang = Boolean(translations[lang]);
+    const trans = translations[lang] || translations[fallbackLang];
+    const resolvedLang = hasLang ? lang : fallbackLang;
 
-    document.documentElement.setAttribute("lang", lang);
+    currentLang = resolvedLang;
+    document.documentElement.setAttribute("lang", resolvedLang);
 
     document.querySelectorAll("[data-i18n]").forEach((el) => {
       const key = el.getAttribute("data-i18n");
-      if (trans[key]) {
-        el.innerHTML = trans[key];
+      const value =
+        trans[key] ?? translations[fallbackLang]?.[key];
+      if (value) {
+        el.innerHTML = value;
       }
     });
 
     document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
       const key = el.getAttribute("data-i18n-placeholder");
-      if (trans[key]) {
-        el.setAttribute("placeholder", trans[key]);
+      const value =
+        trans[key] ?? translations[fallbackLang]?.[key];
+      if (value) {
+        el.setAttribute("placeholder", value);
       }
     });
 
-    typingTexts = trans["typing-texts"];
+    typingTexts =
+      trans["typing-texts"] || translations[fallbackLang]["typing-texts"];
     if (window.updateTypingTexts) {
       window.updateTypingTexts(typingTexts);
     }
 
-    localStorage.setItem("lang", lang);
+    localStorage.setItem("lang", resolvedLang);
 
     document.querySelectorAll(".lang-link").forEach((link) => {
-      link.classList.toggle("active", link.getAttribute("data-lang") === lang);
+      link.classList.toggle(
+        "active",
+        link.getAttribute("data-lang") === resolvedLang,
+      );
     });
+
+    const themeToggle = document.getElementById("theme-toggle");
+    if (themeToggle) {
+      const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+      const labelKey = isDark ? "theme-toggle-light" : "theme-toggle-dark";
+      themeToggle.setAttribute("aria-label", getTranslation(labelKey));
+    }
   }
 
   // Portfolio filters functionality
@@ -353,7 +398,13 @@ document.addEventListener("DOMContentLoaded", function () {
         const message = formData.get("message").trim();
 
         // Validate form
-        const errors = validateForm(name, email, subject, message);
+        const errors = validateForm(
+          name,
+          email,
+          subject,
+          message,
+          getTranslation,
+        );
 
         if (errors.length > 0) {
           showFormStatus("error", errors.join("<br>"));
@@ -361,36 +412,40 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // Show loading state
-        showFormStatus("loading", "Loading...");
+        showFormStatus("loading", getTranslation("form-loading"));
 
         // Simulate form submission
         setTimeout(() => {
-          showFormStatus("success", "Your message has been sent. Thank you!");
+          showFormStatus("success", getTranslation("form-success"));
           form.reset();
         }, 2000);
       });
     }
   }
 
-  function validateForm(name, email, subject, message) {
+  function validateForm(name, email, subject, message, translateFn) {
     const errors = [];
+    const t =
+      typeof translateFn === "function"
+        ? translateFn
+        : (key) => translations[fallbackLang]?.[key] || key;
 
     if (!name) {
-      errors.push("Name is required");
+      errors.push(t("form-error-name"));
     }
 
     if (!email) {
-      errors.push("Email is required");
+      errors.push(t("form-error-email"));
     } else if (!isValidEmail(email)) {
-      errors.push("Please enter a valid email address");
+      errors.push(t("form-error-email-invalid"));
     }
 
     if (!subject) {
-      errors.push("Subject is required");
+      errors.push(t("form-error-subject"));
     }
 
     if (!message) {
-      errors.push("Message is required");
+      errors.push(t("form-error-message"));
     }
 
     return errors;
@@ -511,12 +566,11 @@ document.addEventListener("DOMContentLoaded", function () {
     function setTheme(theme) {
       root.setAttribute("data-theme", theme);
       localStorage.setItem("theme", theme);
-      toggleBtn.textContent = theme === "dark" ? "☀️" : "🌙";
-      toggleBtn.classList.toggle("is-dark", theme === "dark");
-      toggleBtn.setAttribute(
-        "aria-label",
-        theme === "dark" ? "Switch to light mode" : "Switch to dark mode",
-      );
+      const isDark = theme === "dark";
+      toggleBtn.classList.toggle("is-dark", isDark);
+      const labelKey = isDark ? "theme-toggle-light" : "theme-toggle-dark";
+      toggleBtn.setAttribute("aria-label", getTranslation(labelKey));
+      toggleBtn.setAttribute("aria-pressed", isDark);
     }
   }
 
@@ -588,7 +642,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     font-size: 12px;
                     border-radius: 4px;
                 `;
-        placeholder.textContent = "Image not found";
+        placeholder.textContent = getTranslation("image-not-found");
 
         if (this.parentNode) {
           this.parentNode.replaceChild(placeholder, this);
