@@ -3,6 +3,8 @@ import { heroCarouselSlides } from '@/data/heroCarousel.js';
 
 export function createHero({ translate, currentLang }) {
   const { name, socials } = heroData;
+  const painLabel = translate('carousel-pain-label');
+  const solutionLabel = translate('carousel-solution-label');
   const slides = heroCarouselSlides.map(({ id, en, fr }) => {
     const locale = currentLang === 'fr' ? fr : en;
     return {
@@ -65,11 +67,24 @@ export function createHero({ translate, currentLang }) {
                       tabindex="${index === 0 ? '0' : '-1'}"
                       aria-roledescription="slide"
                     >
-                      <p class="slide-pain">${pain}</p>
-                      <p class="slide-solution">
-                        <span class="slide-solution-text">${solution}</span>
-                        <span class="slide-solution-underline" aria-hidden="true"></span>
-                      </p>
+                      <div class="slide-card">
+                        <div class="slide-panel slide-pain">
+                          <span class="slide-panel-label">${painLabel}</span>
+                          <p class="slide-panel-text">${pain}</p>
+                        </div>
+                        <div class="slide-connector" aria-hidden="true">
+                          <span class="slide-connector-line"></span>
+                          <span class="slide-connector-icon">&#8594;</span>
+                          <span class="slide-connector-line"></span>
+                        </div>
+                        <div class="slide-panel slide-solution">
+                          <span class="slide-panel-label">${solutionLabel}</span>
+                          <p class="slide-panel-text slide-panel-text--solution">
+                            <span class="slide-solution-text">${solution}</span>
+                            <span class="slide-solution-underline" aria-hidden="true"></span>
+                          </p>
+                        </div>
+                      </div>
                     </article>
                   `;
                 })
