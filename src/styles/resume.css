@@ -1,0 +1,93 @@
+.resume {
+  background-color: var(--bg-dark);
+}
+
+.resume-download {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.download-btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: var(--accent-color);
+  color: white;
+  border-radius: 50px;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.download-btn:hover {
+  background: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+}
+
+.resume-content {
+  display: grid;
+  gap: 3rem;
+}
+
+.resume-summary,
+.resume-section {
+  background: var(--bg-dark);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.resume-summary h3,
+.resume-section h3 {
+  color: var(--accent-color);
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+.contact-list {
+  list-style: none;
+  margin-top: 1rem;
+}
+
+.contact-list li {
+  margin-bottom: 0.5rem;
+  color: var(--text-light);
+}
+
+.resume-item {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.resume-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.resume-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.date {
+  background: var(--accent-color);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.resume-item ul {
+  margin-left: 1.5rem;
+  margin-top: 1rem;
+}
+
+.resume-item li {
+  margin-bottom: 0.5rem;
+  color: var(--text-light);
+}
