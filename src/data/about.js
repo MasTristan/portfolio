@@ -4,11 +4,7 @@ export const aboutData = {
     {
       titleKey: 'about-origin-title',
       contentKey: 'about-origin-content',
-      icon: {
-        src: 'https://cdn-icons-png.flaticon.com/512/5784/5784725.png',
-        alt: 'Formula 1',
-        className: 'f1-icon',
-      },
+ 
     },
     {
       titleKey: 'about-work-title',
