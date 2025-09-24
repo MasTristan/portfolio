@@ -127,6 +127,25 @@ export function initHeroCarousel() {
     }
   }
 
+  function getDirection(previousIndex, nextIndex) {
+    if (previousIndex === nextIndex) {
+      return 0;
+    }
+
+    if (nextIndex > previousIndex) {
+      if (nextIndex - previousIndex === slides.length - 1) {
+        return -1;
+      }
+      return 1;
+    }
+
+    if (previousIndex - nextIndex === slides.length - 1) {
+      return 1;
+    }
+
+    return -1;
+  }
+
   function animateTransition(previousIndex, nextIndex) {
     if (previousIndex === nextIndex) {
       return;
@@ -148,15 +167,21 @@ export function initHeroCarousel() {
       return;
     }
 
+    const direction = getDirection(previousIndex, nextIndex) >= 0 ? 'forward' : 'backward';
+    previousSlide.dataset.carouselDirection = direction;
+    nextSlide.dataset.carouselDirection = direction;
+
     previousSlide.classList.add('is-exiting');
     nextSlide.classList.add('is-active', 'is-entering');
 
     window.setTimeout(() => {
       previousSlide.classList.remove('is-exiting', 'is-active');
+      previousSlide.removeAttribute('data-carousel-direction');
     }, EXIT_DURATION);
 
     window.setTimeout(() => {
       nextSlide.classList.remove('is-entering');
+      nextSlide.removeAttribute('data-carousel-direction');
     }, ENTER_DURATION);
   }
 
