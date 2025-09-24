@@ -71,15 +71,33 @@
 
 .hero-carousel {
   margin-top: 3rem;
-  padding: 2rem 2.5rem;
+  padding: 2.25rem clamp(2.5rem, 6vw, 3.75rem);
   border-radius: 24px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  backdrop-filter: blur(12px);
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(255, 255, 255, 0.05) 65%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(14px);
   position: relative;
   overflow: hidden;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
   touch-action: pan-y;
+}
+.hero-carousel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.16), transparent 18%, transparent 82%, rgba(0, 0, 0, 0.16));
+  pointer-events: none;
+  opacity: 0.45;
+  z-index: 0;
+}
+
+.hero-carousel > * {
+  position: relative;
+  z-index: 1;
 }
 
 .hero-carousel:hover,
@@ -95,11 +113,12 @@
   gap: 1.5rem;
   min-height: 180px;
   position: relative;
+  padding-inline: clamp(2.75rem, 8vw, 4.25rem);
 }
 
 .carousel-slide {
   grid-area: 1 / 1 / -1 / -1;
-  max-width: 640px;
+  max-width: min(640px, 100%);
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -177,17 +196,18 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  background: rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   color: inherit;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background 0.3s ease, transform 0.3s ease, border 0.3s ease;
+  transition: background 0.3s ease, transform 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
   z-index: 2;
 }
 
@@ -198,9 +218,10 @@
 
 .carousel-arrow:hover,
 .carousel-arrow:focus-visible {
-  background: rgba(255, 255, 255, 0.25);
-  border-color: rgba(255, 255, 255, 0.6);
-  transform: translateY(-50%) scale(1.05);
+  background: rgba(255, 255, 255, 0.35);
+  border-color: rgba(255, 255, 255, 0.85);
+  transform: translateY(-50%) scale(1.07);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25);
 }
 
 .carousel-arrow:focus-visible {
@@ -209,11 +230,11 @@
 }
 
 .carousel-arrow--prev {
-  left: 1.25rem;
+  left: 0.85rem;
 }
 
 .carousel-arrow--next {
-  right: 1.25rem;
+  right: 0.85rem;
 }
 
 .carousel-dots {
