@@ -132,6 +132,21 @@
   pointer-events: auto;
 }
 
+.carousel-slide.is-transitioning {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.carousel-slide.is-entering {
+  pointer-events: none;
+}
+
+.carousel-slide.is-exiting {
+  pointer-events: none;
+}
+
 .slide-card {
   width: min(760px, 100%);
   display: grid;
@@ -487,6 +502,7 @@
     transform: translateY(-6px);
   }
 }
+
 
 @keyframes dotProgress {
   from {

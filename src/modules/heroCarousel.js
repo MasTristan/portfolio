@@ -1,6 +1,6 @@
 const AUTO_INTERVAL = 5000;
-const EXIT_DURATION = 500;
-const ENTER_DURATION = 1000;
+const SLIDE_DURATION = 600;
+const SLIDE_EASING = 'cubic-bezier(0.33, 1, 0.68, 1)';
 
 function clampIndex(index, length) {
   if (length === 0) return 0;
@@ -25,7 +25,9 @@ export function initHeroCarousel() {
     return;
   }
   const allowAutoplay = slides.length > 1;
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let prefersReducedMotion = motionQuery.matches;
+  let removeMotionChangeListener = null;
 
   let activeIndex = slides.findIndex((slide) => slide.classList.contains('is-active'));
   activeIndex = activeIndex >= 0 ? activeIndex : 0;
@@ -45,9 +47,22 @@ export function initHeroCarousel() {
     } else {
       slide.classList.remove('is-active');
     }
-    slide.classList.remove('is-entering', 'is-exiting');
+    slide.classList.remove('is-entering', 'is-exiting', 'is-transitioning');
     setSlideAttributes(slide, isActive);
   });
+
+  function resetSlideAnimationState(slide) {
+    slide.classList.remove('is-entering', 'is-exiting', 'is-transitioning');
+    slide.style.removeProperty('transform');
+    slide.style.removeProperty('opacity');
+  }
+
+  function cancelSlideAnimations(slide) {
+    slide.getAnimations().forEach((animation) => {
+      animation.cancel();
+    });
+    resetSlideAnimationState(slide);
+  }
 
   function updateDots() {
     dots.forEach((dot, index) => {
@@ -127,6 +142,25 @@ export function initHeroCarousel() {
     }
   }
 
+  function getDirection(previousIndex, nextIndex) {
+    if (previousIndex === nextIndex) {
+      return 0;
+    }
+
+    if (nextIndex > previousIndex) {
+      if (nextIndex - previousIndex === slides.length - 1) {
+        return -1;
+      }
+      return 1;
+    }
+
+    if (previousIndex - nextIndex === slides.length - 1) {
+      return 1;
+    }
+
+    return -1;
+  }
+
   function animateTransition(previousIndex, nextIndex) {
     if (previousIndex === nextIndex) {
       return;
@@ -139,25 +173,68 @@ export function initHeroCarousel() {
       return;
     }
 
+    cancelSlideAnimations(previousSlide);
+    cancelSlideAnimations(nextSlide);
+
     previousSlide.classList.remove('is-entering');
-    nextSlide.classList.remove('is-entering', 'is-exiting', 'is-active');
+    nextSlide.classList.remove('is-entering', 'is-exiting');
 
     if (prefersReducedMotion) {
-      previousSlide.classList.remove('is-active', 'is-exiting');
+      previousSlide.classList.remove('is-active', 'is-transitioning', 'is-exiting');
       nextSlide.classList.add('is-active');
       return;
     }
 
-    previousSlide.classList.add('is-exiting');
-    nextSlide.classList.add('is-active', 'is-entering');
+    const direction = getDirection(previousIndex, nextIndex) >= 0 ? 1 : -1;
 
-    window.setTimeout(() => {
-      previousSlide.classList.remove('is-exiting', 'is-active');
-    }, EXIT_DURATION);
+    previousSlide.classList.add('is-transitioning', 'is-exiting');
+    nextSlide.classList.add('is-transitioning', 'is-entering', 'is-active');
 
-    window.setTimeout(() => {
-      nextSlide.classList.remove('is-entering');
-    }, ENTER_DURATION);
+    const sharedOptions = {
+      duration: SLIDE_DURATION,
+      easing: SLIDE_EASING,
+      fill: 'none',
+    };
+
+    const previousKeyframes =
+      direction >= 0
+        ? [
+            { transform: 'translateX(0%)', opacity: 1 },
+            { transform: 'translateX(-100%)', opacity: 1 },
+          ]
+        : [
+            { transform: 'translateX(0%)', opacity: 1 },
+            { transform: 'translateX(100%)', opacity: 1 },
+          ];
+
+    const nextKeyframes =
+      direction >= 0
+        ? [
+            { transform: 'translateX(100%)', opacity: 1 },
+            { transform: 'translateX(0%)', opacity: 1 },
+          ]
+        : [
+            { transform: 'translateX(-100%)', opacity: 1 },
+            { transform: 'translateX(0%)', opacity: 1 },
+          ];
+
+    const previousAnimation = previousSlide.animate(previousKeyframes, sharedOptions);
+    const nextAnimation = nextSlide.animate(nextKeyframes, sharedOptions);
+
+    const handlePreviousEnd = () => {
+      previousSlide.classList.remove('is-active', 'is-transitioning', 'is-exiting');
+      resetSlideAnimationState(previousSlide);
+    };
+
+    const handleNextEnd = () => {
+      nextSlide.classList.remove('is-transitioning', 'is-entering');
+      resetSlideAnimationState(nextSlide);
+    };
+
+    previousAnimation.addEventListener('finish', handlePreviousEnd, { once: true });
+    previousAnimation.addEventListener('cancel', handlePreviousEnd, { once: true });
+    nextAnimation.addEventListener('finish', handleNextEnd, { once: true });
+    nextAnimation.addEventListener('cancel', handleNextEnd, { once: true });
   }
 
   function goTo(targetIndex, { focus = false } = {}) {
@@ -173,6 +250,9 @@ export function initHeroCarousel() {
     slides.forEach((slide, index) => {
       const isActive = index === activeIndex;
       setSlideAttributes(slide, isActive);
+      if (prefersReducedMotion) {
+        slide.classList.toggle('is-active', isActive);
+      }
     });
 
     animateTransition(previousIndex, activeIndex);
@@ -308,7 +388,42 @@ export function initHeroCarousel() {
 
   const cleanup = () => {
     clearTimer();
+    if (removeMotionChangeListener) {
+      removeMotionChangeListener();
+    }
+    slides.forEach((slide) => cancelSlideAnimations(slide));
   };
+
+  function handleMotionChange(event) {
+    prefersReducedMotion = event.matches;
+
+    if (prefersReducedMotion) {
+      clearTimer();
+      slides.forEach((slide, index) => {
+        const isActive = index === activeIndex;
+        cancelSlideAnimations(slide);
+        slide.classList.toggle('is-active', isActive);
+        setSlideAttributes(slide, isActive);
+      });
+      updateProgress();
+    } else {
+      slides.forEach((slide, index) => {
+        const isActive = index === activeIndex;
+        cancelSlideAnimations(slide);
+        slide.classList.toggle('is-active', isActive);
+        setSlideAttributes(slide, isActive);
+      });
+      scheduleNext();
+    }
+  }
+
+  if (typeof motionQuery.addEventListener === 'function') {
+    motionQuery.addEventListener('change', handleMotionChange);
+    removeMotionChangeListener = () => motionQuery.removeEventListener('change', handleMotionChange);
+  } else if (typeof motionQuery.addListener === 'function') {
+    motionQuery.addListener(handleMotionChange);
+    removeMotionChangeListener = () => motionQuery.removeListener(handleMotionChange);
+  }
 
   container.addEventListener('carousel:destroy', cleanup, { once: true });
 }
