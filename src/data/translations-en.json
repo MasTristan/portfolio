@@ -10,6 +10,11 @@
   "theme-toggle-dark": "Switch to dark mode",
   "theme-toggle-light": "Switch to light mode",
   "hero-im": "I'm ",
+  "carousel-label": "Business problems I solve",
+  "carousel-dots-label": "Carousel navigation",
+  "carousel-previous": "Previous problem",
+  "carousel-next": "Next problem",
+  "carousel-slide": "Slide",
   "typing-texts": [
     "Data Engineer",
     "Data Analyst",

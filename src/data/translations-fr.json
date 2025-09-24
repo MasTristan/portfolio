@@ -10,6 +10,11 @@
   "theme-toggle-dark": "Passer en mode sombre",
   "theme-toggle-light": "Passer en mode clair",
   "hero-im": "Je suis ",
+  "carousel-label": "Problèmes que je résous",
+  "carousel-dots-label": "Navigation du carrousel",
+  "carousel-previous": "Problème précédent",
+  "carousel-next": "Problème suivant",
+  "carousel-slide": "Diapositive",
   "typing-texts": [
     "Ingénieur Data",
     "Analyste de données",
