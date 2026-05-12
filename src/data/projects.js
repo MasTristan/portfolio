@@ -2,11 +2,20 @@ export const projects = [
   {
     titleKey: 'project-1-title',
     statusKey: 'project-1-status',
+    statusKind: 'live',
     descKey: 'project-1-desc',
-    stack: ['Oracle XE', 'PL/SQL'],
+    stack: ['Oracle XE', 'PL/SQL', 'Python', 'Streamlit'],
     links: [
-      { kind: 'github', href: null, labelKey: 'project-link-github' },
-      { kind: 'demo', href: null, labelKey: 'project-link-na', disabled: true },
+      {
+        kind: 'github',
+        href: 'https://github.com/MasTristan/basel3-credit-scoring-engine',
+        labelKey: 'project-link-github',
+      },
+      {
+        kind: 'streamlit',
+        href: 'https://scoring-cr-dit-b-le-iii.streamlit.app/',
+        labelKey: 'project-link-streamlit',
+      },
     ],
   },
   {
