@@ -16,7 +16,7 @@ export function createAbout({ translate }) {
                   const iconMarkup = card.icon
                     ? `
                         <div class="about-icon">
-                          <img src="${card.icon.src}" alt="${card.icon.alt}" class="${card.icon.className ?? ''}" />
+                          <img src="${card.icon.src}" alt="${card.icon.alt}" class="${card.icon.className ?? ''}" loading="lazy" decoding="async" />
                         </div>
                       `
                     : '';

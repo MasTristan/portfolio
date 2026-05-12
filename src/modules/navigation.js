@@ -1,5 +1,22 @@
+const HIDE_AFTER_SCROLL_PX = 100;
+
 let navObserver;
-let headerScrollHandler;
+let headerScrollBound = false;
+let lastScrollY = 0;
+
+function handleHeaderScroll() {
+  const header = document.querySelector('.header');
+  if (!header) {
+    return;
+  }
+  const currentScrollY = window.pageYOffset;
+  if (currentScrollY > lastScrollY && currentScrollY > HIDE_AFTER_SCROLL_PX) {
+    header.style.transform = 'translateY(-100%)';
+  } else {
+    header.style.transform = 'translateY(0)';
+  }
+  lastScrollY = currentScrollY;
+}
 
 export function initNavigation() {
   const links = document.querySelectorAll('[data-scroll]');
@@ -52,33 +69,13 @@ export function initNavigation() {
     links[0].classList.add('active');
   }
 
-  initMobileHeader(header);
-}
-
-function initMobileHeader(header) {
-  if (!header) {
-    return;
+  if (header) {
+    header.style.transform = 'translateY(0)';
   }
 
-  header.style.transform = 'translateY(0)';
-
-  if (headerScrollHandler) {
-    window.removeEventListener('scroll', headerScrollHandler);
+  if (!headerScrollBound) {
+    lastScrollY = window.pageYOffset;
+    window.addEventListener('scroll', handleHeaderScroll, { passive: true });
+    headerScrollBound = true;
   }
-
-  let lastScrollY = window.pageYOffset;
-
-  headerScrollHandler = () => {
-    const currentScrollY = window.pageYOffset;
-
-    if (currentScrollY > lastScrollY && currentScrollY > 100) {
-      header.style.transform = 'translateY(-100%)';
-    } else {
-      header.style.transform = 'translateY(0)';
-    }
-
-    lastScrollY = currentScrollY;
-  };
-
-  window.addEventListener('scroll', headerScrollHandler);
 }

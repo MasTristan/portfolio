@@ -1,36 +1,33 @@
+const VISIBILITY_THRESHOLD_PX = 300;
+
 let scrollButton;
-let scrollListener;
+
+function updateVisibility() {
+  if (!scrollButton) {
+    return;
+  }
+  const visible = window.pageYOffset > VISIBILITY_THRESHOLD_PX;
+  scrollButton.style.opacity = visible ? '1' : '0';
+  scrollButton.style.visibility = visible ? 'visible' : 'hidden';
+}
 
 export function initScrollToTop() {
-  if (!scrollButton) {
-    scrollButton = document.createElement('button');
-    scrollButton.type = 'button';
-    scrollButton.className = 'scroll-to-top';
-    scrollButton.textContent = '↑';
-
-    scrollButton.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    document.body.appendChild(scrollButton);
+  if (scrollButton) {
+    updateVisibility();
+    return;
   }
 
-  scrollButton.style.opacity = '0';
-  scrollButton.style.visibility = 'hidden';
+  scrollButton = document.createElement('button');
+  scrollButton.type = 'button';
+  scrollButton.className = 'scroll-to-top';
+  scrollButton.textContent = '↑';
+  scrollButton.setAttribute('aria-label', 'Scroll to top');
 
-  if (scrollListener) {
-    window.removeEventListener('scroll', scrollListener);
-  }
+  scrollButton.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 
-  scrollListener = () => {
-    if (window.pageYOffset > 300) {
-      scrollButton.style.opacity = '1';
-      scrollButton.style.visibility = 'visible';
-    } else {
-      scrollButton.style.opacity = '0';
-      scrollButton.style.visibility = 'hidden';
-    }
-  };
-
-  window.addEventListener('scroll', scrollListener);
+  document.body.appendChild(scrollButton);
+  window.addEventListener('scroll', updateVisibility, { passive: true });
+  updateVisibility();
 }

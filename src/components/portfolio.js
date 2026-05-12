@@ -1,4 +1,5 @@
 import { portfolioFilters, portfolioItems } from '@/data/portfolio.js';
+import { escapeHtml } from '@/modules/dom.js';
 
 export function createPortfolio({ translate }) {
   return `
@@ -21,14 +22,14 @@ export function createPortfolio({ translate }) {
           ${portfolioItems
             .map(
               ({ category, image, titleKey, descriptionKey, tech }) => `
-                <div class="portfolio-item" data-category="${category}">
+                <div class="portfolio-item" data-category="${escapeHtml(category)}">
                   <div class="portfolio-image">
-                    <img src="${image}" alt="${translate(titleKey)}" />
+                    <img src="${escapeHtml(image)}" alt="${escapeHtml(translate(titleKey))}" loading="lazy" decoding="async" />
                   </div>
                   <div class="portfolio-content">
-                    <h4>${translate(titleKey)}</h4>
-                    <p class="portfolio-tech">${tech}</p>
-                    <p>${translate(descriptionKey)}</p>
+                    <h4>${escapeHtml(translate(titleKey))}</h4>
+                    <p class="portfolio-tech">${escapeHtml(tech)}</p>
+                    <p>${escapeHtml(translate(descriptionKey))}</p>
                   </div>
                 </div>
               `,

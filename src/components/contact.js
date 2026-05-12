@@ -1,4 +1,5 @@
 import { contactData } from '@/data/contact.js';
+import { escapeHtml } from '@/modules/dom.js';
 
 export function createContact({ translate }) {
   const { email, phone } = contactData;
@@ -11,14 +12,24 @@ export function createContact({ translate }) {
           <div class="contact-info">
             <div class="contact-item">
               <h4>${translate('contact-email-label')}</h4>
-              <p>${email}</p>
+              <p>${escapeHtml(email)}</p>
             </div>
             <div class="contact-item">
               <h4>${translate('contact-phone-label')}</h4>
-              <p>${phone}</p>
+              <p>${escapeHtml(phone)}</p>
             </div>
           </div>
-          <form class="contact-form" id="contactForm">
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="visually-hidden" aria-hidden="true">
+              <label for="contact-gotcha">Leave this field empty</label>
+              <input
+                type="text"
+                id="contact-gotcha"
+                name="_gotcha"
+                tabindex="-1"
+                autocomplete="off"
+              />
+            </div>
             <div class="form-group">
               <input
                 type="text"
@@ -56,7 +67,13 @@ export function createContact({ translate }) {
               ></textarea>
             </div>
             <button type="submit" class="submit-btn">${translate('form-send')}</button>
-            <div id="form-status" class="form-status"></div>
+            <div
+              id="form-status"
+              class="form-status"
+              role="status"
+              aria-live="polite"
+              aria-atomic="true"
+            ></div>
           </form>
         </div>
       </div>

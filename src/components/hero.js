@@ -1,5 +1,6 @@
 import { heroData } from '@/data/hero.js';
 import { heroCarouselSlides } from '@/data/heroCarousel.js';
+import { escapeHtml } from '@/modules/dom.js';
 
 export function createHero({ translate, currentLang }) {
   const { name, socials } = heroData;
@@ -18,7 +19,7 @@ export function createHero({ translate, currentLang }) {
     <section id="home" class="hero" data-aos="fade-up">
       <div class="container">
         <div class="hero-content">
-          <h1 class="hero-title">${name}</h1>
+          <h1 class="hero-title">${escapeHtml(name)}</h1>
           <div class="hero-subtitle">
             <span>${translate('hero-im')}</span>
             <span class="typing-text"></span>
@@ -28,8 +29,8 @@ export function createHero({ translate, currentLang }) {
             ${socials
               .map(
                 ({ name: socialName, href }) => `
-                  <a href="${href}" target="_blank" rel="noopener" class="social-link">
-                    <span>${socialName}</span>
+                  <a href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer" class="social-link">
+                    <span>${escapeHtml(socialName)}</span>
                   </a>
                 `,
               )
@@ -69,8 +70,8 @@ export function createHero({ translate, currentLang }) {
                     >
                       <div class="slide-card">
                         <div class="slide-panel slide-pain">
-                          <span class="slide-panel-label">${painLabel}</span>
-                          <p class="slide-panel-text">${pain}</p>
+                          <span class="slide-panel-label">${escapeHtml(painLabel)}</span>
+                          <p class="slide-panel-text">${escapeHtml(pain)}</p>
                         </div>
                         <div class="slide-connector" aria-hidden="true">
                           <span class="slide-connector-line"></span>
@@ -78,9 +79,9 @@ export function createHero({ translate, currentLang }) {
                           <span class="slide-connector-line"></span>
                         </div>
                         <div class="slide-panel slide-solution">
-                          <span class="slide-panel-label">${solutionLabel}</span>
+                          <span class="slide-panel-label">${escapeHtml(solutionLabel)}</span>
                           <p class="slide-panel-text slide-panel-text--solution">
-                            <span class="slide-solution-text">${solution}</span>
+                            <span class="slide-solution-text">${escapeHtml(solution)}</span>
                             <span class="slide-solution-underline" aria-hidden="true"></span>
                           </p>
                         </div>

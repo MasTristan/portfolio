@@ -31,12 +31,48 @@ if (!app) {
 
 let aosInitialized = false;
 
+const CONTACT_FORM_FIELDS = ['name', 'email', 'subject', 'message'];
+
+function snapshotContactForm() {
+  const form = document.getElementById('contactForm');
+  if (!form) {
+    return null;
+  }
+  const data = {};
+  for (const field of CONTACT_FORM_FIELDS) {
+    const input = form.elements.namedItem(field);
+    if (input && 'value' in input) {
+      data[field] = input.value;
+    }
+  }
+  return data;
+}
+
+function restoreContactForm(snapshot) {
+  if (!snapshot) {
+    return;
+  }
+  const form = document.getElementById('contactForm');
+  if (!form) {
+    return;
+  }
+  for (const field of CONTACT_FORM_FIELDS) {
+    const input = form.elements.namedItem(field);
+    if (input && 'value' in input && snapshot[field]) {
+      input.value = snapshot[field];
+    }
+  }
+}
+
 function render() {
   const context = {
     translate,
     currentLang: getCurrentLang(),
     theme: getCurrentTheme(),
   };
+
+  const formSnapshot = snapshotContactForm();
+  const scrollY = window.pageYOffset;
 
   document
     .querySelectorAll('[data-hero-carousel]')
@@ -55,6 +91,9 @@ function render() {
   initSectionReveal();
   initImageFallbacks(translate);
   initScrollToTop();
+
+  restoreContactForm(formSnapshot);
+  window.scrollTo(0, scrollY);
 
   if (!aosInitialized) {
     AOS.init({ duration: 800, once: true });
@@ -82,4 +121,6 @@ window.addEventListener('unhandledrejection', (event) => {
   console.error('Unhandled promise rejection:', event.reason);
 });
 
-console.log('Portfolio website initialized successfully!');
+if (import.meta.env.DEV) {
+  console.log('Portfolio website initialized successfully!');
+}

@@ -11,7 +11,7 @@ export function createTestimonials({ translate }) {
               ({ image, nameKey, roleKey, textKey }) => `
                 <div class="testimonial-item">
                   <div class="testimonial-image">
-                    <img src="${image}" alt="${translate(nameKey)}" />
+                    <img src="${image}" alt="${translate(nameKey)}" loading="lazy" decoding="async" />
                   </div>
                   <div class="testimonial-content">
                     <h3>${translate(nameKey)}</h3>

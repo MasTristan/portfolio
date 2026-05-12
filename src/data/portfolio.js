@@ -7,13 +7,6 @@ export const portfolioFilters = [
 export const portfolioItems = [
   {
     category: 'ml',
-    image: '/img/portfolio/Gribouillon/home.jpg',
-    titleKey: 'portfolio-item1-title',
-    descriptionKey: 'portfolio-item1-desc',
-    tech: 'React • Flask • Machine Learning • AWS Cloud',
-  },
-  {
-    category: 'ml',
     image: '/img/portfolio/Smart_library/home.jpg',
     titleKey: 'portfolio-item2-title',
     descriptionKey: 'portfolio-item2-desc',
