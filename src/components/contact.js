@@ -2,79 +2,29 @@ import { contactData } from '@/data/contact.js';
 import { escapeHtml } from '@/modules/dom.js';
 
 export function createContact({ translate }) {
-  const { email, phone } = contactData;
+  const { email, linkedin, github } = contactData;
 
   return `
     <section id="contact" class="contact" data-aos="fade-up">
       <div class="container">
-        <h2 class="section-title">${translate('contact-title')}</h2>
+        <h2 class="section-title">${escapeHtml(translate('contact-title'))}</h2>
         <div class="contact-content">
-          <div class="contact-info">
-            <div class="contact-item">
-              <h4>${translate('contact-email-label')}</h4>
-              <p>${escapeHtml(email)}</p>
-            </div>
-            <div class="contact-item">
-              <h4>${translate('contact-phone-label')}</h4>
-              <p>${escapeHtml(phone)}</p>
-            </div>
-          </div>
-          <form class="contact-form" id="contactForm" novalidate>
-            <div class="visually-hidden" aria-hidden="true">
-              <label for="contact-gotcha">Leave this field empty</label>
-              <input
-                type="text"
-                id="contact-gotcha"
-                name="_gotcha"
-                tabindex="-1"
-                autocomplete="off"
-              />
-            </div>
-            <div class="form-group">
-              <input
-                type="text"
-                id="name"
-                name="name"
-                placeholder="${translate('form-name')}"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="${translate('form-email')}"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <input
-                type="text"
-                id="subject"
-                name="subject"
-                placeholder="${translate('form-subject')}"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <textarea
-                id="message"
-                name="message"
-                placeholder="${translate('form-message')}"
-                rows="5"
-                required
-              ></textarea>
-            </div>
-            <button type="submit" class="submit-btn">${translate('form-send')}</button>
-            <div
-              id="form-status"
-              class="form-status"
-              role="status"
-              aria-live="polite"
-              aria-atomic="true"
-            ></div>
-          </form>
+          <p class="contact-blurb">${escapeHtml(translate('contact-blurb-1'))}</p>
+          <p class="contact-blurb">${escapeHtml(translate('contact-blurb-2'))}</p>
+          <ul class="contact-links">
+            <li>
+              <span class="contact-label">${escapeHtml(translate('contact-email-label'))}:</span>
+              <a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a>
+            </li>
+            <li>
+              <span class="contact-label">${escapeHtml(translate('contact-linkedin-label'))}:</span>
+              <a href="${escapeHtml(linkedin)}" target="_blank" rel="noopener noreferrer">${escapeHtml(linkedin.replace(/^https?:\/\//, ''))}</a>
+            </li>
+            <li>
+              <span class="contact-label">${escapeHtml(translate('contact-github-label'))}:</span>
+              <a href="${escapeHtml(github)}" target="_blank" rel="noopener noreferrer">${escapeHtml(github.replace(/^https?:\/\//, ''))}</a>
+            </li>
+          </ul>
         </div>
       </div>
     </section>
