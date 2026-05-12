@@ -31,7 +31,7 @@ export function createProjects({ translate }) {
           ${projects
             .map(
               ({ titleKey, statusKey, descKey, stack, links }, index) => `
-                <article class="project-item">
+                <article class="project-item" data-tilt>
                   <span class="project-number">${ROMAN[index] ?? index + 1}</span>
                   <div class="project-body">
                     <div class="project-header">

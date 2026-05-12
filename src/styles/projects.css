@@ -14,6 +14,11 @@
   flex-direction: column;
 }
 
+.projects-list {
+  perspective: 1400px;
+  perspective-origin: 50% 30%;
+}
+
 .project-item {
   display: grid;
   grid-template-columns: 4rem 1fr;
@@ -21,6 +26,22 @@
   padding: 2.5rem 0;
   border-top: 1px solid var(--border-color);
   position: relative;
+  transform-style: preserve-3d;
+  transition:
+    transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1),
+    box-shadow 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+  will-change: transform;
+}
+
+.project-item:hover {
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-item {
+    transition: none;
+    transform: none !important;
+  }
 }
 
 .project-item:first-child {

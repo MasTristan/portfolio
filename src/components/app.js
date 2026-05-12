@@ -1,6 +1,7 @@
 import { createHeader } from '@/components/header.js';
 import { createSideNav } from '@/components/sideNav.js';
 import { createHero } from '@/components/hero.js';
+import { createTicker } from '@/components/ticker.js';
 import { createAbout } from '@/components/about.js';
 import { createExperience } from '@/components/experience.js';
 import { createSkills } from '@/components/skills.js';
@@ -14,6 +15,7 @@ export function renderApp(context) {
     createHeader(context),
     createSideNav(context),
     createHero(context),
+    createTicker(context),
     createAbout(context),
     createExperience(context),
     createSkills(context),
