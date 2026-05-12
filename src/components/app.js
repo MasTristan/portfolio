@@ -10,6 +10,7 @@ import { createFooter } from '@/components/footer.js';
 
 export function renderApp(context) {
   return [
+    `<div class="reading-progress" aria-hidden="true"></div>`,
     createHeader(context),
     createSideNav(context),
     createHero(context),

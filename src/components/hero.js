@@ -12,6 +12,24 @@ function renderStackLine(stack) {
     .join('');
 }
 
+// Split a string into individual <span class="char"> with --i index for stagger.
+// Spaces become a sentinel space (not animated) so kerning stays correct.
+function splitChars(text, startIndex, extraClass = '') {
+  let i = startIndex;
+  const cls = extraClass ? ` ${extraClass}` : '';
+  const html = Array.from(text)
+    .map((ch) => {
+      if (ch === ' ') {
+        return '<span class="char char--space" aria-hidden="true">&nbsp;</span>';
+      }
+      const idx = i;
+      i += 1;
+      return `<span class="char${cls}" style="--i:${idx}">${escapeHtml(ch)}</span>`;
+    })
+    .join('');
+  return { html, nextIndex: i };
+}
+
 export function createHero({ translate, currentLang }) {
   const { name, socials } = heroData;
   const role = translate('hero-role');
@@ -33,15 +51,23 @@ export function createHero({ translate, currentLang }) {
     domain: 'domain',
     based: isFr ? 'basé à' : 'based in',
   };
-  const disciplineVal = isFr ? 'Finance & Risque · Reporting réglementaire' : 'Finance & Risk · Regulatory reporting';
+  const disciplineVal = isFr
+    ? 'Finance & Risque · Reporting réglementaire'
+    : 'Finance & Risk · Regulatory reporting';
   const basedVal = isFr ? 'Bordeaux · Europe de l’Ouest' : 'Bordeaux · Western Europe';
 
-  // Italic accent: last name
+  // Hero title: split into chars with the last word in italic accent (.mark).
   const nameParts = name.split(' ');
-  const titleHtml =
-    nameParts.length > 1
-      ? `${escapeHtml(nameParts.slice(0, -1).join(' '))} <span class="mark">${escapeHtml(nameParts.at(-1))}</span>`
-      : escapeHtml(name);
+  let titleHtml;
+  if (nameParts.length > 1) {
+    const first = nameParts.slice(0, -1).join(' ');
+    const last = nameParts.at(-1);
+    const firstSplit = splitChars(first, 0);
+    const lastSplit = splitChars(last, firstSplit.nextIndex, 'mark');
+    titleHtml = `${firstSplit.html}<span class="char char--space" aria-hidden="true">&nbsp;</span>${lastSplit.html}`;
+  } else {
+    titleHtml = splitChars(name, 0).html;
+  }
 
   return `
     <section id="home" class="hero">
@@ -56,7 +82,7 @@ export function createHero({ translate, currentLang }) {
           <span><span class="key">${escapeHtml(metaLabel.scope)}:</span> <span class="val">${escapeHtml(metaVal.scope)}</span></span>
           <span><span class="key">${escapeHtml(metaLabel.mode)}:</span> <span class="val">${escapeHtml(metaVal.mode)}</span></span>
         </div>
-        <h1 class="hero-title">${titleHtml}</h1>
+        <h1 class="hero-title" aria-label="${escapeHtml(name)}">${titleHtml}</h1>
         <p class="hero-role"><em>${escapeHtml(role)}</em></p>
         <hr class="hero-rule" />
         <p class="hero-tagline">${escapeHtml(translate('hero-tagline'))}</p>

@@ -16,7 +16,7 @@ import {
   initImageFallbacks,
 } from '@/modules/animations.js';
 import { initScrollToTop } from '@/modules/scrollToTop.js';
-import { initShortcuts, setShortcutLang } from '@/modules/shortcuts.js';
+import { initMotion, setMotionLang } from '@/modules/motion.js';
 
 const app = document.getElementById('app');
 
@@ -42,7 +42,7 @@ function render() {
   initSectionReveal();
   initImageFallbacks(translate);
   initScrollToTop();
-  initShortcuts({ getLang: getCurrentLang });
+  initMotion({ getLang: getCurrentLang });
 
   window.scrollTo(0, scrollY);
 }
@@ -55,7 +55,7 @@ updateThemeToggleLabel(translate);
 onLanguageChange(() => {
   render();
   updateThemeToggleLabel(translate);
-  setShortcutLang(getCurrentLang());
+  setMotionLang(getCurrentLang());
 });
 
 window.addEventListener('error', (event) => {

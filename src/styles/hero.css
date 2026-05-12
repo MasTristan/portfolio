@@ -1,3 +1,7 @@
+/* ──────────────────────────────────────────────────────────────────
+   Hero — Apple-scale entrance, orchestrated reveal
+   ────────────────────────────────────────────────────────────────── */
+
 .hero {
   position: relative;
   padding: 10rem 0 5.5rem;
@@ -11,7 +15,12 @@
   inset: 0;
   background-image: radial-gradient(circle at 88% 8%, var(--accent-soft) 0%, transparent 40%);
   pointer-events: none;
-  opacity: 0.85;
+  opacity: 0;
+  animation: hero-glow 1.6s var(--ease-out) 0.1s forwards;
+}
+
+@keyframes hero-glow {
+  to { opacity: 0.85; }
 }
 
 .hero > .container {
@@ -19,7 +28,8 @@
   max-width: 1040px;
 }
 
-/* "vol. I · 2026" cartouche, top right of the hero */
+/* ── Cartouche (top-right) ───────────────────────────────────────── */
+
 .hero-cartouche {
   position: absolute;
   top: 0;
@@ -34,6 +44,8 @@
   color: var(--text-muted);
   text-align: right;
   text-transform: lowercase;
+  opacity: 0;
+  animation: fade-in 0.7s var(--ease-out) 0.05s forwards;
 }
 
 .hero-cartouche .vol {
@@ -46,11 +58,18 @@
 
 .hero-cartouche .rule {
   display: block;
-  width: 18px;
   height: 1px;
   background: var(--border-strong);
   margin: 0.25rem 0;
+  width: 0;
+  animation: rule-draw 1s var(--ease-out) 0.7s forwards;
 }
+
+@keyframes rule-draw {
+  to { width: 22px; }
+}
+
+/* ── Meta strip ──────────────────────────────────────────────────── */
 
 .hero-meta {
   display: flex;
@@ -63,19 +82,39 @@
   padding-bottom: 1rem;
   border-bottom: 1px solid var(--border-color);
   margin-bottom: 4rem;
+  opacity: 0;
+  transform: translateY(6px);
+  animation: rise-in 0.7s var(--ease-out) 0.2s forwards;
 }
 
-.hero-meta .key {
-  color: var(--text-muted);
-}
-
-.hero-meta .val {
-  color: var(--text-color);
-}
-
+.hero-meta .key { color: var(--text-muted); }
+.hero-meta .val { color: var(--text-color); }
 .hero-meta .signal {
   color: var(--signal-positive);
+  position: relative;
+  padding-left: 0.85rem;
 }
+.hero-meta .signal::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  transform: translateY(-50%);
+  box-shadow: 0 0 0 0 currentColor;
+  animation: signal-pulse 2.6s cubic-bezier(0.66, 0, 0, 1) infinite;
+}
+
+@keyframes signal-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(47, 107, 72, 0.55); }
+  70%  { box-shadow: 0 0 0 9px rgba(47, 107, 72, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(47, 107, 72, 0); }
+}
+
+/* ── Title — split into chars, each fades + rises + weights up ──── */
 
 .hero-title {
   font-family: var(--font-serif);
@@ -89,12 +128,47 @@
   text-wrap: balance;
 }
 
-.hero-title .mark {
-  font-style: italic;
-  font-weight: 400;
-  color: var(--accent-color);
-  font-variation-settings: "opsz" 72;
+.hero-title .char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.45em);
+  font-variation-settings: "opsz" 72, "wght" 300;
+  animation: char-in 0.9s var(--ease-out) forwards;
+  animation-delay: calc(var(--i, 0) * 42ms + 100ms);
+  will-change: opacity, transform, font-variation-settings;
 }
+
+.hero-title .char.mark {
+  font-style: italic;
+  color: var(--accent-color);
+  font-weight: 400;
+}
+
+.hero-title .char--space {
+  display: inline-block;
+  width: 0.32em;
+  opacity: 1;
+  animation: none;
+  transform: none;
+}
+
+@keyframes char-in {
+  0% {
+    opacity: 0;
+    transform: translateY(0.45em);
+    font-variation-settings: "opsz" 72, "wght" 300;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    font-variation-settings: "opsz" 72, "wght" 500;
+  }
+}
+
+/* ── Role — typed effect with caret (JS-driven content) ──────────── */
 
 .hero-role {
   font-family: var(--font-serif);
@@ -107,14 +181,54 @@
   letter-spacing: -0.008em;
   font-variation-settings: "opsz" 24;
   max-width: 30ch;
+  min-height: 1.5em;
+  opacity: 0;
+  animation: fade-in 0.5s var(--ease-out) 0.55s forwards;
 }
+
+.hero-role em {
+  font-style: italic;
+}
+
+.hero-role.is-typing em::after,
+.hero-role.is-typed em::after {
+  content: "▌";
+  display: inline-block;
+  margin-left: 2px;
+  color: var(--accent-color);
+  font-style: normal;
+  font-weight: 400;
+  vertical-align: baseline;
+  font-size: 0.85em;
+  animation: caret-blink 1s steps(2, end) infinite;
+}
+
+.hero-role.is-typed em::after {
+  animation: caret-fade 1s ease-out forwards;
+}
+
+@keyframes caret-blink {
+  to { opacity: 0; }
+}
+
+@keyframes caret-fade {
+  0%   { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* ── The thin rule + tagline + CTAs + socials ────────────────────── */
 
 .hero-rule {
   border: 0;
   border-top: 1px solid var(--rule-color);
   margin: 0 0 2rem;
-  width: 48px;
+  width: 0;
   opacity: 0.55;
+  animation: rule-draw-wide 1.1s var(--ease-out) 1s forwards;
+}
+
+@keyframes rule-draw-wide {
+  to { width: 48px; }
 }
 
 .hero-tagline {
@@ -125,6 +239,9 @@
   color: var(--text-color);
   margin: 0 0 2.75rem;
   font-variation-settings: "opsz" 22;
+  opacity: 0;
+  transform: translateY(6px);
+  animation: rise-in 0.7s var(--ease-out) 1.05s forwards;
 }
 
 .hero-cta {
@@ -132,6 +249,9 @@
   flex-wrap: wrap;
   gap: 1.5rem 2.5rem;
   margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateY(6px);
+  animation: rise-in 0.7s var(--ease-out) 1.25s forwards;
 }
 
 .btn {
@@ -194,6 +314,9 @@
   font-family: var(--font-mono);
   font-size: 0.82rem;
   margin-bottom: 4rem;
+  opacity: 0;
+  transform: translateY(6px);
+  animation: rise-in 0.7s var(--ease-out) 1.4s forwards;
 }
 
 .social-link {
@@ -227,12 +350,15 @@
   transform: translate(2px, -2px);
 }
 
-/* Abstract — a research-note style spec block under the hero */
+/* ── Abstract — research-note specs ──────────────────────────────── */
+
 .hero-abstract {
   position: relative;
   max-width: 540px;
   padding: 1.4rem 0 0;
   border-top: 1px solid var(--border-color);
+  opacity: 0;
+  animation: fade-in 0.7s var(--ease-out) 1.55s forwards;
 }
 
 .hero-abstract::before {
@@ -272,9 +398,23 @@
   margin: 0;
 }
 
-.hero-abstract .formula {
-  color: var(--text-strong);
+.hero-abstract dt,
+.hero-abstract dd {
+  opacity: 0;
+  transform: translateY(4px);
+  animation: rise-in 0.6s var(--ease-out) forwards;
 }
+
+.hero-abstract dl > dt:nth-of-type(1),
+.hero-abstract dl > dt:nth-of-type(1) + dd { animation-delay: 1.65s; }
+.hero-abstract dl > dt:nth-of-type(2),
+.hero-abstract dl > dt:nth-of-type(2) + dd { animation-delay: 1.75s; }
+.hero-abstract dl > dt:nth-of-type(3),
+.hero-abstract dl > dt:nth-of-type(3) + dd { animation-delay: 1.85s; }
+.hero-abstract dl > dt:nth-of-type(4),
+.hero-abstract dl > dt:nth-of-type(4) + dd { animation-delay: 1.95s; }
+
+.hero-abstract .formula { color: var(--text-strong); }
 
 .hero-abstract .formula .glyph {
   font-family: var(--font-serif);
@@ -300,28 +440,48 @@
   margin: 0 0.35rem;
 }
 
-.hero-abstract dd .signal {
-  color: var(--signal-positive);
+/* ── Shared keyframes ────────────────────────────────────────────── */
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
-.hero-abstract .underline-cell {
-  position: relative;
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-.hero-abstract .underline-cell::after {
-  content: "";
-  display: block;
-  margin-top: 0.55rem;
-  height: 1px;
-  width: 28px;
-  background: var(--border-strong);
-  opacity: 0.6;
+/* ── Reduced-motion: skip the whole entrance ─────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero::before,
+  .hero-cartouche,
+  .hero-cartouche .rule,
+  .hero-meta,
+  .hero-meta .signal::before,
+  .hero-title .char,
+  .hero-role,
+  .hero-rule,
+  .hero-tagline,
+  .hero-cta,
+  .social-links,
+  .hero-abstract,
+  .hero-abstract dt,
+  .hero-abstract dd {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    width: auto !important;
+  }
+  .hero-cartouche .rule { width: 22px !important; }
+  .hero-rule { width: 48px !important; }
 }
+
+/* ── Responsive ──────────────────────────────────────────────────── */
 
 @media (max-width: 640px) {
-  .hero {
-    padding: 7rem 0 4.5rem;
-  }
+  .hero { padding: 7rem 0 4.5rem; }
 
   .hero-cartouche {
     position: static;
@@ -330,19 +490,17 @@
     gap: 0.5rem;
     margin-bottom: 1.5rem;
   }
-
   .hero-cartouche .rule {
-    width: 24px;
     margin: 0;
+    animation-name: rule-draw-mobile;
+  }
+  @keyframes rule-draw-mobile {
+    to { width: 28px; }
   }
 
-  .hero-meta {
-    margin-bottom: 2.5rem;
-  }
+  .hero-meta { margin-bottom: 2.5rem; }
 
-  .hero-title {
-    line-height: 0.95;
-  }
+  .hero-title { line-height: 0.95; }
 
   .hero-abstract dl {
     grid-template-columns: 5rem 1fr;
