@@ -1,91 +1,33 @@
-@media (max-width: 900px) {
-  section {
-    padding: 5.5rem 0;
-  }
-
-  .section-header {
-    margin-bottom: 3rem;
-  }
-}
-
 @media (max-width: 768px) {
   .container {
-    padding: 0 18px;
-  }
-
-  .header {
-    padding: 0.7rem 0;
-  }
-
-  .header-content {
-    gap: 0.75rem;
-  }
-
-  .language-switcher {
-    padding: 0.15rem;
-  }
-
-  .lang-link {
-    padding: 0.3rem 0.5rem;
-  }
-
-  .lang-link span {
-    display: none;
+    padding: 0 22px;
   }
 
   .hero {
-    padding: 7rem 1.25rem 5rem;
-    min-height: auto;
+    padding: 7rem 0 4.5rem;
   }
 
-  .hero-content {
-    gap: 1.1rem;
+  section {
+    padding: 4rem 0;
   }
 
-  .hero-scroll-indicator {
-    display: none;
+  .section-header {
+    margin-bottom: 2rem;
   }
 
-  .skills-grid,
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .experience-list {
-    padding-left: 2rem;
-  }
-
-  .experience-item::before {
-    left: -2rem;
-  }
-
-  .about-shell {
-    padding: 2.5rem 1.5rem;
-  }
-
-  .contact-shell {
-    padding: 2.25rem 1.5rem;
+  .hero-cta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
   }
 }
 
 @media (max-width: 480px) {
-  .hero-cta {
-    flex-direction: column;
-    width: 100%;
+  .container {
+    padding: 0 18px;
   }
 
-  .hero-cta .btn {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .section-eyebrow {
-    font-size: 0.7rem;
-  }
-
-  .experience-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
+  .hero {
+    padding: 6rem 0 4rem;
   }
 }

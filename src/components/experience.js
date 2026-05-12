@@ -5,28 +5,27 @@ export function createExperience({ translate }) {
   return `
     <section id="experience" class="experience">
       <div class="container">
-        <div class="section-header">
-          <span class="section-eyebrow">02 · ${escapeHtml(translate('experience-title'))}</span>
+        <header class="section-header">
           <h2 class="section-title">${escapeHtml(translate('experience-title'))}</h2>
-        </div>
+          <span class="section-index">§ 02</span>
+        </header>
         <div class="experience-list reveal-stagger">
           ${experienceData
             .map(
               ({ titleKey, employerKey, periodKey, locationKey, bulletKeys }) => `
                 <article class="experience-item">
-                  <header class="experience-header">
+                  <span class="experience-period">${escapeHtml(translate(periodKey))}</span>
+                  <div class="experience-body">
                     <h3 class="experience-title">${escapeHtml(translate(titleKey))}</h3>
-                    <span class="experience-period">${escapeHtml(translate(periodKey))}</span>
-                  </header>
-                  <p class="experience-meta">
-                    <span class="experience-employer">${escapeHtml(translate(employerKey))}</span>
-                    <span class="experience-location">${escapeHtml(translate(locationKey))}</span>
-                  </p>
-                  <ul class="experience-bullets">
-                    ${bulletKeys
-                      .map((key) => `<li>${escapeHtml(translate(key))}</li>`)
-                      .join('')}
-                  </ul>
+                    <p class="experience-meta">
+                      <span class="experience-employer">${escapeHtml(translate(employerKey))}</span><span class="experience-location">${escapeHtml(translate(locationKey))}</span>
+                    </p>
+                    <ul class="experience-bullets">
+                      ${bulletKeys
+                        .map((key) => `<li>${escapeHtml(translate(key))}</li>`)
+                        .join('')}
+                    </ul>
+                  </div>
                 </article>
               `,
             )

@@ -8,55 +8,78 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 90px;
+  scroll-padding-top: 88px;
   -webkit-text-size-adjust: 100%;
 }
 
 body {
-  font-family: var(--font-family);
-  font-feature-settings: "cv02", "cv03", "cv04", "cv11", "ss01";
-  font-optical-sizing: auto;
-  line-height: 1.6;
+  font-family: var(--font-sans);
+  font-feature-settings: "kern", "liga", "tnum", "ss01";
+  font-size: 16.5px;
+  line-height: 1.65;
   color: var(--text-color);
   background-color: var(--bg-color);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  transition: background-color 0.4s var(--ease-out), color 0.4s var(--ease-out);
-  overflow-x: hidden;
+  transition: background-color 0.3s var(--ease-out), color 0.3s var(--ease-out);
 }
 
 .container {
-  max-width: 1180px;
+  max-width: 720px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 28px;
+}
+
+.container--wide {
+  max-width: 920px;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  line-height: 1.18;
+  letter-spacing: -0.012em;
   color: var(--text-strong);
 }
 
-h1 { font-size: clamp(2.5rem, 6vw, 4.25rem); font-weight: 800; }
-h2 { font-size: clamp(2rem, 4.5vw, 3rem); }
-h3 { font-size: clamp(1.35rem, 2.4vw, 1.7rem); }
-h4 { font-size: 1.25rem; }
-h5 { font-size: 1.1rem; }
+h1 {
+  font-size: clamp(2.6rem, 6.5vw, 4rem);
+  font-weight: 600;
+  letter-spacing: -0.022em;
+}
+
+h2 {
+  font-size: clamp(1.65rem, 3vw, 2rem);
+}
+
+h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 1rem;
+}
 
 p {
   color: var(--text-color);
 }
 
+em {
+  font-style: italic;
+}
+
 a {
   text-decoration: none;
   color: var(--accent-color);
+  border-bottom: 1px solid var(--accent-rule);
   transition: var(--transition-fast);
 }
 
 a:hover {
   color: var(--accent-strong);
+  border-bottom-color: var(--accent-color);
 }
 
 ::selection {
@@ -66,8 +89,8 @@ a:hover {
 
 :focus-visible {
   outline: 2px solid var(--accent-color);
-  outline-offset: 3px;
-  border-radius: 4px;
+  outline-offset: 2px;
+  border-radius: 2px;
 }
 
 img {
@@ -78,6 +101,12 @@ img {
 
 button {
   font-family: inherit;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--border-color);
+  margin: 0;
 }
 
 @media (prefers-reduced-motion: reduce) {

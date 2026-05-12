@@ -8,14 +8,15 @@ export function initScrollAnimations() {
 }
 
 export function initSectionReveal() {
-  // Make every <section> a reveal target by default unless it opts out.
-  document
-    .querySelectorAll('section')
-    .forEach((section) => {
-      if (!section.classList.contains('reveal') && !section.classList.contains('no-reveal')) {
-        section.classList.add('reveal');
-      }
-    });
+  document.querySelectorAll('section').forEach((section) => {
+    if (
+      !section.classList.contains('reveal') &&
+      !section.classList.contains('reveal-stagger') &&
+      !section.classList.contains('no-reveal')
+    ) {
+      section.classList.add('reveal');
+    }
+  });
 
   if (revealObserver) {
     revealObserver.disconnect();
@@ -30,7 +31,7 @@ export function initSectionReveal() {
         }
       });
     },
-    { threshold: 0.08, rootMargin: '0px 0px -60px 0px' },
+    { threshold: 0.08, rootMargin: '0px 0px -40px 0px' },
   );
 
   document
@@ -81,7 +82,7 @@ export function initImageFallbacks(translate) {
         background: var(--bg-dark);
         color: var(--text-muted);
         font-size: 12px;
-        border-radius: 8px;
+        border-radius: 4px;
       `;
 
       if (img.parentNode) {
