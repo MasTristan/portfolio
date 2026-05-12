@@ -16,22 +16,25 @@ function renderLink({ href, labelKey, disabled }, translate) {
 
 export function createProjects({ translate }) {
   return `
-    <section id="projects" class="projects" data-aos="fade-up">
+    <section id="projects" class="projects">
       <div class="container">
-        <h2 class="section-title">${escapeHtml(translate('projects-title'))}</h2>
-        <p class="projects-intro">${escapeHtml(translate('projects-intro'))}</p>
-        <div class="projects-grid">
+        <div class="section-header">
+          <span class="section-eyebrow">04 · ${escapeHtml(translate('projects-title'))}</span>
+          <h2 class="section-title">${escapeHtml(translate('projects-title'))}</h2>
+          <p class="section-kicker">${escapeHtml(translate('projects-intro'))}</p>
+        </div>
+        <div class="projects-grid reveal-stagger">
           ${projects
             .map(
               ({ titleKey, statusKey, descKey, stack, links }) => `
                 <article class="project-card">
                   <header class="project-header">
-                    <h3 class="project-title">${escapeHtml(translate(titleKey))}</h3>
                     <span class="project-status">${escapeHtml(translate(statusKey))}</span>
+                    <h3 class="project-title">${escapeHtml(translate(titleKey))}</h3>
                   </header>
                   <p class="project-desc">${escapeHtml(translate(descKey))}</p>
                   <p class="project-stack">
-                    <span class="project-stack-label">${escapeHtml(translate('project-stack-label'))}:</span>
+                    <span class="project-stack-label">${escapeHtml(translate('project-stack-label'))}</span>
                     ${stack.map((tech) => `<span class="project-tech">${escapeHtml(tech)}</span>`).join('')}
                   </p>
                   <div class="project-links">

@@ -3,10 +3,13 @@ import { escapeHtml } from '@/modules/dom.js';
 
 export function createExperience({ translate }) {
   return `
-    <section id="experience" class="experience" data-aos="fade-up">
+    <section id="experience" class="experience">
       <div class="container">
-        <h2 class="section-title">${escapeHtml(translate('experience-title'))}</h2>
-        <div class="experience-list">
+        <div class="section-header">
+          <span class="section-eyebrow">02 · ${escapeHtml(translate('experience-title'))}</span>
+          <h2 class="section-title">${escapeHtml(translate('experience-title'))}</h2>
+        </div>
+        <div class="experience-list reveal-stagger">
           ${experienceData
             .map(
               ({ titleKey, employerKey, periodKey, locationKey, bulletKeys }) => `

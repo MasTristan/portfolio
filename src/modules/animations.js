@@ -1,33 +1,21 @@
-let fadeObserver;
 let revealObserver;
+let headerScrollBound = false;
+
+const REVEAL_SELECTOR = '.reveal, .reveal-stagger';
 
 export function initScrollAnimations() {
-  const elements = document.querySelectorAll(
-    '.about-item, .skill-category, .portfolio-item, .testimonial-item, .resume-item',
-  );
-
-  if (fadeObserver) {
-    fadeObserver.disconnect();
-  }
-
-  fadeObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('fade-in');
-        }
-      });
-    },
-    { threshold: 0.1, rootMargin: '0px 0px -50px 0px' },
-  );
-
-  elements.forEach((element) => fadeObserver.observe(element));
+  initSectionReveal();
 }
 
 export function initSectionReveal() {
+  // Make every <section> a reveal target by default unless it opts out.
   document
     .querySelectorAll('section')
-    .forEach((section) => section.classList.add('reveal'));
+    .forEach((section) => {
+      if (!section.classList.contains('reveal') && !section.classList.contains('no-reveal')) {
+        section.classList.add('reveal');
+      }
+    });
 
   if (revealObserver) {
     revealObserver.disconnect();
@@ -42,12 +30,32 @@ export function initSectionReveal() {
         }
       });
     },
-    { threshold: 0.1 },
+    { threshold: 0.08, rootMargin: '0px 0px -60px 0px' },
   );
 
   document
-    .querySelectorAll('.reveal')
+    .querySelectorAll(REVEAL_SELECTOR)
     .forEach((element) => revealObserver.observe(element));
+
+  bindHeaderScrollState();
+}
+
+function bindHeaderScrollState() {
+  if (headerScrollBound) {
+    return;
+  }
+  headerScrollBound = true;
+
+  const apply = () => {
+    const header = document.querySelector('.header');
+    if (!header) {
+      return;
+    }
+    header.classList.toggle('is-scrolled', window.pageYOffset > 12);
+  };
+
+  apply();
+  window.addEventListener('scroll', apply, { passive: true });
 }
 
 export function initImageFallbacks(translate) {
@@ -64,15 +72,17 @@ export function initImageFallbacks(translate) {
       const placeholder = document.createElement('div');
       placeholder.className = 'image-placeholder';
       placeholder.textContent = translate('image-not-found');
-      placeholder.style.width = `${img.width || 100}px`;
-      placeholder.style.height = `${img.height || 100}px`;
-      placeholder.style.display = 'flex';
-      placeholder.style.alignItems = 'center';
-      placeholder.style.justifyContent = 'center';
-      placeholder.style.background = '#f0f0f0';
-      placeholder.style.color = '#666';
-      placeholder.style.fontSize = '12px';
-      placeholder.style.borderRadius = '4px';
+      placeholder.style.cssText = `
+        width: ${img.width || 100}px;
+        height: ${img.height || 100}px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--bg-dark);
+        color: var(--text-muted);
+        font-size: 12px;
+        border-radius: 8px;
+      `;
 
       if (img.parentNode) {
         img.parentNode.replaceChild(placeholder, img);
