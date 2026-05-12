@@ -9,6 +9,7 @@ export const experienceData = [
       'experience-1-bullet2',
       'experience-1-bullet3',
       'experience-1-bullet4',
+      'experience-1-bullet5',
     ],
   },
   {
@@ -20,6 +21,7 @@ export const experienceData = [
       'experience-2-bullet1',
       'experience-2-bullet2',
       'experience-2-bullet3',
+      'experience-2-bullet4',
     ],
   },
 ];

@@ -4,22 +4,26 @@ import { escapeHtml } from '@/modules/dom.js';
 // Phrases that should render as <span class="hl"> highlights, per language.
 const HIGHLIGHTS = {
   en: [
+    'Hybrid technical and functional profile',
     'Basel III Standard Approach',
     'NDoD regulatory reporting',
     'Oracle SQL/PL-SQL',
     'FRM certification (GARP)',
     'Télécom Saint-Étienne',
     'full-remote mandates',
-    'XGBoost',
+    'business teams and information systems',
+    'requirements gathering and workshop facilitation',
   ],
   fr: [
+    'Profil hybride technique / fonctionnel',
     'Bâle III (approche standard)',
     'reporting NDoD',
     'Oracle SQL/PL-SQL',
     'certification FRM (GARP)',
     'Télécom Saint-Étienne',
     'full remote',
-    'XGBoost',
+    "équipes métier et les systèmes d'information",
+    "recueil des besoins et de l'animation d'ateliers",
   ],
 };
 
