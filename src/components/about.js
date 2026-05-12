@@ -39,7 +39,8 @@ export function createAbout({ translate, currentLang }) {
       <div class="container">
         <header class="section-header">
           <h2 class="section-title">${escapeHtml(translate('about-title'))}</h2>
-          <span class="section-index">§ 01</span>
+          <span class="section-leader" aria-hidden="true"></span>
+          <span class="section-index"><span class="sym">§</span>01</span>
         </header>
         <div class="about-content reveal-stagger">
           ${aboutData.paragraphKeys

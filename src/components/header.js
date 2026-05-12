@@ -9,6 +9,7 @@ export function createHeader({ translate, currentLang, theme }) {
         <div class="header-content">
           <div class="logo">
             <span class="logo-text">Tristan Mas</span>
+            <span class="logo-current" data-current-section aria-live="polite"></span>
           </div>
           <nav class="nav">
             <div class="language-switcher">

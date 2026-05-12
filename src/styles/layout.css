@@ -8,13 +8,10 @@ section + section {
 }
 
 .section-header {
-  margin-bottom: 2.5rem;
+  margin-bottom: 2.75rem;
   display: flex;
   align-items: baseline;
-  justify-content: space-between;
-  gap: 1.5rem;
-  border-bottom: 1px solid var(--border-color);
-  padding-bottom: 0.85rem;
+  gap: 1rem;
 }
 
 .section-title {
@@ -23,6 +20,15 @@ section + section {
   font-weight: 600;
   margin: 0;
   letter-spacing: -0.018em;
+  white-space: nowrap;
+}
+
+.section-leader {
+  flex: 1;
+  height: 0;
+  border-bottom: 1px dotted var(--border-strong);
+  transform: translateY(-0.35em);
+  opacity: 0.75;
 }
 
 .section-index {
@@ -33,4 +39,10 @@ section + section {
   color: var(--text-muted);
   text-transform: lowercase;
   white-space: nowrap;
+}
+
+.section-index .sym {
+  font-family: var(--font-serif);
+  font-style: italic;
+  margin-right: 0.15rem;
 }

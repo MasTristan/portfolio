@@ -19,6 +19,11 @@ body {
   line-height: 1.65;
   color: var(--text-color);
   background-color: var(--bg-color);
+  background-image:
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-position: -1px -1px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -73,13 +78,11 @@ em {
 a {
   text-decoration: none;
   color: var(--accent-color);
-  border-bottom: 1px solid var(--accent-rule);
-  transition: var(--transition-fast);
+  transition: color 0.18s ease;
 }
 
 a:hover {
   color: var(--accent-strong);
-  border-bottom-color: var(--accent-color);
 }
 
 ::selection {

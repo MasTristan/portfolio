@@ -7,7 +7,8 @@ export function createExperience({ translate }) {
       <div class="container">
         <header class="section-header">
           <h2 class="section-title">${escapeHtml(translate('experience-title'))}</h2>
-          <span class="section-index">§ 02</span>
+          <span class="section-leader" aria-hidden="true"></span>
+          <span class="section-index"><span class="sym">§</span>02</span>
         </header>
         <div class="experience-list reveal-stagger">
           ${experienceData

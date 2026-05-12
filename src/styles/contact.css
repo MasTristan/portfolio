@@ -53,15 +53,21 @@
   font-family: var(--font-mono);
   font-size: 0.92rem;
   color: var(--text-color);
-  border-bottom: 1px solid var(--accent-rule);
-  padding-bottom: 1px;
+  padding-bottom: 2px;
   word-break: break-all;
-  transition: var(--transition-fast);
+  text-decoration: none;
+  background-image:
+    linear-gradient(var(--accent-rule), var(--accent-rule)),
+    linear-gradient(var(--accent-color), var(--accent-color));
+  background-size: 100% 1px, 0% 1px;
+  background-position: 0 100%, 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.35s var(--ease-out), color 0.18s ease;
 }
 
 .contact-links a:hover {
   color: var(--accent-color);
-  border-bottom-color: var(--accent-color);
+  background-size: 100% 1px, 100% 1px;
 }
 
 @media (max-width: 540px) {
