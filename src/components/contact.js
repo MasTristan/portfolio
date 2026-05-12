@@ -11,11 +11,11 @@ export function createContact({ translate }) {
   return `
     <section id="contact" class="contact">
       <div class="container">
-        <div class="section-header">
-          <span class="section-eyebrow">05 · ${escapeHtml(translate('contact-title'))}</span>
+        <header class="section-header">
           <h2 class="section-title">${escapeHtml(translate('contact-title'))}</h2>
-        </div>
-        <div class="contact-shell reveal">
+          <span class="section-index">§ 05</span>
+        </header>
+        <div class="contact-content reveal">
           <p class="contact-blurb">${escapeHtml(translate('contact-blurb-1'))}</p>
           <p class="contact-blurb">${escapeHtml(translate('contact-blurb-2'))}</p>
           <ul class="contact-links">

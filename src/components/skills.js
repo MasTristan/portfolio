@@ -5,16 +5,16 @@ export function createSkills({ translate }) {
   return `
     <section id="skills" class="skills">
       <div class="container">
-        <div class="section-header">
-          <span class="section-eyebrow">03 · ${escapeHtml(translate('skills-title'))}</span>
+        <header class="section-header">
           <h2 class="section-title">${escapeHtml(translate('skills-title'))}</h2>
-        </div>
+          <span class="section-index">§ 03</span>
+        </header>
         <div class="skills-grid reveal-stagger">
           ${skillCategories
             .map(
               ({ titleKey, skills }) => `
                 <div class="skill-category">
-                  <h3>${escapeHtml(translate(titleKey))}</h3>
+                  <p class="skill-category-label">${escapeHtml(translate(titleKey))}</p>
                   <ul class="skill-chips">
                     ${skills
                       .map(({ label }) => `<li class="skill-chip">${escapeHtml(label)}</li>`)
