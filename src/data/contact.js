@@ -1,4 +1,6 @@
+// TODO: replace with the real email address before going live.
 export const contactData = {
-  email: 'tristan.mas@telecom-st-etienne.fr',
-  phone: '+33 7 81 82 88 39',
+  email: 'contact@example.com',
+  linkedin: 'https://www.linkedin.com/in/tristan-mas/',
+  github: 'https://github.com/mastristan',
 };
