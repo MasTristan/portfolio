@@ -274,7 +274,21 @@
   background-size: 100% 1px, 0% 1px;
   background-position: 0 100%, 0 100%;
   background-repeat: no-repeat;
-  transition: background-size 0.4s var(--ease-out), color 0.18s ease;
+  transition:
+    background-size 0.4s var(--ease-out),
+    color 0.18s ease,
+    transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+  will-change: transform;
+}
+
+[data-magnetic] {
+  display: inline-flex;
+}
+
+[data-magnetic][data-magnetic-active="true"] {
+  transition: transform 0.08s linear,
+    background-size 0.4s var(--ease-out),
+    color 0.18s ease;
 }
 
 .btn::after {
@@ -396,6 +410,17 @@
 .hero-abstract dd {
   color: var(--text-color);
   margin: 0;
+}
+
+/* Discipline phrase crossfade swap */
+.hero-abstract [data-cycle] {
+  display: inline-block;
+  transition: opacity 0.24s ease, transform 0.24s ease;
+}
+
+.hero-abstract [data-cycle].is-swapping {
+  opacity: 0;
+  transform: translateY(-3px);
 }
 
 .hero-abstract dt,

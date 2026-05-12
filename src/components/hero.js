@@ -70,12 +70,12 @@ export function createHero({ translate, currentLang }) {
   }
 
   return `
-    <section id="home" class="hero">
+    <section id="home" class="hero no-reveal">
       <div class="container container--wide">
         <div class="hero-cartouche" aria-hidden="true">
           <span class="vol">Vol.&nbsp;I</span>
           <span class="rule"></span>
-          <span>portfolio · 2026</span>
+          <span data-clock>—:—:— · BORDEAUX</span>
         </div>
         <div class="hero-meta">
           <span><span class="key">${escapeHtml(metaLabel.status)}:</span> <span class="signal">${escapeHtml(metaVal.status)}</span></span>
@@ -87,7 +87,7 @@ export function createHero({ translate, currentLang }) {
         <hr class="hero-rule" />
         <p class="hero-tagline">${escapeHtml(translate('hero-tagline'))}</p>
         <div class="hero-cta">
-          <a href="#projects" class="btn btn-primary" data-scroll="projects">
+          <a href="#projects" class="btn btn-primary" data-scroll="projects" data-magnetic>
             ${escapeHtml(translate('hero-cta-projects'))}
           </a>
           <a href="#contact" class="btn" data-scroll="contact">
@@ -108,7 +108,7 @@ export function createHero({ translate, currentLang }) {
         <aside class="hero-abstract" aria-label="Profile abstract">
           <dl>
             <dt>${escapeHtml(abstractLabel.discipline)}</dt>
-            <dd>${escapeHtml(disciplineVal)}</dd>
+            <dd data-cycle="discipline">${escapeHtml(disciplineVal)}</dd>
 
             <dt>${escapeHtml(abstractLabel.stack)}</dt>
             <dd>

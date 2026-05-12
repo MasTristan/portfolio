@@ -53,6 +53,22 @@ section + section {
   letter-spacing: -0.025em;
   font-variation-settings: "opsz" 48;
   line-height: 1.02;
+  /* Mask-wipe reveal: hidden until .is-revealed is added by the IO */
+  clip-path: inset(0 100% -0.15em 0);
+  transition: clip-path 0.95s var(--ease-out) 0.1s;
+  display: inline-block;
+  transform: translateZ(0);
+}
+
+.section-title.is-revealed {
+  clip-path: inset(0 0 -0.15em 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-title {
+    clip-path: none;
+    transition: none;
+  }
 }
 
 .section-title .accent {
