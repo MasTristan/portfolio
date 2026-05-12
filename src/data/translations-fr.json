@@ -50,7 +50,7 @@
   "projects-title": "Projets",
   "projects-intro": "Trois projets en construction — un par mois. Les liens GitHub et démos apparaîtront ici au fil des publications.",
   "project-1-title": "Moteur de Scoring Crédit Bâle III",
-  "project-1-status": "En cours — publication Mois 1",
+  "project-1-status": "Publié · en ligne",
   "project-1-desc": "Moteur de scoring crédit PL/SQL de niveau production, développé sur Oracle XE à partir d'un portefeuille de leasing automobile synthétique. Implémente l'approche standard Bâle III pour le calcul des exigences en fonds propres : pondération du risque, segmentation des expositions, calcul des RWA. Inclut des procédures stockées, tables de contrôle et vues de réconciliation.",
   "project-2-title": "Dashboard Réglementaire Banques Européennes",
   "project-2-status": "En cours — publication Mois 2",

@@ -50,7 +50,7 @@
   "projects-title": "Projects",
   "projects-intro": "Three projects in build — one per month. GitHub and live links will appear here as each one ships.",
   "project-1-title": "Basel III Credit Scoring Engine",
-  "project-1-status": "In progress — releasing Month 1",
+  "project-1-status": "Shipped · live",
   "project-1-desc": "A production-grade PL/SQL credit scoring engine built on Oracle XE, simulating a synthetic automotive leasing portfolio. Implements the Basel III Standard Approach for credit risk capital requirement calculation, including risk weight assignment, exposure segmentation, and RWA computation. Stored procedures, control tables, and reconciliation views included.",
   "project-2-title": "European Banks Regulatory Dashboard",
   "project-2-status": "In progress — releasing Month 2",

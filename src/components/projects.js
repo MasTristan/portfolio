@@ -30,13 +30,13 @@ export function createProjects({ translate }) {
         <div class="projects-list reveal-stagger">
           ${projects
             .map(
-              ({ titleKey, statusKey, descKey, stack, links }, index) => `
+              ({ titleKey, statusKey, statusKind, descKey, stack, links }, index) => `
                 <article class="project-item" data-tilt>
                   <span class="project-number">${ROMAN[index] ?? index + 1}</span>
                   <div class="project-body">
                     <div class="project-header">
                       <h3 class="project-title">${escapeHtml(translate(titleKey))}</h3>
-                      <span class="project-status">${escapeHtml(translate(statusKey))}</span>
+                      <span class="project-status${statusKind === 'live' ? ' is-live' : ''}">${escapeHtml(translate(statusKey))}</span>
                     </div>
                     <p class="project-desc">${escapeHtml(translate(descKey))}</p>
                     <p class="project-stack">

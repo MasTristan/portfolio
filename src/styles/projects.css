@@ -91,10 +91,49 @@
   letter-spacing: 0.05em;
   text-transform: lowercase;
   white-space: nowrap;
-  padding: 0.18rem 0.5rem;
+  padding: 0.18rem 0.5rem 0.18rem 0.85rem;
   border: 1px solid currentColor;
   border-radius: 2px;
   opacity: 0.85;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+}
+
+.project-status::before {
+  content: "";
+  position: absolute;
+  left: 0.45rem;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  transform: translateY(-50%);
+}
+
+.project-status.is-live {
+  color: var(--signal-positive);
+  opacity: 1;
+}
+
+.project-status.is-live::before {
+  background: var(--signal-positive);
+  box-shadow: 0 0 0 0 var(--signal-positive);
+  animation: project-live-pulse 2.6s cubic-bezier(0.66, 0, 0, 1) infinite;
+}
+
+@keyframes project-live-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(47, 107, 72, 0.55); }
+  70%  { box-shadow: 0 0 0 8px rgba(47, 107, 72, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(47, 107, 72, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-status.is-live::before {
+    animation: none;
+  }
 }
 
 .project-desc {
