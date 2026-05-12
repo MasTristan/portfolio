@@ -35,6 +35,9 @@ export function createHero({ translate, currentLang }) {
         <p class="hero-role"><em>${escapeHtml(role)}</em></p>
         <hr class="hero-rule" />
         <p class="hero-stack" aria-label="${escapeHtml(stack)}">${renderStackLine(stack)}</p>
+        <p class="hero-formula" aria-label="Expected loss equals probability of default times loss given default times exposure at default">
+          <span class="label">domain</span><span class="glyph">E</span>[<span class="glyph">L</span>]<span class="eq">=</span>PD<span class="op">·</span>LGD<span class="op">·</span>EAD
+        </p>
         <p class="hero-tagline">${escapeHtml(translate('hero-tagline'))}</p>
         <div class="hero-cta">
           <a href="#projects" class="btn btn-primary" data-scroll="projects">

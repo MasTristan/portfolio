@@ -60,7 +60,7 @@
   font-family: var(--font-mono);
   font-size: 0.92rem;
   color: var(--text-color);
-  margin: 0 0 1.5rem;
+  margin: 0 0 0.6rem;
   letter-spacing: 0;
 }
 
@@ -68,6 +68,44 @@
   display: inline-block;
   margin: 0 0.45rem;
   color: var(--text-muted);
+}
+
+.hero-formula {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 0 0 2rem;
+  letter-spacing: 0.01em;
+}
+
+.hero-formula .glyph {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.02em;
+  color: var(--text-color);
+}
+
+.hero-formula .eq {
+  color: var(--text-muted);
+  margin: 0 0.4rem;
+}
+
+.hero-formula .op {
+  color: var(--text-muted);
+  margin: 0 0.35rem;
+}
+
+.hero-formula .label {
+  display: inline-block;
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  padding: 0.08rem 0.45rem;
+  margin-right: 0.85rem;
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
+  color: var(--text-muted);
+  vertical-align: 0.06em;
 }
 
 .hero-tagline {
@@ -87,31 +125,37 @@
 }
 
 .btn {
+  position: relative;
   font-family: var(--font-sans);
   font-size: 0.98rem;
   font-weight: 500;
   color: var(--accent-color);
   background: none;
   border: 0;
-  border-bottom: 1px solid var(--accent-rule);
-  padding: 0 0 0.18rem;
+  padding: 0 0 0.22rem;
   cursor: pointer;
-  transition: var(--transition-fast);
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
   text-decoration: none;
+  background-image:
+    linear-gradient(var(--accent-rule), var(--accent-rule)),
+    linear-gradient(var(--accent-color), var(--accent-color));
+  background-size: 100% 1px, 0% 1px;
+  background-position: 0 100%, 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.35s var(--ease-out), color 0.18s ease;
 }
 
 .btn::after {
   content: "→";
   font-family: var(--font-mono);
-  transition: transform 0.2s var(--ease-out);
+  transition: transform 0.25s var(--ease-out);
 }
 
 .btn:hover {
   color: var(--accent-strong);
-  border-bottom-color: var(--accent-color);
+  background-size: 100% 1px, 100% 1px;
 }
 
 .btn:hover::after {
@@ -121,12 +165,13 @@
 .btn-primary {
   font-weight: 600;
   color: var(--text-strong);
-  border-bottom-color: var(--rule-color);
+  background-image:
+    linear-gradient(var(--border-strong), var(--border-strong)),
+    linear-gradient(var(--text-strong), var(--text-strong));
 }
 
 .btn-primary:hover {
   color: var(--text-strong);
-  border-bottom-color: var(--text-strong);
 }
 
 .social-links {
@@ -138,27 +183,35 @@
 }
 
 .social-link {
+  position: relative;
   color: var(--text-light);
-  border-bottom: 1px solid transparent;
-  padding-bottom: 1px;
-  transition: var(--transition-fast);
+  padding-bottom: 2px;
   text-decoration: none;
+  background-image:
+    linear-gradient(transparent, transparent),
+    linear-gradient(var(--accent-color), var(--accent-color));
+  background-size: 100% 1px, 0% 1px;
+  background-position: 0 100%, 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.35s var(--ease-out), color 0.18s ease;
 }
 
 .social-link::after {
   content: " ↗";
   color: var(--text-muted);
   margin-left: 0.1rem;
-  transition: var(--transition-fast);
+  transition: transform 0.25s var(--ease-out), color 0.18s ease;
+  display: inline-block;
 }
 
 .social-link:hover {
   color: var(--accent-color);
-  border-bottom-color: var(--accent-color);
+  background-size: 100% 1px, 100% 1px;
 }
 
 .social-link:hover::after {
   color: var(--accent-color);
+  transform: translate(2px, -2px);
 }
 
 /* Subtle paper texture in the hero only, dark-mode neutral. */

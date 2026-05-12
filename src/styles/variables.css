@@ -54,6 +54,10 @@
   --side-nav-offset: 24px;
   --side-nav-size: 0;
   --side-nav-gap: 0.4rem;
+
+  /* Texture */
+  --grid-color: rgba(20, 20, 28, 0.045);
+  --grid-color-strong: rgba(20, 20, 28, 0.085);
 }
 
 :root[data-theme="dark"] {
@@ -83,4 +87,7 @@
   --shadow: 0 1px 0 rgba(0, 0, 0, 0.5), 0 12px 28px -16px rgba(0, 0, 0, 0.8);
 
   --header-bg: rgba(15, 15, 18, 0.85);
+
+  --grid-color: rgba(255, 255, 255, 0.028);
+  --grid-color-strong: rgba(255, 255, 255, 0.055);
 }

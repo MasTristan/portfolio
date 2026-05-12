@@ -23,7 +23,8 @@ export function createProjects({ translate }) {
       <div class="container">
         <header class="section-header">
           <h2 class="section-title">${escapeHtml(translate('projects-title'))}</h2>
-          <span class="section-index">§ 04</span>
+          <span class="section-leader" aria-hidden="true"></span>
+          <span class="section-index"><span class="sym">§</span>04</span>
         </header>
         <p class="about-paragraph" style="max-width: 60ch; margin-bottom: 2rem;">${escapeHtml(translate('projects-intro'))}</p>
         <div class="projects-list reveal-stagger">
