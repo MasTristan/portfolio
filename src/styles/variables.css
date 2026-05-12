@@ -1,45 +1,49 @@
 :root {
-  /* Surfaces — warm, paper-like */
-  --bg-color: #faf8f3;
-  --bg-elevated: #ffffff;
-  --bg-dark: #f1ede4;
-  --bg-inverse: #14141a;
+  /* Surfaces — warm paper */
+  --bg-color: #f7f4ea;
+  --bg-elevated: #fcfaf2;
+  --bg-dark: #efeadb;
+  --bg-inverse: #0b0b0f;
 
   /* Ink */
-  --text-color: #1a1a20;
-  --text-strong: #0c0c10;
-  --text-light: #4a4a55;
-  --text-muted: #767680;
+  --text-color: #181820;
+  --text-strong: #07070b;
+  --text-light: #444452;
+  --text-muted: #7a7a85;
 
-  /* Accent — single navy, no gradients */
-  --accent-color: #1f3a6e;
-  --accent-strong: #142849;
-  --accent-soft: rgba(31, 58, 110, 0.08);
-  --accent-rule: rgba(31, 58, 110, 0.25);
+  /* Accent — one confident navy */
+  --accent-color: #1c2c54;
+  --accent-strong: #0e1b3a;
+  --accent-soft: rgba(28, 44, 84, 0.08);
+  --accent-rule: rgba(28, 44, 84, 0.22);
+
+  /* One warm moment — used once, for the formula glyph */
+  --accent-gold: #a87a2e;
+  --accent-gold-soft: rgba(168, 122, 46, 0.14);
 
   /* Signals */
-  --signal-positive: #2f6f4f;
-  --signal-pending: #8a5a14;
+  --signal-positive: #2f6b48;
+  --signal-pending: #9a6712;
 
   /* Lines */
-  --border-color: #d8d3c5;
-  --border-strong: #b6ad94;
-  --rule-color: #2a2a32;
+  --border-color: #d8d0ba;
+  --border-strong: #b3a987;
+  --rule-color: #1d1d23;
 
-  /* Shadows — very restrained */
-  --shadow-sm: 0 1px 0 rgba(20, 20, 28, 0.06);
-  --shadow: 0 1px 0 rgba(20, 20, 28, 0.06), 0 8px 24px -16px rgba(20, 20, 28, 0.18);
+  /* Shadows */
+  --shadow-sm: 0 1px 0 rgba(15, 15, 22, 0.05);
+  --shadow: 0 1px 0 rgba(15, 15, 22, 0.05), 0 22px 60px -32px rgba(15, 15, 22, 0.18);
 
   /* Radii */
-  --radius-sm: 4px;
+  --radius-sm: 3px;
   --radius: 6px;
   --radius-lg: 8px;
 
   /* Type */
   --font-serif:
-    "IBM Plex Serif", "Source Serif Pro", Georgia, "Times New Roman", serif;
+    "Newsreader", "Source Serif Pro", Georgia, "Times New Roman", serif;
   --font-sans:
-    "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono:
     "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   --font-family: var(--font-sans);
@@ -50,8 +54,8 @@
   --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
 
   /* Chrome */
-  --header-bg: rgba(250, 248, 243, 0.85);
-  --side-nav-offset: 24px;
+  --header-bg: rgba(247, 244, 234, 0.88);
+  --side-nav-offset: 28px;
   --side-nav-size: 0;
   --side-nav-gap: 0.4rem;
 
@@ -61,32 +65,35 @@
 }
 
 :root[data-theme="dark"] {
-  --bg-color: #0f0f12;
-  --bg-elevated: #16161b;
-  --bg-dark: #131316;
-  --bg-inverse: #faf8f3;
+  --bg-color: #0a0a0e;
+  --bg-elevated: #131319;
+  --bg-dark: #0f0f15;
+  --bg-inverse: #f7f4ea;
 
-  --text-color: #e8e6e0;
-  --text-strong: #fbfaf6;
-  --text-light: #a8a8a0;
-  --text-muted: #6c6c70;
+  --text-color: #ebe9e2;
+  --text-strong: #ffffff;
+  --text-light: #aeaea4;
+  --text-muted: #6e6e74;
 
-  --accent-color: #95b3ff;
-  --accent-strong: #b6cbff;
-  --accent-soft: rgba(149, 179, 255, 0.1);
-  --accent-rule: rgba(149, 179, 255, 0.3);
+  --accent-color: #a8bff5;
+  --accent-strong: #c5d4fa;
+  --accent-soft: rgba(168, 191, 245, 0.12);
+  --accent-rule: rgba(168, 191, 245, 0.3);
+
+  --accent-gold: #d6b069;
+  --accent-gold-soft: rgba(214, 176, 105, 0.18);
 
   --signal-positive: #6dbf95;
   --signal-pending: #d2a55a;
 
-  --border-color: #25252c;
+  --border-color: #23232b;
   --border-strong: #353541;
-  --rule-color: #e8e6e0;
+  --rule-color: #ebe9e2;
 
   --shadow-sm: 0 1px 0 rgba(0, 0, 0, 0.5);
-  --shadow: 0 1px 0 rgba(0, 0, 0, 0.5), 0 12px 28px -16px rgba(0, 0, 0, 0.8);
+  --shadow: 0 1px 0 rgba(0, 0, 0, 0.5), 0 22px 60px -32px rgba(0, 0, 0, 0.8);
 
-  --header-bg: rgba(15, 15, 18, 0.85);
+  --header-bg: rgba(10, 10, 14, 0.85);
 
   --grid-color: rgba(255, 255, 255, 0.028);
   --grid-color-strong: rgba(255, 255, 255, 0.055);

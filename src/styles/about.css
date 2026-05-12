@@ -1,26 +1,49 @@
 .about-content {
   display: flex;
   flex-direction: column;
-  gap: 1.1rem;
-  max-width: 60ch;
+  gap: 1.4rem;
+  max-width: 62ch;
 }
 
 .about-paragraph {
   font-family: var(--font-serif);
-  font-size: 1.1rem;
-  line-height: 1.72;
+  font-size: 1.15rem;
+  line-height: 1.7;
   color: var(--text-color);
   margin: 0;
+  font-variation-settings: "opsz" 18;
   text-wrap: pretty;
 }
 
+/* First paragraph is the pull / lead: bigger, more confident */
 .about-paragraph:first-child {
-  font-size: 1.18rem;
+  font-size: clamp(1.3rem, 2vw, 1.6rem);
+  line-height: 1.45;
   color: var(--text-strong);
+  letter-spacing: -0.012em;
+  margin-bottom: 0.6rem;
+  font-variation-settings: "opsz" 32;
+  font-weight: 400;
+}
+
+.about-paragraph:first-child::before {
+  content: "“";
+  position: absolute;
+  margin-left: -0.55em;
+  color: var(--accent-color);
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 1em;
+  line-height: 1;
+  opacity: 0.5;
 }
 
 .about-paragraph .hl {
   font-weight: 500;
   color: var(--text-strong);
-  border-bottom: 1px dotted var(--accent-rule);
+  background-image: linear-gradient(var(--accent-rule), var(--accent-rule));
+  background-size: 100% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  padding-bottom: 1px;
 }

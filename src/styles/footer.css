@@ -1,34 +1,122 @@
 .footer {
-  position: relative;
-  padding: 3rem 0 3.5rem;
+  padding: 4.5rem 0 4rem;
   border-top: 1px solid var(--border-color);
   background: var(--bg-color);
   font-family: var(--font-mono);
   font-size: 0.78rem;
   color: var(--text-muted);
+  position: relative;
 }
 
 .footer-content {
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: 2rem;
   align-items: flex-start;
+  max-width: 760px;
 }
 
-.footer-content h3 {
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
+.footer-mark {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 1.5rem;
+  row-gap: 0.15rem;
+  align-items: baseline;
+}
+
+.footer-mark-glyph {
+  grid-row: span 2;
+  font-family: var(--font-serif);
+  font-style: italic;
   font-weight: 500;
-  letter-spacing: 0.04em;
-  text-transform: lowercase;
-  color: var(--text-color);
-  margin: 0;
-  letter-spacing: 0;
+  font-size: 2.4rem;
+  line-height: 1;
+  color: var(--accent-color);
+  font-variation-settings: "opsz" 48;
+  letter-spacing: -0.04em;
 }
 
-.footer-content p {
-  margin: 0;
-  color: var(--text-muted);
+.footer-mark-text {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--text-strong);
+  font-variation-settings: "opsz" 18;
+}
+
+.footer-mark-role {
   font-family: var(--font-mono);
   font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+
+.footer-rule {
+  border: 0;
+  border-top: 1px solid var(--border-color);
+  width: 100%;
+  margin: 0;
+}
+
+.colophon {
+  display: grid;
+  grid-template-columns: 6rem 1fr;
+  row-gap: 0.55rem;
+  column-gap: 1.25rem;
+  margin: 0;
+  width: 100%;
+}
+
+.colophon dt {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding-top: 0.1rem;
+}
+
+.colophon dd {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--text-light);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.colophon kbd {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-color);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-color);
+  border-bottom-width: 2px;
+  border-radius: 3px;
+  padding: 0.08rem 0.38rem;
+  line-height: 1;
+  margin: 0 0.04rem;
+}
+
+.footer-rights {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+  margin: 0;
+  padding-top: 0.5rem;
+}
+
+@media (max-width: 640px) {
+  .colophon {
+    grid-template-columns: 1fr;
+    row-gap: 0.25rem;
+  }
+
+  .colophon dt {
+    margin-top: 0.55rem;
+  }
+
+  .colophon dt:first-child {
+    margin-top: 0;
+  }
 }

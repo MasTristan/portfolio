@@ -4,20 +4,27 @@
 
 .contact-blurb {
   font-family: var(--font-serif);
-  font-size: 1.1rem;
-  line-height: 1.7;
+  font-size: 1.15rem;
+  line-height: 1.65;
   color: var(--text-color);
-  margin: 0 0 0.6rem;
+  margin: 0 0 0.7rem;
+  font-variation-settings: "opsz" 18;
 }
 
 .contact-blurb:first-of-type {
-  font-size: 1.18rem;
+  font-size: clamp(1.3rem, 2.2vw, 1.65rem);
   color: var(--text-strong);
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: -0.012em;
+  font-variation-settings: "opsz" 32;
+  margin-bottom: 0.8rem;
 }
 
 .contact-blurb:last-of-type {
   color: var(--text-light);
-  margin-bottom: 2rem;
+  font-style: italic;
+  margin-bottom: 2.5rem;
 }
 
 .contact-links {
@@ -30,10 +37,10 @@
 
 .contact-links li {
   display: grid;
-  grid-template-columns: 6.5rem 1fr;
+  grid-template-columns: 7rem 1fr;
   gap: 1.25rem;
   align-items: baseline;
-  padding: 0.95rem 0;
+  padding: 1.05rem 0;
   border-top: 1px solid var(--border-color);
 }
 
@@ -43,15 +50,16 @@
 
 .contact-label {
   font-family: var(--font-mono);
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   font-weight: 400;
   color: var(--text-muted);
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
 }
 
 .contact-links a {
   font-family: var(--font-mono);
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   color: var(--text-color);
   padding-bottom: 2px;
   word-break: break-all;
@@ -62,7 +70,8 @@
   background-size: 100% 1px, 0% 1px;
   background-position: 0 100%, 0 100%;
   background-repeat: no-repeat;
-  transition: background-size 0.35s var(--ease-out), color 0.18s ease;
+  transition: background-size 0.4s var(--ease-out), color 0.18s ease;
+  justify-self: start;
 }
 
 .contact-links a:hover {
@@ -77,8 +86,8 @@
   }
 
   .contact-label {
-    text-transform: uppercase;
     font-size: 0.74rem;
     letter-spacing: 0.06em;
+    text-transform: uppercase;
   }
 }
