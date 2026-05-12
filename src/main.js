@@ -1,7 +1,5 @@
-import 'aos/dist/aos.css';
 import '@/styles/main.css';
 
-import AOS from 'aos';
 import { renderApp } from '@/components/app.js';
 import { initI18n, translate, onLanguageChange, getCurrentLang } from '@/modules/i18n.js';
 import {
@@ -25,8 +23,6 @@ if (!app) {
   throw new Error('App container not found');
 }
 
-let aosInitialized = false;
-
 function render() {
   const context = {
     translate,
@@ -47,13 +43,6 @@ function render() {
   initScrollToTop();
 
   window.scrollTo(0, scrollY);
-
-  if (!aosInitialized) {
-    AOS.init({ duration: 800, once: true });
-    aosInitialized = true;
-  } else {
-    AOS.refreshHard();
-  }
 }
 
 applyInitialTheme();

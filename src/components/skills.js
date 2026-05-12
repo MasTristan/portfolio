@@ -3,10 +3,13 @@ import { escapeHtml } from '@/modules/dom.js';
 
 export function createSkills({ translate }) {
   return `
-    <section id="skills" class="skills" data-aos="fade-up">
+    <section id="skills" class="skills">
       <div class="container">
-        <h2 class="section-title">${escapeHtml(translate('skills-title'))}</h2>
-        <div class="skills-grid">
+        <div class="section-header">
+          <span class="section-eyebrow">03 · ${escapeHtml(translate('skills-title'))}</span>
+          <h2 class="section-title">${escapeHtml(translate('skills-title'))}</h2>
+        </div>
+        <div class="skills-grid reveal-stagger">
           ${skillCategories
             .map(
               ({ titleKey, skills }) => `

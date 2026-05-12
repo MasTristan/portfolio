@@ -4,25 +4,32 @@ import { escapeHtml } from '@/modules/dom.js';
 export function createContact({ translate }) {
   const { email, linkedin, github } = contactData;
 
+  const link = (href, displayUrl) => `
+    <a href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer">${escapeHtml(displayUrl)}</a>
+  `;
+
   return `
-    <section id="contact" class="contact" data-aos="fade-up">
+    <section id="contact" class="contact">
       <div class="container">
-        <h2 class="section-title">${escapeHtml(translate('contact-title'))}</h2>
-        <div class="contact-content">
+        <div class="section-header">
+          <span class="section-eyebrow">05 · ${escapeHtml(translate('contact-title'))}</span>
+          <h2 class="section-title">${escapeHtml(translate('contact-title'))}</h2>
+        </div>
+        <div class="contact-shell reveal">
           <p class="contact-blurb">${escapeHtml(translate('contact-blurb-1'))}</p>
           <p class="contact-blurb">${escapeHtml(translate('contact-blurb-2'))}</p>
           <ul class="contact-links">
             <li>
-              <span class="contact-label">${escapeHtml(translate('contact-email-label'))}:</span>
+              <span class="contact-label">${escapeHtml(translate('contact-email-label'))}</span>
               <a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a>
             </li>
             <li>
-              <span class="contact-label">${escapeHtml(translate('contact-linkedin-label'))}:</span>
-              <a href="${escapeHtml(linkedin)}" target="_blank" rel="noopener noreferrer">${escapeHtml(linkedin.replace(/^https?:\/\//, ''))}</a>
+              <span class="contact-label">${escapeHtml(translate('contact-linkedin-label'))}</span>
+              ${link(linkedin, linkedin.replace(/^https?:\/\//, ''))}
             </li>
             <li>
-              <span class="contact-label">${escapeHtml(translate('contact-github-label'))}:</span>
-              <a href="${escapeHtml(github)}" target="_blank" rel="noopener noreferrer">${escapeHtml(github.replace(/^https?:\/\//, ''))}</a>
+              <span class="contact-label">${escapeHtml(translate('contact-github-label'))}</span>
+              ${link(github, github.replace(/^https?:\/\//, ''))}
             </li>
           </ul>
         </div>
