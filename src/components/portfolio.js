@@ -23,7 +23,7 @@ export function createPortfolio({ translate }) {
               ({ category, image, titleKey, descriptionKey, tech }) => `
                 <div class="portfolio-item" data-category="${category}">
                   <div class="portfolio-image">
-                    <img src="${image}" alt="${translate(titleKey)}" />
+                    <img src="${image}" alt="${translate(titleKey)}" loading="lazy" decoding="async" />
                   </div>
                   <div class="portfolio-content">
                     <h4>${translate(titleKey)}</h4>

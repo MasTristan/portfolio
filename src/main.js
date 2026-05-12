@@ -82,4 +82,6 @@ window.addEventListener('unhandledrejection', (event) => {
   console.error('Unhandled promise rejection:', event.reason);
 });
 
-console.log('Portfolio website initialized successfully!');
+if (import.meta.env.DEV) {
+  console.log('Portfolio website initialized successfully!');
+}
