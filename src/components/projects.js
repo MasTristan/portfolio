@@ -22,11 +22,11 @@ export function createProjects({ translate }) {
     <section id="projects" class="projects">
       <div class="container">
         <header class="section-header">
+          <span class="section-overline">${escapeHtml(translate('projects-overline'))}</span>
           <h2 class="section-title">${escapeHtml(translate('projects-title'))}</h2>
-          <span class="section-leader" aria-hidden="true"></span>
           <span class="section-index"><span class="sym">§</span>04</span>
         </header>
-        <p class="about-paragraph" style="max-width: 60ch; margin-bottom: 2rem;">${escapeHtml(translate('projects-intro'))}</p>
+        <p class="projects-intro">${escapeHtml(translate('projects-intro'))}</p>
         <div class="projects-list reveal-stagger">
           ${projects
             .map(

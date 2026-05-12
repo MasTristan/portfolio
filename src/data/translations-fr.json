@@ -18,6 +18,11 @@
   "hero-cta-contact": "Me contacter",
   "hero-scroll-hint": "Défiler",
   "about-title": "À propos",
+  "about-overline": "Profil",
+  "experience-overline": "Parcours",
+  "skills-overline": "Outillage",
+  "projects-overline": "Études de cas",
+  "contact-overline": "Prise de contact",
   "about-p1": "Business Analyst consultant spécialisé en reporting réglementaire Finance & Risque. En mission au sein d'une filiale bancaire européenne spécialisée dans le leasing automobile, mes travaux portent sur la segmentation du risque de crédit, les normes Bâle III (approche standard) et le reporting NDoD — principalement sous Oracle SQL/PL-SQL.",
   "about-p2": "Mon profil associe trois ans d'alternance en data engineering industriel (SQL Server, Power BI, XGBoost) à une expertise réglementaire acquise en environnement de production bancaire.",
   "about-p3": "Diplômé ingénieur de Télécom Saint-Étienne, je prépare actuellement la certification FRM (GARP).",
@@ -34,7 +39,7 @@
   "experience-2-title": "Data Engineer — Alternance",
   "experience-2-employer": "Lennox EMEA",
   "experience-2-period": "2021 — 2024",
-  "experience-2-location": "Bordeaux, France",
+  "experience-2-location": "Lyon, France",
   "experience-2-bullet1": "Développement BI industrielle : SQL Server/T-SQL, dashboards Power BI, pipelines ETL",
   "experience-2-bullet2": "Modélisation prédictive pour la maintenance avec XGBoost",
   "experience-2-bullet3": "Automatisation des pipelines de données et reporting pour les opérations EMEA",
@@ -67,5 +72,7 @@
   "contact-email-label": "Email",
   "image-not-found": "Image introuvable",
   "footer-role": "Business Analyst — Finance & Risque",
-  "footer-rights": "© 2025 Tristan Mas. Tous droits réservés."
+  "footer-rights": "© 2025 Tristan Mas. Tous droits réservés.",
+  "colophon-set-in": "Composé en Newsreader, Inter & IBM Plex Mono",
+  "colophon-built-from": "Conçu et codé depuis Bordeaux"
 }

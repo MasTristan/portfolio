@@ -38,8 +38,8 @@ export function createAbout({ translate, currentLang }) {
     <section id="about" class="about">
       <div class="container">
         <header class="section-header">
+          <span class="section-overline">${escapeHtml(translate('about-overline'))}</span>
           <h2 class="section-title">${escapeHtml(translate('about-title'))}</h2>
-          <span class="section-leader" aria-hidden="true"></span>
           <span class="section-index"><span class="sym">§</span>01</span>
         </header>
         <div class="about-content reveal-stagger">
