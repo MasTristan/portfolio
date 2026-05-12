@@ -4,9 +4,6 @@ import { escapeHtml } from '@/modules/dom.js';
 export function createSideNav({ translate }) {
   return `
     <nav class="side-nav" aria-label="${escapeHtml(translate('nav-aria-sections'))}">
-      <span class="side-nav-hint" aria-hidden="true">
-        <kbd>j</kbd><span class="arrow">↓</span><kbd>k</kbd><span class="arrow">↑</span>
-      </span>
       ${navItems
         .map(
           ({ id, icon, labelKey }) => `

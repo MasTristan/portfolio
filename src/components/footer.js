@@ -18,10 +18,6 @@ export function createFooter({ translate }) {
             <dd>${escapeHtml(translate('colophon-set-in'))}.</dd>
             <dt>build</dt>
             <dd>${escapeHtml(translate('colophon-built-from'))} · Vite · vanilla JS · no tracker.</dd>
-            <dt>shortcuts</dt>
-            <dd>
-              <kbd>j</kbd>/<kbd>k</kbd> sections · <kbd>g</kbd>/<kbd>G</kbd> top/bottom · <kbd>t</kbd> theme · <kbd>l</kbd> language
-            </dd>
           </dl>
 
           <p class="footer-rights">${escapeHtml(translate('footer-rights'))}</p>
