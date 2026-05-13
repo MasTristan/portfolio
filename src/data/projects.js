@@ -13,7 +13,7 @@ export const projects = [
       },
       {
         kind: 'streamlit',
-        href: 'https://scoring-cr-dit-b-le-iii.streamlit.app/',
+        href: 'https://basel3-credit-scoring-engine.streamlit.app/',
         labelKey: 'project-link-streamlit',
       },
     ],
