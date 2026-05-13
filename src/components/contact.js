@@ -14,11 +14,9 @@ export function createContact({ translate }) {
         <header class="section-header">
           <span class="section-overline">${escapeHtml(translate('contact-overline'))}</span>
           <h2 class="section-title">${escapeHtml(translate('contact-title'))}</h2>
-          <span class="section-index"><span class="sym">§</span>05</span>
+          <span class="section-index">05</span>
         </header>
         <div class="contact-content reveal">
-          <p class="contact-blurb">${escapeHtml(translate('contact-blurb-1'))}</p>
-          <p class="contact-blurb">${escapeHtml(translate('contact-blurb-2'))}</p>
           <ul class="contact-links">
             <li>
               <span class="contact-label">${escapeHtml(translate('contact-email-label'))}</span>

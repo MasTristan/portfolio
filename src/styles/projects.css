@@ -1,12 +1,12 @@
 .projects-intro {
-  font-family: var(--font-serif);
-  font-size: 1.1rem;
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 400;
   line-height: 1.65;
   color: var(--text-light);
   margin: 0 0 3rem;
   max-width: 56ch;
-  font-style: italic;
-  font-variation-settings: "opsz" 18;
+  letter-spacing: -0.005em;
 }
 
 .projects-list {
@@ -21,7 +21,7 @@
 
 .project-item {
   display: grid;
-  grid-template-columns: 4rem 1fr;
+  grid-template-columns: 2.5rem 1fr;
   gap: 1rem 2rem;
   padding: 2.5rem 0;
   border-top: 1px solid var(--border-color);
@@ -50,15 +50,14 @@
 }
 
 .project-number {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 1.8rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
   font-weight: 400;
-  color: var(--accent-color);
+  color: var(--text-muted);
   line-height: 1;
-  padding-top: 0.6rem;
-  font-variation-settings: "opsz" 36;
-  letter-spacing: -0.01em;
+  padding-top: 0.75rem;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
 }
 
 .project-body {
@@ -74,14 +73,13 @@
 }
 
 .project-title {
-  font-family: var(--font-serif);
-  font-size: clamp(1.3rem, 2.2vw, 1.55rem);
-  font-weight: 500;
+  font-family: var(--font-sans);
+  font-size: clamp(1.35rem, 2.3vw, 1.6rem);
+  font-weight: 600;
   margin: 0;
   color: var(--text-strong);
-  letter-spacing: -0.018em;
+  letter-spacing: -0.022em;
   line-height: 1.15;
-  font-variation-settings: "opsz" 28;
 }
 
 .project-status {

@@ -1,8 +1,6 @@
 import { projects } from '@/data/projects.js';
 import { escapeHtml } from '@/modules/dom.js';
 
-const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
-
 function renderLink({ href, labelKey, disabled }, translate) {
   const label = escapeHtml(translate(labelKey));
   if (!href || disabled) {
@@ -24,7 +22,7 @@ export function createProjects({ translate }) {
         <header class="section-header">
           <span class="section-overline">${escapeHtml(translate('projects-overline'))}</span>
           <h2 class="section-title">${escapeHtml(translate('projects-title'))}</h2>
-          <span class="section-index"><span class="sym">§</span>04</span>
+          <span class="section-index">04</span>
         </header>
         <p class="projects-intro">${escapeHtml(translate('projects-intro'))}</p>
         <div class="projects-list reveal-stagger">
@@ -38,7 +36,7 @@ export function createProjects({ translate }) {
                 const title = translate(titleKey);
                 return `
                 <article class="project-item" data-tilt>
-                  <span class="project-number">${ROMAN[index] ?? index + 1}</span>
+                  <span class="project-number">${String(index + 1).padStart(2, '0')}</span>
                   <div class="project-body">
                     <div class="project-header">
                       <h3 class="project-title">${escapeHtml(title)}</h3>

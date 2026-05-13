@@ -18,15 +18,14 @@
 }
 
 .experience-period {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 1.05rem;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
   font-weight: 400;
-  color: var(--text-light);
-  letter-spacing: -0.005em;
-  font-variation-settings: "opsz" 14;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
   white-space: nowrap;
-  padding-top: 0.35rem;
+  padding-top: 0.55rem;
 }
 
 .experience-body {
@@ -34,14 +33,13 @@
 }
 
 .experience-title {
-  font-family: var(--font-serif);
-  font-size: clamp(1.2rem, 2vw, 1.4rem);
-  font-weight: 500;
+  font-family: var(--font-sans);
+  font-size: clamp(1.25rem, 2vw, 1.4rem);
+  font-weight: 600;
   margin: 0 0 0.4rem;
   color: var(--text-strong);
-  letter-spacing: -0.014em;
-  line-height: 1.18;
-  font-variation-settings: "opsz" 22;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
 }
 
 .experience-meta {
@@ -57,7 +55,7 @@
 }
 
 .experience-location {
-  font-style: italic;
+  color: var(--text-light);
 }
 
 .experience-location::before {
