@@ -30,12 +30,18 @@ export function createProjects({ translate }) {
         <div class="projects-list reveal-stagger">
           ${projects
             .map(
-              ({ titleKey, statusKey, statusKind, descKey, stack, links }, index) => `
+              ({ titleKey, statusKey, statusKind, descKey, stack, links }, index) => {
+                const streamlit = links.find((l) => l.kind === 'streamlit' && l.href);
+                const embedUrl = streamlit
+                  ? `${streamlit.href}${streamlit.href.includes('?') ? '&' : '?'}embed=true`
+                  : null;
+                const title = translate(titleKey);
+                return `
                 <article class="project-item" data-tilt>
                   <span class="project-number">${ROMAN[index] ?? index + 1}</span>
                   <div class="project-body">
                     <div class="project-header">
-                      <h3 class="project-title">${escapeHtml(translate(titleKey))}</h3>
+                      <h3 class="project-title">${escapeHtml(title)}</h3>
                       <span class="project-status${statusKind === 'live' ? ' is-live' : ''}">${escapeHtml(translate(statusKey))}</span>
                     </div>
                     <p class="project-desc">${escapeHtml(translate(descKey))}</p>
@@ -47,9 +53,22 @@ export function createProjects({ translate }) {
                     <div class="project-links">
                       ${links.map((link) => renderLink(link, translate)).join('')}
                     </div>
+                    ${embedUrl
+                      ? `<div class="project-embed">
+                          <iframe
+                            class="project-embed-frame"
+                            src="${escapeHtml(embedUrl)}"
+                            title="${escapeHtml(title)} — live preview"
+                            loading="lazy"
+                            referrerpolicy="no-referrer"
+                            sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+                          ></iframe>
+                        </div>`
+                      : ''}
                   </div>
                 </article>
-              `,
+              `;
+              },
             )
             .join('')}
         </div>
