@@ -65,7 +65,7 @@ function updateIndicator(id) {
   const label = labels[id];
   const idx = SECTION_INDEX[id];
   const html = label && idx
-    ? `<span class="sym">§</span>${idx} · ${label.toLowerCase()}`
+    ? `${idx} · ${label.toLowerCase()}`
     : '';
   node.classList.remove('is-visible');
   setTimeout(() => {

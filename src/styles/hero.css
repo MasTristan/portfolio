@@ -117,14 +117,13 @@
 /* ── Title — split into chars, each fades + rises + weights up ──── */
 
 .hero-title {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: clamp(3rem, 12vw, 9rem);
-  font-weight: 500;
-  letter-spacing: -0.04em;
+  font-weight: 600;
+  letter-spacing: -0.055em;
   line-height: 0.92;
   margin: 0 0 1.5rem;
   color: var(--text-strong);
-  font-variation-settings: "opsz" 72;
   text-wrap: balance;
 }
 
@@ -132,21 +131,19 @@
   display: inline-block;
   opacity: 0;
   transform: translateY(0.45em);
-  font-variation-settings: "opsz" 72, "wght" 300;
+  font-weight: 300;
   animation: char-in 0.9s var(--ease-out) forwards;
   animation-delay: calc(var(--i, 0) * 42ms + 100ms);
-  will-change: opacity, transform, font-variation-settings;
+  will-change: opacity, transform, font-weight;
 }
 
 .hero-title .char.mark {
-  font-style: italic;
   color: var(--accent-color);
-  font-weight: 400;
 }
 
 .hero-title .char--space {
   display: inline-block;
-  width: 0.32em;
+  width: 0.28em;
   opacity: 1;
   animation: none;
   transform: none;
@@ -156,7 +153,7 @@
   0% {
     opacity: 0;
     transform: translateY(0.45em);
-    font-variation-settings: "opsz" 72, "wght" 300;
+    font-weight: 300;
   }
   60% {
     opacity: 1;
@@ -164,22 +161,20 @@
   100% {
     opacity: 1;
     transform: translateY(0);
-    font-variation-settings: "opsz" 72, "wght" 500;
+    font-weight: 600;
   }
 }
 
 /* ── Role — typed effect with caret (JS-driven content) ──────────── */
 
 .hero-role {
-  font-family: var(--font-serif);
-  font-size: clamp(1.2rem, 2.4vw, 1.5rem);
-  font-style: italic;
+  font-family: var(--font-sans);
+  font-size: clamp(1.2rem, 2.4vw, 1.55rem);
   font-weight: 400;
   color: var(--text-light);
   margin: 0 0 2.25rem;
   line-height: 1.35;
-  letter-spacing: -0.008em;
-  font-variation-settings: "opsz" 24;
+  letter-spacing: -0.018em;
   max-width: 30ch;
   min-height: 1.5em;
   opacity: 0;
@@ -187,7 +182,7 @@
 }
 
 .hero-role em {
-  font-style: italic;
+  font-style: normal;
 }
 
 .hero-role.is-typing em::after,
@@ -232,13 +227,14 @@
 }
 
 .hero-tagline {
-  font-family: var(--font-serif);
-  font-size: 1.25rem;
+  font-family: var(--font-sans);
+  font-size: 1.2rem;
+  font-weight: 400;
   line-height: 1.55;
-  max-width: 38ch;
+  letter-spacing: -0.012em;
+  max-width: 42ch;
   color: var(--text-color);
   margin: 0 0 2.75rem;
-  font-variation-settings: "opsz" 22;
   opacity: 0;
   transform: translateY(6px);
   animation: rise-in 0.7s var(--ease-out) 1.05s forwards;
@@ -307,10 +303,10 @@
 }
 
 .btn-primary {
-  font-family: var(--font-serif);
-  font-weight: 500;
-  font-style: italic;
-  font-size: 1.1rem;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: -0.005em;
   color: var(--text-strong);
   background-image:
     linear-gradient(var(--rule-color), var(--rule-color)),

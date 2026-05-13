@@ -2,31 +2,6 @@
   max-width: 60ch;
 }
 
-.contact-blurb {
-  font-family: var(--font-serif);
-  font-size: 1.15rem;
-  line-height: 1.65;
-  color: var(--text-color);
-  margin: 0 0 0.7rem;
-  font-variation-settings: "opsz" 18;
-}
-
-.contact-blurb:first-of-type {
-  font-size: clamp(1.3rem, 2.2vw, 1.65rem);
-  color: var(--text-strong);
-  font-weight: 400;
-  line-height: 1.45;
-  letter-spacing: -0.012em;
-  font-variation-settings: "opsz" 32;
-  margin-bottom: 0.8rem;
-}
-
-.contact-blurb:last-of-type {
-  color: var(--text-light);
-  font-style: italic;
-  margin-bottom: 2.5rem;
-}
-
 .contact-links {
   list-style: none;
   padding: 0;

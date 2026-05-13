@@ -8,7 +8,7 @@ export function createSkills({ translate }) {
         <header class="section-header">
           <span class="section-overline">${escapeHtml(translate('skills-overline'))}</span>
           <h2 class="section-title">${escapeHtml(translate('skills-title'))}</h2>
-          <span class="section-index"><span class="sym">§</span>03</span>
+          <span class="section-index">03</span>
         </header>
         <div class="skills-grid reveal-stagger">
           ${skillCategories

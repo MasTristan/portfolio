@@ -26,22 +26,20 @@
 
 .footer-mark-glyph {
   grid-row: span 2;
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 500;
+  font-family: var(--font-sans);
+  font-weight: 600;
   font-size: 2.4rem;
   line-height: 1;
   color: var(--accent-color);
-  font-variation-settings: "opsz" 48;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.05em;
 }
 
 .footer-mark-text {
-  font-family: var(--font-serif);
-  font-style: italic;
+  font-family: var(--font-sans);
+  font-weight: 500;
   font-size: 1rem;
   color: var(--text-strong);
-  font-variation-settings: "opsz" 18;
+  letter-spacing: -0.014em;
 }
 
 .footer-mark-role {

@@ -46,35 +46,36 @@ section + section {
 }
 
 .section-title {
-  font-family: var(--font-serif);
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 500;
+  font-family: var(--font-sans);
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 600;
   margin: 0;
-  letter-spacing: -0.025em;
-  font-variation-settings: "opsz" 48;
+  letter-spacing: -0.034em;
   line-height: 1.02;
-  /* Mask-wipe reveal: hidden until .is-revealed is added by the IO */
-  clip-path: inset(0 100% -0.15em 0);
-  transition: clip-path 0.95s var(--ease-out) 0.1s;
   display: inline-block;
-  transform: translateZ(0);
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.7s var(--ease-out),
+    transform 0.7s var(--ease-out);
+  will-change: opacity, transform;
 }
 
 .section-title.is-revealed {
-  clip-path: inset(0 0 -0.15em 0);
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @media (prefers-reduced-motion: reduce) {
   .section-title {
-    clip-path: none;
+    opacity: 1;
+    transform: none;
     transition: none;
   }
 }
 
 .section-title .accent {
-  font-style: italic;
   color: var(--accent-color);
-  font-weight: 400;
 }
 
 .section-index {
@@ -83,12 +84,6 @@ section + section {
   font-weight: 400;
   letter-spacing: 0.04em;
   color: var(--text-muted);
-  text-transform: lowercase;
+  font-variant-numeric: tabular-nums;
   white-space: nowrap;
-}
-
-.section-index .sym {
-  font-family: var(--font-serif);
-  font-style: italic;
-  margin-right: 0.15rem;
 }
