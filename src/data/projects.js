@@ -13,7 +13,7 @@ export const projects = [
       },
       {
         kind: 'streamlit',
-        href: 'https://scoring-cr-dit-b-le-iii.streamlit.app/',
+        href: 'https://basel3-credit-scoring-engine.streamlit.app/',
         labelKey: 'project-link-streamlit',
       },
     ],
@@ -31,11 +31,20 @@ export const projects = [
   {
     titleKey: 'project-3-title',
     statusKey: 'project-3-status',
+    statusKind: 'live',
     descKey: 'project-3-desc',
     stack: ['Python', 'XGBoost', 'SHAP', 'Streamlit'],
     links: [
-      { kind: 'github', href: null, labelKey: 'project-link-github' },
-      { kind: 'streamlit', href: null, labelKey: 'project-link-streamlit' },
+      {
+        kind: 'github',
+        href: 'https://github.com/MasTristan/credit-scoring-engine',
+        labelKey: 'project-link-github',
+      },
+      {
+        kind: 'streamlit',
+        href: 'https://tm-credit-scoring-engine.streamlit.app/',
+        labelKey: 'project-link-streamlit',
+      },
     ],
   },
 ];

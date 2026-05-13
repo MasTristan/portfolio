@@ -48,13 +48,16 @@ export function createHero({ translate, currentLang }) {
   const abstractLabel = {
     discipline: isFr ? 'discipline' : 'discipline',
     stack: 'stack',
-    domain: 'domain',
     based: isFr ? 'basé à' : 'based in',
   };
   const disciplineVal = isFr
     ? 'Finance & Risque · Reporting réglementaire'
     : 'Finance & Risk · Regulatory reporting';
   const basedVal = isFr ? 'Bordeaux · Europe de l’Ouest' : 'Bordeaux · Western Europe';
+  const focusLabel = isFr ? 'focus' : 'focus';
+  const focusVal = isFr
+    ? 'Modélisation du risque de crédit · explicabilité des modèles'
+    : 'Credit risk modelling · model explainability';
 
   // Hero title: split into chars with the last word in italic accent (.mark).
   const nameParts = name.split(' ');
@@ -72,11 +75,6 @@ export function createHero({ translate, currentLang }) {
   return `
     <section id="home" class="hero no-reveal">
       <div class="container container--wide">
-        <div class="hero-cartouche" aria-hidden="true">
-          <span class="vol">Vol.&nbsp;I</span>
-          <span class="rule"></span>
-          <span data-clock>—:—:— · BORDEAUX</span>
-        </div>
         <div class="hero-meta">
           <span><span class="key">${escapeHtml(metaLabel.status)}:</span> <span class="signal">${escapeHtml(metaVal.status)}</span></span>
           <span><span class="key">${escapeHtml(metaLabel.scope)}:</span> <span class="val">${escapeHtml(metaVal.scope)}</span></span>
@@ -115,10 +113,8 @@ export function createHero({ translate, currentLang }) {
               <span class="stack-line">${renderStackLine(translate('hero-stack'))}</span>
             </dd>
 
-            <dt>${escapeHtml(abstractLabel.domain)}</dt>
-            <dd class="formula" aria-label="Expected loss equals probability of default times loss given default times exposure at default">
-              <span class="glyph">E</span>[<span class="glyph">L</span>]<span class="eq">=</span>PD<span class="op">·</span>LGD<span class="op">·</span>EAD
-            </dd>
+            <dt>${escapeHtml(focusLabel)}</dt>
+            <dd>${escapeHtml(focusVal)}</dd>
 
             <dt>${escapeHtml(abstractLabel.based)}</dt>
             <dd>${escapeHtml(basedVal)}</dd>

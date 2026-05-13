@@ -174,8 +174,9 @@
   color: var(--text-light);
   margin: 0 0 2.25rem;
   line-height: 1.35;
-  letter-spacing: -0.018em;
-  max-width: 30ch;
+  letter-spacing: -0.008em;
+  font-variation-settings: "opsz" 24;
+  max-width: none;
   min-height: 1.5em;
   opacity: 0;
   animation: fade-in 0.5s var(--ease-out) 0.55s forwards;
