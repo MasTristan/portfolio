@@ -60,7 +60,7 @@
   "project-2-status": "En cours — publication Mois 2",
   "project-2-desc": "Dashboard Power BI construit sur les données publiques de l'EBA (Autorité Bancaire Européenne). Compare les principales banques européennes sur les ratios prudentiels clés : CET1, Tier 1, LCR, NSFR. Conçu pour démontrer la maîtrise des données réglementaires et les compétences en analytics visuel dans un contexte Finance & Risque. Fichier .pbix téléchargeable.",
   "project-3-title": "Scoring Crédit XGBoost + Explicabilité SHAP",
-  "project-3-status": "En cours — publication Mois 3",
+  "project-3-status": "Publié · en ligne",
   "project-3-desc": "Modèle de scoring crédit XGBoost de bout en bout, développé sur un portefeuille de prêts synthétique, avec explicabilité SHAP complète au niveau individuel. Déployé sous forme d'application Streamlit interactive : saisie des caractéristiques d'un emprunteur, obtention d'un score de risque et décomposition des facteurs contributifs. Conçu pour articuler la modélisation ML et les exigences réglementaires d'explicabilité.",
   "project-stack-label": "Stack",
   "project-link-github": "GitHub",
