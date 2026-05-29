@@ -155,11 +155,16 @@
 }
 
 .lang-link {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  border-bottom: 1px solid transparent;
+  font: inherit;
   color: var(--text-muted);
   text-transform: lowercase;
   letter-spacing: 0.02em;
-  padding: 0;
-  border-bottom: 1px solid transparent;
+  cursor: pointer;
   transition: var(--transition-fast);
 }
 
@@ -170,10 +175,6 @@
 .lang-link.active {
   color: var(--text-strong);
   border-bottom-color: var(--accent-color);
-}
-
-.lang-link img {
-  display: none;
 }
 
 .lang-link::before {

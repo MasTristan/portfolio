@@ -2,7 +2,18 @@ const HIDE_AFTER_SCROLL_PX = 100;
 
 let navObserver;
 let headerScrollBound = false;
+let headerSizeBound = false;
 let lastScrollY = 0;
+
+// Keep the CSS scroll-padding in sync with the real header height so anchor
+// targets always clear the sticky header (desktop and mobile alike).
+function syncHeaderHeight() {
+  const header = document.querySelector('.header');
+  if (!header) {
+    return;
+  }
+  document.documentElement.style.setProperty('--header-h', `${header.offsetHeight}px`);
+}
 
 function handleHeaderScroll() {
   const header = document.querySelector('.header');
@@ -71,6 +82,13 @@ export function initNavigation() {
 
   if (header) {
     header.style.transform = 'translateY(0)';
+  }
+
+  syncHeaderHeight();
+
+  if (!headerSizeBound) {
+    window.addEventListener('resize', syncHeaderHeight, { passive: true });
+    headerSizeBound = true;
   }
 
   if (!headerScrollBound) {

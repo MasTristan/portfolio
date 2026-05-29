@@ -15,13 +15,16 @@ export function createHeader({ translate, currentLang, theme }) {
             <div class="language-switcher">
               ${languages
                 .map(
-                  ({ code, labelKey: langKey, flag, alt }) => `
-                    <a href="#" class="lang-link${
-                      code === currentLang ? ' active' : ''
-                    }" data-lang="${code}">
-                      <img src="${flag}" alt="${alt}" />
+                  ({ code, labelKey: langKey, label }) => `
+                    <button
+                      type="button"
+                      class="lang-link${code === currentLang ? ' active' : ''}"
+                      data-lang="${code}"
+                      aria-label="${label}"
+                      ${code === currentLang ? 'aria-current="true"' : ''}
+                    >
                       <span>${translate(langKey)}</span>
-                    </a>
+                    </button>
                   `,
                 )
                 .join('')}

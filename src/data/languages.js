@@ -2,13 +2,11 @@ export const languages = [
   {
     code: 'en',
     labelKey: 'lang-english',
-    flag: 'https://flagcdn.com/24x18/gb.png',
-    alt: 'EN',
+    label: 'English',
   },
   {
     code: 'fr',
     labelKey: 'lang-french',
-    flag: 'https://flagcdn.com/24x18/fr.png',
-    alt: 'FR',
+    label: 'Français',
   },
 ];
