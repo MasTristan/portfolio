@@ -17,6 +17,7 @@
 
 /* First paragraph is the pull / lead: bigger, more confident */
 .about-paragraph:first-child {
+  position: relative;
   font-size: clamp(1.3rem, 2vw, 1.6rem);
   line-height: 1.45;
   color: var(--text-strong);

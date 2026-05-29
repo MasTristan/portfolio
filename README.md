@@ -1,6 +1,6 @@
 # Portfolio
 
-Modern single-page portfolio built with [Vite](https://vitejs.dev/). The site showcases experience, projects and testimonials with bilingual support (English/French), dark mode and smooth scrolling animations.
+Modern single-page portfolio built with [Vite](https://vitejs.dev/) in vanilla JavaScript and modular CSS (no front-end framework). The site showcases experience, skills and projects with bilingual support (English/French), dark mode and orchestrated scroll/entrance animations.
 
 ## Getting started
 
@@ -22,11 +22,12 @@ Open the local URL printed in the terminal (default: `http://localhost:5173`).
 ```
 ├── public/                # Static assets copied as-is
 │   ├── cv/                # PDF resume
-│   └── img/               # Images used throughout the portfolio
+│   ├── img/               # Images used throughout the portfolio
+│   └── og-card.png        # Social share card (Open Graph / Twitter)
 ├── src/
-│   ├── components/        # Section renderers (header, hero, skills, …)
-│   ├── data/              # Content sources (translations, projects, skills, testimonials)
-│   ├── modules/           # Behavioural logic (theme, i18n, navigation, forms, animations)
+│   ├── components/        # Section renderers (header, hero, about, experience, skills, projects, contact, footer, …)
+│   ├── data/              # Content sources (translations-en/fr.json, hero, about, experience, skills, projects, contact, navigation, languages)
+│   ├── modules/           # Behavioural logic (theme, i18n, navigation, animations, motion, languageSwitcher, scrollToTop, dom)
 │   └── styles/            # Modular CSS imported via src/styles/main.css
 ├── index.html             # Vite entry point mounting src/main.js
 ├── postcss.config.js      # PostCSS configuration enabling Autoprefixer
@@ -36,8 +37,9 @@ Open the local URL printed in the terminal (default: `http://localhost:5173`).
 ### Editing content
 
 - **Translations** – update `src/data/translations-en.json` and `src/data/translations-fr.json`. Keys are shared across sections.
-- **Projects, skills & testimonials** – edit the corresponding files in `src/data/` to add or update entries.
-- **Resume** – adjust experience, education and contact data in `src/data/resume.js`.
+- **Projects & skills** – edit `src/data/projects.js` and `src/data/skills.js` to add or update entries.
+- **Experience, contact & hero** – adjust `src/data/experience.js`, `src/data/contact.js` and `src/data/hero.js`.
+- **Social share card** – regenerate `public/og-card.png` with `node scripts/make-og-card.mjs` (requires `sharp`).
 - **Images/PDFs** – drop files into `public/` (they are served verbatim and referenced with absolute paths such as `/img/...`).
 
 ### Styling
