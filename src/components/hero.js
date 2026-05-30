@@ -12,22 +12,18 @@ function renderStackLine(stack) {
     .join('');
 }
 
-// Split a string into individual <span class="char"> with --i index for stagger.
-// Spaces become a sentinel space (not animated) so kerning stays correct.
-function splitChars(text, startIndex, extraClass = '') {
-  let i = startIndex;
-  const cls = extraClass ? ` ${extraClass}` : '';
-  const html = Array.from(text)
-    .map((ch) => {
-      if (ch === ' ') {
-        return '<span class="char char--space" aria-hidden="true">&nbsp;</span>';
-      }
-      const idx = i;
-      i += 1;
-      return `<span class="char${cls}" style="--i:${idx}">${escapeHtml(ch)}</span>`;
+// Split a title into word spans that rise into focus, staggered by word.
+// The last word carries the navy accent (.mark). aria-label on the <h1>
+// keeps the name readable to assistive tech regardless of the animation.
+function splitWords(text) {
+  const words = text.split(' ').filter(Boolean);
+  return words
+    .map((word, index) => {
+      const isLast = index === words.length - 1 && words.length > 1;
+      const cls = isLast ? ' mark' : '';
+      return `<span class="hero-word${cls}" style="--wi:${index}">${escapeHtml(word)}</span>`;
     })
-    .join('');
-  return { html, nextIndex: i };
+    .join(' ');
 }
 
 export function createHero({ translate, currentLang }) {
@@ -59,21 +55,12 @@ export function createHero({ translate, currentLang }) {
     ? 'Modélisation du risque de crédit · explicabilité des modèles'
     : 'Credit risk modelling · model explainability';
 
-  // Hero title: split into chars with the last word in italic accent (.mark).
-  const nameParts = name.split(' ');
-  let titleHtml;
-  if (nameParts.length > 1) {
-    const first = nameParts.slice(0, -1).join(' ');
-    const last = nameParts.at(-1);
-    const firstSplit = splitChars(first, 0);
-    const lastSplit = splitChars(last, firstSplit.nextIndex, 'mark');
-    titleHtml = `${firstSplit.html}<span class="char char--space" aria-hidden="true">&nbsp;</span>${lastSplit.html}`;
-  } else {
-    titleHtml = splitChars(name, 0).html;
-  }
+  // Hero title: word-level rise reveal, last word in navy accent.
+  const titleHtml = splitWords(name);
 
   return `
     <section id="home" class="hero no-reveal">
+      <canvas class="hero-curve" data-risk-curve aria-hidden="true"></canvas>
       <div class="container container--wide">
         <div class="hero-meta">
           <span><span class="key">${escapeHtml(metaLabel.status)}:</span> <span class="signal">${escapeHtml(metaVal.status)}</span></span>

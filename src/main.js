@@ -17,6 +17,7 @@ import {
 } from '@/modules/animations.js';
 import { initScrollToTop } from '@/modules/scrollToTop.js';
 import { initMotion, setMotionLang } from '@/modules/motion.js';
+import { initRiskCurve } from '@/modules/riskCurve.js';
 
 const app = document.getElementById('app');
 
@@ -43,6 +44,7 @@ function render() {
   initImageFallbacks(translate);
   initScrollToTop();
   initMotion({ getLang: getCurrentLang });
+  initRiskCurve();
 
   window.scrollTo(0, scrollY);
 }
@@ -56,6 +58,10 @@ onLanguageChange(() => {
   render();
   updateThemeToggleLabel(translate);
   setMotionLang(getCurrentLang());
+  // Re-render replaces #app, so keyboard focus would fall to <body>.
+  // Restore it to the active language control to preserve the user's place.
+  const active = document.querySelector('.lang-link.active');
+  if (active) active.focus();
 });
 
 window.addEventListener('error', (event) => {

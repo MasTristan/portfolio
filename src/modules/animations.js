@@ -22,6 +22,16 @@ export function initSectionReveal() {
     revealObserver.disconnect();
   }
 
+  // Failsafe: if IntersectionObserver is unavailable, reveal everything now
+  // so content can never get stuck invisible.
+  if (!('IntersectionObserver' in window)) {
+    document
+      .querySelectorAll(REVEAL_SELECTOR)
+      .forEach((element) => element.classList.add('visible'));
+    bindHeaderScrollState();
+    return;
+  }
+
   revealObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {

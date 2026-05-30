@@ -4,6 +4,7 @@ export const projects = [
     statusKey: 'project-1-status',
     statusKind: 'live',
     descKey: 'project-1-desc',
+    viz: 'loss',
     stack: ['Oracle XE', 'PL/SQL', 'Python', 'Streamlit'],
     links: [
       {
@@ -22,6 +23,7 @@ export const projects = [
     titleKey: 'project-2-title',
     statusKey: 'project-2-status',
     descKey: 'project-2-desc',
+    viz: 'bars',
     stack: ['Power BI', 'EBA Open Data'],
     links: [
       { kind: 'github', href: null, labelKey: 'project-link-github' },
@@ -33,6 +35,7 @@ export const projects = [
     statusKey: 'project-3-status',
     statusKind: 'live',
     descKey: 'project-3-desc',
+    viz: 'shap',
     stack: ['Python', 'XGBoost', 'SHAP', 'Streamlit'],
     links: [
       {

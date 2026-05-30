@@ -191,7 +191,7 @@ function initCyclingPhrase() {
       node.textContent = phrases[cycleIndex];
       node.classList.remove('is-swapping');
     }, 260);
-  }, 3600);
+  }, 6000);
 }
 
 /* ── Typed hero role ──────────────────────────────────────────── */
@@ -253,7 +253,7 @@ function magneticMove(event) {
   const rect = el.getBoundingClientRect();
   const cx = rect.left + rect.width / 2;
   const cy = rect.top + rect.height / 2;
-  const strength = 0.28;
+  const strength = 0.18;
   const dx = (event.clientX - cx) * strength;
   const dy = (event.clientY - cy) * strength;
   el.style.transform = `translate3d(${dx.toFixed(2)}px, ${dy.toFixed(2)}px, 0)`;
@@ -280,7 +280,7 @@ function initMagneticCTAs() {
 
 /* ── 3D tilt on project cards ─────────────────────────────────── */
 
-const TILT_MAX = 5; // degrees
+const TILT_MAX = 3; // degrees
 const TILT_LIFT = 4; // px
 
 function tiltMove(event) {

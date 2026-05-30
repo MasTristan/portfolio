@@ -1,5 +1,6 @@
 import { projects } from '@/data/projects.js';
 import { escapeHtml } from '@/modules/dom.js';
+import { renderProjectVisual } from '@/components/projectVisuals.js';
 
 function renderLink({ href, labelKey, disabled }, translate) {
   const label = escapeHtml(translate(labelKey));
@@ -28,12 +29,9 @@ export function createProjects({ translate }) {
         <div class="projects-list reveal-stagger">
           ${projects
             .map(
-              ({ titleKey, statusKey, statusKind, descKey, stack, links }, index) => {
-                const streamlit = links.find((l) => l.kind === 'streamlit' && l.href);
-                const embedUrl = streamlit
-                  ? `${streamlit.href}${streamlit.href.includes('?') ? '&' : '?'}embed=true`
-                  : null;
+              ({ titleKey, statusKey, statusKind, descKey, stack, links, viz }, index) => {
                 const title = translate(titleKey);
+                const visual = renderProjectVisual(viz);
                 return `
                 <article class="project-item" data-tilt>
                   <span class="project-number">${String(index + 1).padStart(2, '0')}</span>
@@ -51,19 +49,10 @@ export function createProjects({ translate }) {
                     <div class="project-links">
                       ${links.map((link) => renderLink(link, translate)).join('')}
                     </div>
-                    ${embedUrl
-                      ? `<div class="project-embed">
-                          <iframe
-                            class="project-embed-frame"
-                            src="${escapeHtml(embedUrl)}"
-                            title="${escapeHtml(title)} — live preview"
-                            loading="lazy"
-                            referrerpolicy="no-referrer"
-                            sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
-                          ></iframe>
-                        </div>`
-                      : ''}
                   </div>
+                  ${visual
+                    ? `<figure class="project-viz" aria-hidden="false">${visual}</figure>`
+                    : ''}
                 </article>
               `;
               },
