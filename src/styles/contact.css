@@ -54,6 +54,12 @@
   background-size: 100% 1px, 100% 1px;
 }
 
+.contact-cv-link {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
 @media (max-width: 540px) {
   .contact-links li {
     grid-template-columns: 1fr;

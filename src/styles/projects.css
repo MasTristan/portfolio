@@ -191,14 +191,6 @@
   background-size: 100% 1px, 100% 1px;
 }
 
-.project-link.is-disabled {
-  color: var(--text-muted);
-  border-bottom: 1px dashed var(--border-strong);
-  padding-bottom: 1px;
-  font-style: italic;
-  cursor: default;
-  background-image: none;
-}
 
 /* ── In-house mini risk-visual (inline SVG, theme-aware) ─────────── */
 

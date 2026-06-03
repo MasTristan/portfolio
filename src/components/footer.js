@@ -1,6 +1,8 @@
 import { escapeHtml } from '@/modules/dom.js';
 
 export function createFooter({ translate }) {
+  const year = new Date().getFullYear();
+  const rights = escapeHtml(translate('footer-rights').replace('{year}', String(year)));
   return `
     <footer class="footer">
       <div class="container container--wide">
@@ -20,7 +22,7 @@ export function createFooter({ translate }) {
             <dd>${escapeHtml(translate('colophon-built-from'))} · Vite · vanilla JS · no tracker.</dd>
           </dl>
 
-          <p class="footer-rights">${escapeHtml(translate('footer-rights'))}</p>
+          <p class="footer-rights">${rights}</p>
         </div>
       </div>
     </footer>

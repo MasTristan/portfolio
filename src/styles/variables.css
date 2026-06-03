@@ -1,5 +1,5 @@
 :root {
-  /* Surfaces — warm paper */
+  /* Surfaces: warm paper */
   --bg-color: #f7f4ea;
   --bg-elevated: #fcfaf2;
   --bg-dark: #efeadb;
@@ -11,13 +11,13 @@
   --text-light: #444452;
   --text-muted: #7a7a85;
 
-  /* Accent — one confident navy */
+  /* Accent: one confident navy */
   --accent-color: #1c2c54;
   --accent-strong: #0e1b3a;
   --accent-soft: rgba(28, 44, 84, 0.08);
   --accent-rule: rgba(28, 44, 84, 0.22);
 
-  /* One warm moment — used once, for the formula glyph */
+  /* One warm moment: used for the formula glyph */
   --accent-gold: #a87a2e;
   --accent-gold-soft: rgba(168, 122, 46, 0.14);
 
@@ -61,7 +61,7 @@
 
   /* Texture */
   --grid-color: rgba(20, 20, 28, 0.045);
-  --grid-color-strong: rgba(20, 20, 28, 0.085);
+  --grid-color-strong: rgba(20, 20, 28, 0.075);
 }
 
 :root[data-theme="dark"] {
@@ -96,5 +96,5 @@
   --header-bg: rgba(10, 10, 14, 0.85);
 
   --grid-color: rgba(255, 255, 255, 0.028);
-  --grid-color-strong: rgba(255, 255, 255, 0.055);
+  --grid-color-strong: rgba(255, 255, 255, 0.048);
 }

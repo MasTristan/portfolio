@@ -1,9 +1,25 @@
 export const skillCategories = [
   {
+    titleKey: 'skills-category-delivery',
+    skills: [
+      { label: 'Backlog ownership' },
+      { label: 'Workshop facilitation' },
+      { label: 'Stakeholder management' },
+      { label: 'Requirements & functional specs' },
+      { label: 'User stories' },
+      { label: 'UAT coordination' },
+      { label: 'Prioritisation' },
+      { label: 'Agile / Scrum' },
+      { label: 'MOA / MOE liaison' },
+      { label: 'Data quality governance' },
+    ],
+  },
+  {
     titleKey: 'skills-category-data',
     skills: [
       { label: 'Oracle SQL / PL-SQL' },
       { label: 'SQL Server / T-SQL' },
+      { label: 'DataStage' },
       { label: 'ETL design' },
       { label: 'Data modelling' },
       { label: 'Data quality' },
@@ -29,20 +45,7 @@ export const skillCategories = [
       { label: 'scikit-learn' },
       { label: 'XGBoost' },
       { label: 'SHAP' },
-      { label: 'Azure ML' },
       { label: 'Streamlit' },
-    ],
-  },
-  {
-    titleKey: 'skills-category-functional',
-    skills: [
-      { label: 'Functional specs' },
-      { label: 'User stories' },
-      { label: 'UAT' },
-      { label: 'Jira' },
-      { label: 'Agile / Scrum' },
-      { label: 'MOA / MOE liaison' },
-      { label: 'Workshop facilitation' },
     ],
   },
   {
@@ -51,8 +54,8 @@ export const skillCategories = [
       { label: 'EBA · Basel III · CRR' },
       { label: 'Credit risk · NDoD' },
       { label: 'Regulatory reporting' },
-      { label: 'Industrial BI' },
       { label: 'Multi-entity reporting' },
+      { label: 'Industrial BI' },
     ],
   },
 ];
