@@ -226,7 +226,7 @@ function initRoleTyping() {
       i += 1;
       let delay = 26 + Math.random() * 22;
       if (char === ' ') delay = 50;
-      if (char === '—' || char === '-') delay = 240;
+      if (char === ':' || char === '-') delay = 240;
       if (char === ',' || char === '.') delay = 180;
       typingTimer = setTimeout(tick, delay);
     } else {

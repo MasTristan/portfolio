@@ -30,6 +30,12 @@ export function createContact({ translate }) {
               <span class="contact-label">${escapeHtml(translate('contact-github-label'))}</span>
               ${link(github, github.replace(/^https?:\/\//, ''))}
             </li>
+            <li>
+              <span class="contact-label">${escapeHtml(translate('contact-cv-label'))}</span>
+              <a href="cv/CV_Tristan_Mas_EN.pdf" download target="_blank" rel="noopener noreferrer" class="contact-cv-link">
+                CV_Tristan_Mas_EN.pdf ↓
+              </a>
+            </li>
           </ul>
         </div>
       </div>

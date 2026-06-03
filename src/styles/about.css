@@ -1,14 +1,14 @@
 .about-content {
   display: flex;
   flex-direction: column;
-  gap: 1.4rem;
-  max-width: 62ch;
+  gap: 1.5rem;
+  max-width: 64ch;
 }
 
 .about-paragraph {
   font-family: var(--font-serif);
-  font-size: 1.15rem;
-  line-height: 1.7;
+  font-size: 1.12rem;
+  line-height: 1.72;
   color: var(--text-color);
   margin: 0;
   font-variation-settings: "opsz" 18;
@@ -18,17 +18,17 @@
 /* First paragraph is the pull / lead: bigger, more confident */
 .about-paragraph:first-child {
   position: relative;
-  font-size: clamp(1.3rem, 2vw, 1.6rem);
-  line-height: 1.45;
+  font-size: clamp(1.25rem, 2vw, 1.55rem);
+  line-height: 1.48;
   color: var(--text-strong);
-  letter-spacing: -0.012em;
+  letter-spacing: -0.01em;
   margin-bottom: 0.6rem;
-  font-variation-settings: "opsz" 32;
+  font-variation-settings: "opsz" 28;
   font-weight: 400;
 }
 
 .about-paragraph:first-child::before {
-  content: "“";
+  content: "\201C";
   position: absolute;
   margin-left: -0.55em;
   color: var(--accent-color);

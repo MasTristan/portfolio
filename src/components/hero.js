@@ -12,9 +12,6 @@ function renderStackLine(stack) {
     .join('');
 }
 
-// Split a title into word spans that rise into focus, staggered by word.
-// The last word carries the navy accent (.mark). aria-label on the <h1>
-// keeps the name readable to assistive tech regardless of the animation.
 function splitWords(text) {
   const words = text.split(' ').filter(Boolean);
   return words
@@ -33,38 +30,37 @@ export function createHero({ translate, currentLang }) {
   const isFr = currentLang === 'fr';
   const metaLabel = {
     status: isFr ? 'statut' : 'status',
-    scope: isFr ? 'périmètre' : 'scope',
+    openTo: isFr ? 'ouvert à' : 'open to',
     mode: isFr ? 'mode' : 'mode',
   };
   const metaVal = {
     status: isFr ? 'disponible' : 'available',
-    scope: isFr ? 'Europe de l’Ouest' : 'Western Europe',
+    openTo: 'Product Owner · Lead Data',
     mode: 'full remote',
   };
   const abstractLabel = {
-    discipline: isFr ? 'discipline' : 'discipline',
+    discipline: 'discipline',
     stack: 'stack',
+    focus: 'focus',
     based: isFr ? 'basé à' : 'based in',
   };
   const disciplineVal = isFr
-    ? 'Finance & Risque · Reporting réglementaire'
-    : 'Finance & Risk · Regulatory reporting';
-  const basedVal = isFr ? 'Bordeaux · Europe de l’Ouest' : 'Bordeaux · Western Europe';
-  const focusLabel = isFr ? 'focus' : 'focus';
+    ? 'Risque & Finance · Delivery data'
+    : 'Risk & Finance · Data delivery';
+  const basedVal = isFr ? "Bordeaux · Europe de l'Ouest" : 'Bordeaux · Western Europe';
   const focusVal = isFr
-    ? 'Modélisation du risque de crédit · explicabilité des modèles'
-    : 'Credit risk modelling · model explainability';
+    ? 'Ownership de delivery de bout en bout · leadership produit et data'
+    : 'End-to-end delivery ownership · product & data leadership';
 
-  // Hero title: word-level rise reveal, last word in navy accent.
   const titleHtml = splitWords(name);
 
   return `
     <section id="home" class="hero no-reveal">
-      <canvas class="hero-curve" data-risk-curve aria-hidden="true"></canvas>
+      <div class="hero-grid-bg" aria-hidden="true"></div>
       <div class="container container--wide">
         <div class="hero-meta">
           <span><span class="key">${escapeHtml(metaLabel.status)}:</span> <span class="signal">${escapeHtml(metaVal.status)}</span></span>
-          <span><span class="key">${escapeHtml(metaLabel.scope)}:</span> <span class="val">${escapeHtml(metaVal.scope)}</span></span>
+          <span><span class="key">${escapeHtml(metaLabel.openTo)}:</span> <span class="val open-to">${escapeHtml(metaVal.openTo)}</span></span>
           <span><span class="key">${escapeHtml(metaLabel.mode)}:</span> <span class="val">${escapeHtml(metaVal.mode)}</span></span>
         </div>
         <h1 class="hero-title" aria-label="${escapeHtml(name)}">${titleHtml}</h1>
@@ -77,6 +73,9 @@ export function createHero({ translate, currentLang }) {
           </a>
           <a href="#contact" class="btn" data-scroll="contact">
             ${escapeHtml(translate('hero-cta-contact'))}
+          </a>
+          <a href="cv/CV_Tristan_Mas_EN.pdf" class="btn btn-cv" download target="_blank" rel="noopener noreferrer">
+            ${escapeHtml(translate('hero-cta-cv'))}
           </a>
         </div>
         <div class="social-links">
@@ -100,7 +99,7 @@ export function createHero({ translate, currentLang }) {
               <span class="stack-line">${renderStackLine(translate('hero-stack'))}</span>
             </dd>
 
-            <dt>${escapeHtml(focusLabel)}</dt>
+            <dt>${escapeHtml(abstractLabel.focus)}</dt>
             <dd>${escapeHtml(focusVal)}</dd>
 
             <dt>${escapeHtml(abstractLabel.based)}</dt>

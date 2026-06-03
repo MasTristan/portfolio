@@ -1,6 +1,4 @@
-/* ──────────────────────────────────────────────────────────────────
-   Hero — Apple-scale entrance, orchestrated reveal
-   ────────────────────────────────────────────────────────────────── */
+/* Hero: editorial entrance, orchestrated reveal */
 
 .hero {
   position: relative;
@@ -10,20 +8,18 @@
   min-height: min(92vh, 880px);
 }
 
-/* ── Signature visual: the credit loss distribution curve ────────── */
-.hero-curve {
+/* Structural grid background: fine dot matrix, top-right concentration */
+.hero-grid-bg {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
   z-index: 0;
   pointer-events: none;
+  background-image: radial-gradient(circle, var(--grid-color-strong) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: radial-gradient(ellipse 65% 75% at 90% 10%, black 0%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse 65% 75% at 90% 10%, black 0%, transparent 70%);
   opacity: 0;
-  animation: curve-in 2.2s var(--ease-out) 0.5s forwards;
-}
-
-@keyframes curve-in {
-  to { opacity: 0.8; }
+  animation: fade-in 2s var(--ease-out) 0.6s forwards;
 }
 
 .hero::before {
@@ -46,48 +42,7 @@
   max-width: 1040px;
 }
 
-/* ── Cartouche (top-right) ───────────────────────────────────────── */
-
-.hero-cartouche {
-  position: absolute;
-  top: 0;
-  right: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 0.15rem;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.05em;
-  color: var(--text-muted);
-  text-align: right;
-  text-transform: lowercase;
-  opacity: 0;
-  animation: fade-in 0.7s var(--ease-out) 0.05s forwards;
-}
-
-.hero-cartouche .vol {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 0.85rem;
-  color: var(--text-color);
-  letter-spacing: 0;
-}
-
-.hero-cartouche .rule {
-  display: block;
-  height: 1px;
-  background: var(--border-strong);
-  margin: 0.25rem 0;
-  width: 0;
-  animation: rule-draw 1s var(--ease-out) 0.7s forwards;
-}
-
-@keyframes rule-draw {
-  to { width: 22px; }
-}
-
-/* ── Meta strip ──────────────────────────────────────────────────── */
+/* Meta strip */
 
 .hero-meta {
   display: flex;
@@ -107,6 +62,10 @@
 
 .hero-meta .key { color: var(--text-muted); }
 .hero-meta .val { color: var(--text-color); }
+.hero-meta .open-to {
+  color: var(--accent-color);
+  font-weight: 500;
+}
 .hero-meta .signal {
   color: var(--signal-positive);
   position: relative;
@@ -132,7 +91,7 @@
   100% { box-shadow: 0 0 0 0 rgba(47, 107, 72, 0); }
 }
 
-/* ── Title — split into chars, each fades + rises + weights up ──── */
+/* Title: split into words, each fades + rises */
 
 .hero-title {
   font-family: var(--font-sans);
@@ -175,17 +134,16 @@
   }
 }
 
-/* ── Role — typed effect with caret (JS-driven content) ──────────── */
+/* Role subtitle */
 
 .hero-role {
   font-family: var(--font-sans);
-  font-size: clamp(1.2rem, 2.4vw, 1.55rem);
+  font-size: clamp(1.1rem, 2.2vw, 1.4rem);
   font-weight: 400;
   color: var(--text-light);
   margin: 0 0 2.25rem;
   line-height: 1.35;
   letter-spacing: -0.008em;
-  font-variation-settings: "opsz" 24;
   max-width: none;
   min-height: 1.5em;
   opacity: 0;
@@ -226,7 +184,7 @@
   100% { opacity: 0; }
 }
 
-/* ── The thin rule + tagline + CTAs + socials ────────────────────── */
+/* Rule + tagline + CTAs + socials */
 
 .hero-rule {
   border: 0;
@@ -242,12 +200,14 @@
 }
 
 .hero-tagline {
-  font-family: var(--font-sans);
-  font-size: 1.2rem;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.25rem, 2.4vw, 1.65rem);
   font-weight: 400;
-  line-height: 1.55;
-  letter-spacing: -0.012em;
-  max-width: 42ch;
+  font-variation-settings: "opsz" 20;
+  line-height: 1.5;
+  letter-spacing: -0.008em;
+  max-width: 44ch;
   color: var(--text-color);
   margin: 0 0 2.75rem;
   opacity: 0;
@@ -263,6 +223,7 @@
   opacity: 0;
   transform: translateY(6px);
   animation: rise-in 0.7s var(--ease-out) 1.25s forwards;
+  align-items: center;
 }
 
 .btn {
@@ -332,6 +293,26 @@
   color: var(--text-strong);
 }
 
+.btn-cv {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--text-muted);
+  background-image:
+    linear-gradient(var(--border-color), var(--border-color)),
+    linear-gradient(var(--text-muted), var(--text-muted));
+  padding: 0 0 0.18rem;
+}
+
+.btn-cv::after {
+  content: "↓";
+}
+
+.btn-cv:hover {
+  color: var(--text-color);
+}
+
 .social-links {
   display: flex;
   flex-wrap: wrap;
@@ -375,7 +356,7 @@
   transform: translate(2px, -2px);
 }
 
-/* ── Abstract — research-note specs ──────────────────────────────── */
+/* Abstract: research-note specs */
 
 .hero-abstract {
   position: relative;
@@ -423,7 +404,6 @@
   margin: 0;
 }
 
-/* Discipline phrase crossfade swap */
 .hero-abstract [data-cycle] {
   display: inline-block;
   transition: opacity 0.24s ease, transform 0.24s ease;
@@ -450,22 +430,6 @@
 .hero-abstract dl > dt:nth-of-type(4),
 .hero-abstract dl > dt:nth-of-type(4) + dd { animation-delay: 1.95s; }
 
-.hero-abstract .formula { color: var(--text-strong); }
-
-.hero-abstract .formula .glyph {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 1.06em;
-  color: var(--accent-gold);
-  padding: 0 0.05em;
-}
-
-.hero-abstract .formula .eq,
-.hero-abstract .formula .op {
-  color: var(--text-muted);
-  margin: 0 0.2rem;
-}
-
 .hero-abstract .stack-line + .stack-line {
   margin-top: 0.15rem;
   color: var(--text-light);
@@ -476,7 +440,7 @@
   margin: 0 0.35rem;
 }
 
-/* ── Shared keyframes ────────────────────────────────────────────── */
+/* Shared keyframes */
 
 @keyframes fade-in {
   from { opacity: 0; }
@@ -488,13 +452,11 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ── Reduced-motion: skip the whole entrance ─────────────────────── */
+/* Reduced-motion: skip the whole entrance */
 
 @media (prefers-reduced-motion: reduce) {
   .hero::before,
-  .hero-curve,
-  .hero-cartouche,
-  .hero-cartouche .rule,
+  .hero-grid-bg,
   .hero-meta,
   .hero-meta .signal::before,
   .hero-title .hero-word,
@@ -511,33 +473,14 @@
     transform: none !important;
     width: auto !important;
   }
-  .hero-curve { width: 100% !important; }
-  .hero-cartouche .rule { width: 22px !important; }
   .hero-rule { width: 48px !important; }
 }
 
-/* ── Responsive ──────────────────────────────────────────────────── */
+/* Responsive */
 
 @media (max-width: 640px) {
   .hero { padding: 7rem 0 4.5rem; }
-
-  .hero-cartouche {
-    position: static;
-    flex-direction: row;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
-  }
-  .hero-cartouche .rule {
-    margin: 0;
-    animation-name: rule-draw-mobile;
-  }
-  @keyframes rule-draw-mobile {
-    to { width: 28px; }
-  }
-
   .hero-meta { margin-bottom: 2.5rem; }
-
   .hero-title { line-height: 0.95; }
 
   .hero-abstract dl {

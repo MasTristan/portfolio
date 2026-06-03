@@ -1,4 +1,4 @@
-// In-house mini risk-visualisations for each project — rendered as inline SVG
+// In-house mini risk-visualisations for each project, rendered as inline SVG
 // so they are crisp, lightweight, theme-aware (coloured via CSS custom
 // properties in projects.css) and can never render "broken" like an embed.
 
@@ -6,8 +6,7 @@ const VB_W = 320;
 const VB_H = 200;
 const PAD = 18;
 
-// Asymmetric loss distribution — echoes the hero signature. Used for the
-// Basel III / credit scoring engine (loss distribution → regulatory capital).
+// Asymmetric loss distribution for the Basel III / credit scoring engine.
 function lossViz() {
   const w = VB_W - PAD * 2;
   const h = VB_H - PAD * 2;
@@ -43,7 +42,7 @@ function lossViz() {
     </svg>`;
 }
 
-// Grouped prudential ratios — used for the European banks regulatory dashboard.
+// Grouped prudential ratios for the European banks regulatory dashboard.
 function barsViz() {
   const w = VB_W - PAD * 2;
   const h = VB_H - PAD * 2;
@@ -70,7 +69,7 @@ function barsViz() {
     </svg>`;
 }
 
-// Diverging SHAP contributions — used for the XGBoost + SHAP scoring model.
+// Diverging SHAP contributions for the XGBoost + SHAP scoring model.
 function shapViz() {
   const w = VB_W - PAD * 2;
   const h = VB_H - PAD * 2;

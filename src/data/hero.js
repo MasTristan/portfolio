@@ -7,7 +7,7 @@ export const heroData = {
     },
     {
       name: 'GitHub',
-      href: 'https://github.com/mastristan',
+      href: 'https://github.com/MasTristan',
     },
   ],
 };

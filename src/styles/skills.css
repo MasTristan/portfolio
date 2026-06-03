@@ -1,6 +1,6 @@
 .skills-grid {
   display: grid;
-  grid-template-columns: 7.5rem 1fr;
+  grid-template-columns: 9rem 1fr;
   gap: 2rem 2rem;
 }
 
@@ -10,12 +10,22 @@
 
 .skill-category-label {
   font-family: var(--font-mono);
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 400;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.03em;
   color: var(--text-muted);
   padding-top: 0.15rem;
   margin: 0;
+}
+
+/* First category (Delivery & Leadership) gets a subtle accent treatment */
+.skill-category:first-of-type .skill-category-label {
+  color: var(--accent-color);
+  opacity: 0.85;
+}
+
+.skill-category:first-of-type .skill-chip {
+  color: var(--text-strong);
 }
 
 .skill-chips {
@@ -36,7 +46,7 @@
 
 .skill-chip {
   font-family: var(--font-mono);
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   font-weight: 400;
   color: var(--text-color);
   white-space: nowrap;
@@ -57,7 +67,7 @@
 
   .skill-category-label {
     text-transform: uppercase;
-    font-size: 0.76rem;
+    font-size: 0.74rem;
     letter-spacing: 0.06em;
     margin-bottom: 0.4rem;
   }

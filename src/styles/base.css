@@ -36,32 +36,34 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-sans);
   font-weight: 600;
   line-height: 1.05;
-  letter-spacing: -0.024em;
   color: var(--text-strong);
 }
 
 h1 {
+  font-family: var(--font-sans);
   font-size: clamp(3rem, 11vw, 7.5rem);
   font-weight: 600;
   letter-spacing: -0.04em;
 }
 
 h2 {
+  font-family: var(--font-serif);
   font-size: clamp(2.25rem, 5.5vw, 3.5rem);
-  font-weight: 600;
-  letter-spacing: -0.032em;
+  font-weight: 400;
+  letter-spacing: -0.02em;
 }
 
 h3 {
+  font-family: var(--font-serif);
   font-size: 1.32rem;
-  font-weight: 600;
-  letter-spacing: -0.016em;
+  font-weight: 400;
+  letter-spacing: -0.012em;
 }
 
 h4 {
+  font-family: var(--font-sans);
   font-size: 1rem;
 }
 

@@ -1,29 +1,28 @@
 import { aboutData } from '@/data/about.js';
 import { escapeHtml } from '@/modules/dom.js';
 
-// Phrases that should render as <span class="hl"> highlights, per language.
 const HIGHLIGHTS = {
   en: [
-    'Hybrid technical and functional profile',
+    'owned delivery rather than just contributing to it',
+    'delivery lead and a product owner',
     'Basel III Standard Approach',
-    'NDoD regulatory reporting',
-    'Oracle SQL/PL-SQL',
-    'FRM certification (GARP)',
-    'Télécom Saint-Étienne',
-    'full-remote mandates',
-    'business teams and information systems',
-    'requirements gathering and workshop facilitation',
-  ],
-  fr: [
-    'Profil hybride technique / fonctionnel',
-    'Bâle III (approche standard)',
-    'reporting NDoD',
-    'Oracle SQL/PL-SQL',
-    'certification FRM (GARP)',
+    'NDoD reporting',
+    'FRM certification in progress (GARP)',
     'Télécom Saint-Étienne',
     'full remote',
-    "équipes métier et les systèmes d'information",
-    "recueil des besoins et de l'animation d'ateliers",
+    'backlog ownership',
+    'steering committee reporting',
+  ],
+  fr: [
+    'porté la delivery plutôt que d\'y contribuer',
+    'delivery lead et un product owner',
+    'Bâle III (approche standard)',
+    'reporting NDoD',
+    'certification FRM en cours (GARP)',
+    'Télécom Saint-Étienne',
+    'full remote',
+    'ownership du backlog',
+    'comité de pilotage',
   ],
 };
 
