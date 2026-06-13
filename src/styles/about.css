@@ -1,8 +1,24 @@
 .about-content {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2.75rem;
   max-width: 64ch;
+}
+
+.about-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.about-block-title {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 0;
 }
 
 .about-paragraph {
@@ -47,4 +63,54 @@
   background-position: 0 100%;
   background-repeat: no-repeat;
   padding-bottom: 1px;
+}
+
+/* ── What I specialize in ────────────────────────────────────────── */
+
+.about-specializations {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.about-spec-chip {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  color: var(--text-color);
+  padding: 0.35rem 0.85rem;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  background: var(--bg-elevated);
+}
+
+/* ── How I create value ──────────────────────────────────────────── */
+
+.about-values {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.about-value-item {
+  position: relative;
+  padding-left: 1.6rem;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+.about-value-item::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--accent-color);
+  font-family: var(--font-mono);
 }

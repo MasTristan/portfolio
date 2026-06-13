@@ -12,4 +12,18 @@ export default defineConfig({
       '@': resolve(__dirname, 'src'),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('/src/data/translations-')) {
+            return 'translations';
+          }
+          if (id.includes('/src/data/')) {
+            return 'data';
+          }
+        },
+      },
+    },
+  },
 });

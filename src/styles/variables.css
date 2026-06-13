@@ -45,7 +45,7 @@
   --font-sans:
     "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono:
-    "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   --font-family: var(--font-sans);
 
   /* Motion */

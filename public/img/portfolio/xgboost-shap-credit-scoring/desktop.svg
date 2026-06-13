@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="presentation">
+  <rect width="1600" height="900" rx="14" fill="#0b0b0f" />
+  
+    
+    <rect width="1600" height="72" fill="#15151d" />
+    <circle cx="34" cy="36" r="8" fill="#e0605a" />
+    <circle cx="62" cy="36" r="8" fill="#e0b65a" />
+    <circle cx="90" cy="36" r="8" fill="#6dbf95" />
+    <text x="130" y="42" fill="#8a8a92" font-family="ui-monospace, monospace" font-size="20" letter-spacing="1">credit-scoring-engine — Streamlit</text>
+    <g>
+        <rect x="1380" y="22" width="72" height="28" rx="14" fill="none" stroke="#6dbf95" stroke-width="1.5" />
+        <circle cx="1396" cy="36" r="4" fill="#6dbf95" />
+        <text x="1408" y="40" fill="#6dbf95" font-family="ui-monospace, monospace" font-size="14" letter-spacing="1">LIVE</text>
+      </g>
+    <line x1="0" y1="72" x2="1600" y2="72" stroke="#2a2a35" stroke-width="1" />
+  
+    <text x="120" y="132" fill="#ebe9e2" font-family="ui-monospace, monospace" font-size="28" font-weight="600">SHAP Feature Contributions</text>
+    <text x="120" y="160" fill="#8a8a92" font-family="ui-monospace, monospace" font-size="16">Per-prediction breakdown → probability of default</text>
+    <line x1="745.6" y1="172" x2="745.6" y2="780" stroke="#2a2a35" stroke-width="1.5" />
+    
+        <rect x="745.6" y="197.3" width="563.0" height="50.7" rx="4" fill="#a8bff5" opacity="0.85" />
+        <text x="729.6" y="227.7" text-anchor="end" fill="#8a8a92" font-family="ui-monospace, monospace" font-size="15">Debt-to-income ratio</text>
+      
+        <rect x="401.5" y="298.7" width="344.1" height="50.7" rx="4" fill="#8a8a92" opacity="0.85" />
+        <text x="761.6" y="329.0" text-anchor="start" fill="#8a8a92" font-family="ui-monospace, monospace" font-size="15">Months on file</text>
+      
+        <rect x="745.6" y="400.0" width="387.9" height="50.7" rx="4" fill="#a8bff5" opacity="0.85" />
+        <text x="729.6" y="430.3" text-anchor="end" fill="#8a8a92" font-family="ui-monospace, monospace" font-size="15">Credit utilisation</text>
+      
+        <rect x="532.9" y="501.3" width="212.7" height="50.7" rx="4" fill="#8a8a92" opacity="0.85" />
+        <text x="761.6" y="531.7" text-anchor="start" fill="#8a8a92" font-family="ui-monospace, monospace" font-size="15">Number of open lines</text>
+      
+        <rect x="745.6" y="602.7" width="281.5" height="50.7" rx="4" fill="#a8bff5" opacity="0.85" />
+        <text x="729.6" y="633.0" text-anchor="end" fill="#8a8a92" font-family="ui-monospace, monospace" font-size="15">Delinquency history</text>
+      
+        <rect x="608.0" y="704.0" width="137.6" height="50.7" rx="4" fill="#8a8a92" opacity="0.85" />
+        <text x="761.6" y="734.3" text-anchor="start" fill="#8a8a92" font-family="ui-monospace, monospace" font-size="15">Income stability</text>
+      
+    <text x="120" y="816" fill="#8a8a92" font-family="ui-monospace, monospace" font-size="16">← lowers risk score</text>
+    <text x="1480" y="816" text-anchor="end" fill="#a8bff5" font-family="ui-monospace, monospace" font-size="16">raises risk score →</text>
+  
+  <rect x="0.5" y="0.5" width="1599" height="899" rx="13.5" fill="none" stroke="#2a2a35" stroke-width="1" />
+</svg>

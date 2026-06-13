@@ -1,4 +1,5 @@
 import { languages } from '@/data/languages.js';
+import { escapeHtml } from '@/modules/dom.js';
 
 export function createHeader({ translate, currentLang, theme }) {
   const labelKey = theme === 'dark' ? 'theme-toggle-light' : 'theme-toggle-dark';
@@ -41,6 +42,18 @@ export function createHeader({ translate, currentLang, theme }) {
                 <span class="switch-icon sun" aria-hidden="true">☀️</span>
                 <span class="switch-thumb" aria-hidden="true"></span>
               </span>
+            </button>
+            <button
+              type="button"
+              id="nav-toggle"
+              class="nav-toggle"
+              aria-expanded="false"
+              aria-controls="mobile-nav"
+              aria-label="${escapeHtml(translate('nav-menu-open'))}"
+            >
+              <span class="nav-toggle-bar" aria-hidden="true"></span>
+              <span class="nav-toggle-bar" aria-hidden="true"></span>
+              <span class="nav-toggle-bar" aria-hidden="true"></span>
             </button>
           </nav>
         </div>

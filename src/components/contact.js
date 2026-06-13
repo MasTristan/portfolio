@@ -14,7 +14,7 @@ export function createContact({ translate }) {
         <header class="section-header">
           <span class="section-overline">${escapeHtml(translate('contact-overline'))}</span>
           <h2 class="section-title">${escapeHtml(translate('contact-title'))}</h2>
-          <span class="section-index">05</span>
+          <span class="section-index">06</span>
         </header>
         <div class="contact-content reveal">
           <ul class="contact-links">
@@ -35,6 +35,14 @@ export function createContact({ translate }) {
               <a href="cv/CV_Tristan_Mas_EN.pdf" download target="_blank" rel="noopener noreferrer" class="contact-cv-link">
                 CV_Tristan_Mas_EN.pdf ↓
               </a>
+            </li>
+            <li>
+              <span class="contact-label">${escapeHtml(translate('contact-location-label'))}</span>
+              <span class="contact-value">${escapeHtml(translate('contact-location-value'))}</span>
+            </li>
+            <li>
+              <span class="contact-label">${escapeHtml(translate('contact-availability-label'))}</span>
+              <span class="contact-value">${escapeHtml(translate('contact-availability-value'))}</span>
             </li>
           </ul>
         </div>

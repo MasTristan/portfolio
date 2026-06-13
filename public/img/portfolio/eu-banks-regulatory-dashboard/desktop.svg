@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="presentation">
+  <rect width="1600" height="900" rx="14" fill="#0b0b0f" />
+  
+    
+    <rect width="1600" height="72" fill="#15151d" />
+    <circle cx="34" cy="36" r="8" fill="#e0605a" />
+    <circle cx="62" cy="36" r="8" fill="#e0b65a" />
+    <circle cx="90" cy="36" r="8" fill="#6dbf95" />
+    <text x="130" y="42" fill="#8a8a92" font-family="ui-monospace, monospace" font-size="20" letter-spacing="1">eu-banks-regulatory-dashboard — Power BI</text>
+    <g>
+        <rect x="1380" y="22" width="149" height="28" rx="14" fill="none" stroke="#6dbf95" stroke-width="1.5" />
+        <circle cx="1396" cy="36" r="4" fill="#6dbf95" />
+        <text x="1408" y="40" fill="#6dbf95" font-family="ui-monospace, monospace" font-size="14" letter-spacing="1">IN PROGRESS</text>
+      </g>
+    <line x1="0" y1="72" x2="1600" y2="72" stroke="#2a2a35" stroke-width="1" />
+  
+    <text x="120" y="132" fill="#ebe9e2" font-family="ui-monospace, monospace" font-size="28" font-weight="600">Prudential Ratios — Major European Banks</text>
+    <text x="120" y="160" fill="#8a8a92" font-family="ui-monospace, monospace" font-size="16">CET1 · Tier 1 · LCR · NSFR — public EBA data</text>
+    
+        <rect x="120.0" y="324.0" width="186.7" height="436.0" rx="4" fill="#a8bff5" opacity="0.85" />
+        <text x="213.3" y="794" text-anchor="middle" fill="#8a8a92" font-family="ui-monospace, monospace" font-size="16">BNP</text>
+      
+        <rect x="354.7" y="419.7" width="186.7" height="340.3" rx="4" fill="#a8bff5" opacity="0.85" />
+        <text x="448.0" y="794" text-anchor="middle" fill="#8a8a92" font-family="ui-monospace, monospace" font-size="16">SAN</text>
+      
+        <rect x="589.3" y="276.1" width="186.7" height="483.9" rx="4" fill="#d6b069" opacity="0.85" />
+        <text x="682.7" y="794" text-anchor="middle" fill="#8a8a92" font-family="ui-monospace, monospace" font-size="16">DBK</text>
+      
+        <rect x="824.0" y="387.8" width="186.7" height="372.2" rx="4" fill="#a8bff5" opacity="0.85" />
+        <text x="917.3" y="794" text-anchor="middle" fill="#8a8a92" font-family="ui-monospace, monospace" font-size="16">UCG</text>
+      
+        <rect x="1058.7" y="451.6" width="186.7" height="308.4" rx="4" fill="#a8bff5" opacity="0.85" />
+        <text x="1152.0" y="794" text-anchor="middle" fill="#8a8a92" font-family="ui-monospace, monospace" font-size="16">ISP</text>
+      
+        <rect x="1293.3" y="345.2" width="186.7" height="414.8" rx="4" fill="#a8bff5" opacity="0.85" />
+        <text x="1386.7" y="794" text-anchor="middle" fill="#8a8a92" font-family="ui-monospace, monospace" font-size="16">SOC</text>
+      
+    <line x1="120" y1="499.9" x2="1480" y2="499.9" stroke="#d6b069" stroke-width="2" stroke-dasharray="8 6" />
+    <text x="1480" y="487.9" text-anchor="end" fill="#d6b069" font-family="ui-monospace, monospace" font-size="16">Regulatory minimum</text>
+    <line x1="120" y1="760" x2="1480" y2="760" stroke="#2a2a35" stroke-width="1.5" />
+  
+  <rect x="0.5" y="0.5" width="1599" height="899" rx="13.5" fill="none" stroke="#2a2a35" stroke-width="1" />
+</svg>

@@ -1,5 +1,4 @@
 export const heroData = {
-  name: 'Tristan Mas',
   socials: [
     {
       name: 'LinkedIn',

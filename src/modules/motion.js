@@ -4,11 +4,12 @@
 const REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const SUPPORTS_HOVER = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
-const SECTION_ORDER = ['home', 'about', 'experience', 'skills', 'projects', 'contact'];
+const SECTION_ORDER = ['home', 'about', 'snapshot', 'experience', 'skills', 'projects', 'contact'];
 
 const SECTION_LABELS = {
   en: {
     about: 'About',
+    snapshot: 'Snapshot',
     experience: 'Experience',
     skills: 'Skills',
     projects: 'Projects',
@@ -16,6 +17,7 @@ const SECTION_LABELS = {
   },
   fr: {
     about: 'À propos',
+    snapshot: 'Aperçu',
     experience: 'Expérience',
     skills: 'Compétences',
     projects: 'Projets',
@@ -25,34 +27,19 @@ const SECTION_LABELS = {
 
 const SECTION_INDEX = {
   about: '01',
-  experience: '02',
-  skills: '03',
-  projects: '04',
-  contact: '05',
-};
-
-const DISCIPLINE_PHRASES = {
-  en: [
-    'Finance & Risk · Regulatory reporting',
-    'Credit risk · Basel III · NDoD',
-    'Risk modelling · Capital requirements',
-  ],
-  fr: [
-    'Finance & Risque · Reporting réglementaire',
-    'Risque de crédit · Bâle III · NDoD',
-    'Modélisation du risque · Exigences en capital',
-  ],
+  snapshot: '02',
+  experience: '03',
+  skills: '04',
+  projects: '05',
+  contact: '06',
 };
 
 let sectionObserver;
 let titleObserver;
 let progressBound = false;
 let clockTimer = null;
-let cycleTimer = null;
-let typingTimer = null;
 let currentLang = 'en';
 let currentId = 'home';
-let cycleIndex = 0;
 const tiltTargets = new Set();
 const magneticTargets = new Set();
 
@@ -168,78 +155,6 @@ function initLiveClock() {
   clockTimer = setInterval(tick, 1000);
 }
 
-/* ── Cycling discipline phrase in the hero abstract ──────────── */
-
-function initCyclingPhrase() {
-  if (cycleTimer) {
-    clearInterval(cycleTimer);
-    cycleTimer = null;
-  }
-  const node = document.querySelector('[data-cycle="discipline"]');
-  if (!node) return;
-
-  const phrases = DISCIPLINE_PHRASES[currentLang] ?? DISCIPLINE_PHRASES.en;
-  cycleIndex = 0;
-  node.textContent = phrases[0];
-
-  if (REDUCED_MOTION || phrases.length < 2) return;
-
-  cycleTimer = setInterval(() => {
-    cycleIndex = (cycleIndex + 1) % phrases.length;
-    node.classList.add('is-swapping');
-    setTimeout(() => {
-      node.textContent = phrases[cycleIndex];
-      node.classList.remove('is-swapping');
-    }, 260);
-  }, 6000);
-}
-
-/* ── Typed hero role ──────────────────────────────────────────── */
-
-function initRoleTyping() {
-  if (typingTimer) {
-    clearTimeout(typingTimer);
-    typingTimer = null;
-  }
-
-  const wrapper = document.querySelector('.hero-role');
-  const em = wrapper?.querySelector('em');
-  if (!wrapper || !em) return;
-
-  const full = em.textContent || '';
-  if (!full) return;
-
-  if (REDUCED_MOTION) {
-    wrapper.classList.add('is-typed');
-    return;
-  }
-
-  em.textContent = '';
-  wrapper.classList.remove('is-typed');
-  wrapper.classList.add('is-typing');
-
-  let i = 0;
-  const tick = () => {
-    if (i < full.length) {
-      const char = full[i];
-      em.textContent += char;
-      i += 1;
-      let delay = 26 + Math.random() * 22;
-      if (char === ' ') delay = 50;
-      if (char === ':' || char === '-') delay = 240;
-      if (char === ',' || char === '.') delay = 180;
-      typingTimer = setTimeout(tick, delay);
-    } else {
-      typingTimer = setTimeout(() => {
-        wrapper.classList.remove('is-typing');
-        wrapper.classList.add('is-typed');
-      }, 900);
-    }
-  };
-
-  typingTimer = setTimeout(tick, 600);
-}
-
 /* ── Magnetic CTAs ────────────────────────────────────────────── */
 
 function magneticEnter(event) {
@@ -319,8 +234,6 @@ export function initMotion({ getLang } = {}) {
   initSectionTitleReveal();
   initReadingProgress();
   initLiveClock();
-  initCyclingPhrase();
-  initRoleTyping();
   initMagneticCTAs();
   initCardTilt();
 }

@@ -1,10 +1,14 @@
 export const projects = [
   {
+    slug: 'basel3-credit-scoring-engine',
     titleKey: 'project-1-title',
     statusKey: 'project-1-status',
     statusKind: 'live',
-    descKey: 'project-1-desc',
-    viz: 'loss',
+    contextKey: 'project-1-context',
+    problemKey: 'project-1-problem',
+    solutionKey: 'project-1-solution',
+    outcomeKey: 'project-1-outcome',
+    screenshotAltKey: 'project-1-screenshot-alt',
     stack: ['Oracle XE', 'PL/SQL', 'Python', 'Streamlit'],
     links: [
       {
@@ -20,10 +24,14 @@ export const projects = [
     ],
   },
   {
+    slug: 'eu-banks-regulatory-dashboard',
     titleKey: 'project-2-title',
     statusKey: 'project-2-status',
-    descKey: 'project-2-desc',
-    viz: 'bars',
+    contextKey: 'project-2-context',
+    problemKey: 'project-2-problem',
+    solutionKey: 'project-2-solution',
+    outcomeKey: 'project-2-outcome',
+    screenshotAltKey: 'project-2-screenshot-alt',
     stack: ['Power BI', 'EBA Open Data'],
     links: [
       { kind: 'github', href: null, labelKey: 'project-link-github' },
@@ -31,11 +39,15 @@ export const projects = [
     ],
   },
   {
+    slug: 'xgboost-shap-credit-scoring',
     titleKey: 'project-3-title',
     statusKey: 'project-3-status',
     statusKind: 'live',
-    descKey: 'project-3-desc',
-    viz: 'shap',
+    contextKey: 'project-3-context',
+    problemKey: 'project-3-problem',
+    solutionKey: 'project-3-solution',
+    outcomeKey: 'project-3-outcome',
+    screenshotAltKey: 'project-3-screenshot-alt',
     stack: ['Python', 'XGBoost', 'SHAP', 'Streamlit'],
     links: [
       {
