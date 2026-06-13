@@ -3,10 +3,9 @@ export const skillCategories = [
     titleKey: 'skills-category-business',
     skills: [
       { label: 'Business Analysis', level: 'expert' },
+      { label: 'Stakeholder Management', level: 'expert' },
       { label: 'Risk Management', level: 'advanced' },
       { label: 'Regulatory Reporting', level: 'advanced' },
-      { label: 'Stakeholder Management', level: 'expert' },
-      { label: 'Product Discovery', level: 'intermediate' },
     ],
   },
   {
@@ -15,7 +14,6 @@ export const skillCategories = [
       { label: 'SQL', level: 'expert' },
       { label: 'Python', level: 'advanced' },
       { label: 'Pandas', level: 'advanced' },
-      { label: 'NumPy', level: 'intermediate' },
     ],
   },
   {
@@ -24,7 +22,6 @@ export const skillCategories = [
       { label: 'Power BI', level: 'expert' },
       { label: 'DAX', level: 'advanced' },
       { label: 'Power Query', level: 'advanced' },
-      { label: 'Tableau', level: 'intermediate' },
     ],
   },
   {
@@ -40,16 +37,8 @@ export const skillCategories = [
     skills: [
       { label: 'Oracle', level: 'expert' },
       { label: 'SQL Server', level: 'advanced' },
-      { label: 'PostgreSQL', level: 'intermediate' },
-    ],
-  },
-  {
-    titleKey: 'skills-category-tools',
-    skills: [
       { label: 'Git', level: 'advanced' },
-      { label: 'Docker', level: 'intermediate' },
       { label: 'Jira', level: 'advanced' },
-      { label: 'Azure DevOps', level: 'intermediate' },
     ],
   },
 ];
