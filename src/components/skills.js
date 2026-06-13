@@ -8,17 +8,24 @@ export function createSkills({ translate }) {
         <header class="section-header">
           <span class="section-overline">${escapeHtml(translate('skills-overline'))}</span>
           <h2 class="section-title">${escapeHtml(translate('skills-title'))}</h2>
-          <span class="section-index">03</span>
+          <span class="section-index">04</span>
         </header>
         <div class="skills-grid reveal-stagger">
           ${skillCategories
             .map(
               ({ titleKey, skills }) => `
                 <div class="skill-category">
-                  <p class="skill-category-label">${escapeHtml(translate(titleKey))}</p>
-                  <ul class="skill-chips">
+                  <h3 class="skill-category-label">${escapeHtml(translate(titleKey))}</h3>
+                  <ul class="skill-list">
                     ${skills
-                      .map(({ label }) => `<li class="skill-chip">${escapeHtml(label)}</li>`)
+                      .map(
+                        ({ label, level }) => `
+                          <li class="skill-item">
+                            <span class="skill-name">${escapeHtml(label)}</span>
+                            <span class="skill-level skill-level--${level}">${escapeHtml(translate(`skills-level-${level}`))}</span>
+                          </li>
+                        `,
+                      )
                       .join('')}
                   </ul>
                 </div>

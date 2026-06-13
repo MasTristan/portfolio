@@ -12,20 +12,19 @@ function renderStackLine(stack) {
     .join('');
 }
 
-function splitWords(text) {
+function renderTitleLine(text, { startIndex = 0, accent = false } = {}) {
   const words = text.split(' ').filter(Boolean);
-  return words
+  const html = words
     .map((word, index) => {
-      const isLast = index === words.length - 1 && words.length > 1;
-      const cls = isLast ? ' mark' : '';
-      return `<span class="hero-word${cls}" style="--wi:${index}">${escapeHtml(word)}</span>`;
+      const cls = accent ? ' mark' : '';
+      return `<span class="hero-word${cls}" style="--wi:${startIndex + index}">${escapeHtml(word)}</span>`;
     })
     .join(' ');
+  return { html, nextIndex: startIndex + words.length };
 }
 
 export function createHero({ translate, currentLang }) {
-  const { name, socials } = heroData;
-  const role = translate('hero-role');
+  const { socials } = heroData;
 
   const isFr = currentLang === 'fr';
   const metaLabel = {
@@ -35,7 +34,7 @@ export function createHero({ translate, currentLang }) {
   };
   const metaVal = {
     status: isFr ? 'disponible' : 'available',
-    openTo: 'Product Owner · Lead Data',
+    openTo: isFr ? 'Postes Data & Business Analyst' : 'Data & Business Analyst roles',
     mode: 'full remote',
   };
   const abstractLabel = {
@@ -45,14 +44,19 @@ export function createHero({ translate, currentLang }) {
     based: isFr ? 'basé à' : 'based in',
   };
   const disciplineVal = isFr
-    ? 'Risque & Finance · Delivery data'
-    : 'Risk & Finance · Data delivery';
+    ? 'Risque, Finance & Data Réglementaire'
+    : 'Risk, Finance & Regulatory Data';
   const basedVal = isFr ? "Bordeaux · Europe de l'Ouest" : 'Bordeaux · Western Europe';
   const focusVal = isFr
-    ? 'Ownership de delivery de bout en bout · leadership produit et data'
-    : 'End-to-end delivery ownership · product & data leadership';
+    ? 'Analyse de données · Reporting réglementaire · Aide à la décision'
+    : 'Data analysis · Regulatory reporting · Decision support';
 
-  const titleHtml = splitWords(name);
+  const titleLine1 = renderTitleLine(translate('hero-title-line1'));
+  const titleLine2 = renderTitleLine(translate('hero-title-line2'), {
+    startIndex: titleLine1.nextIndex,
+    accent: true,
+  });
+  const ariaLabel = `${translate('hero-title-line1')} — ${translate('hero-title-line2')}`;
 
   return `
     <section id="home" class="hero no-reveal">
@@ -63,19 +67,20 @@ export function createHero({ translate, currentLang }) {
           <span><span class="key">${escapeHtml(metaLabel.openTo)}:</span> <span class="val open-to">${escapeHtml(metaVal.openTo)}</span></span>
           <span><span class="key">${escapeHtml(metaLabel.mode)}:</span> <span class="val">${escapeHtml(metaVal.mode)}</span></span>
         </div>
-        <h1 class="hero-title" aria-label="${escapeHtml(name)}">${titleHtml}</h1>
-        <p class="hero-role"><em>${escapeHtml(role)}</em></p>
-        <hr class="hero-rule" />
+        <h1 class="hero-title" aria-label="${escapeHtml(ariaLabel)}">
+          <span class="hero-title-line">${titleLine1.html}</span>
+          <span class="hero-title-line hero-title-line--accent">${titleLine2.html}</span>
+        </h1>
         <p class="hero-tagline">${escapeHtml(translate('hero-tagline'))}</p>
         <div class="hero-cta">
           <a href="#projects" class="btn btn-primary" data-scroll="projects" data-magnetic>
             ${escapeHtml(translate('hero-cta-projects'))}
           </a>
-          <a href="#contact" class="btn" data-scroll="contact">
-            ${escapeHtml(translate('hero-cta-contact'))}
-          </a>
-          <a href="cv/CV_Tristan_Mas_EN.pdf" class="btn btn-cv" download target="_blank" rel="noopener noreferrer">
+          <a href="cv/CV_Tristan_Mas_EN.pdf" class="btn btn-secondary" download target="_blank" rel="noopener noreferrer">
             ${escapeHtml(translate('hero-cta-cv'))}
+          </a>
+          <a href="#contact" class="btn btn-tertiary" data-scroll="contact">
+            ${escapeHtml(translate('hero-cta-contact'))}
           </a>
         </div>
         <div class="social-links">
@@ -92,7 +97,7 @@ export function createHero({ translate, currentLang }) {
         <aside class="hero-abstract" aria-label="Profile abstract">
           <dl>
             <dt>${escapeHtml(abstractLabel.discipline)}</dt>
-            <dd data-cycle="discipline">${escapeHtml(disciplineVal)}</dd>
+            <dd>${escapeHtml(disciplineVal)}</dd>
 
             <dt>${escapeHtml(abstractLabel.stack)}</dt>
             <dd>

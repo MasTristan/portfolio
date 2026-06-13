@@ -18,6 +18,8 @@ import {
 import { initScrollToTop } from '@/modules/scrollToTop.js';
 import { initMotion, setMotionLang } from '@/modules/motion.js';
 import { initRiskCurve } from '@/modules/riskCurve.js';
+import { initLightbox } from '@/modules/lightbox.js';
+import { initMobileNav } from '@/modules/mobileNav.js';
 
 const app = document.getElementById('app');
 
@@ -45,6 +47,8 @@ function render() {
   initScrollToTop();
   initMotion({ getLang: getCurrentLang });
   initRiskCurve();
+  initLightbox();
+  initMobileNav({ translate });
 
   window.scrollTo(0, scrollY);
 }

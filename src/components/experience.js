@@ -8,7 +8,7 @@ export function createExperience({ translate }) {
         <header class="section-header">
           <span class="section-overline">${escapeHtml(translate('experience-overline'))}</span>
           <h2 class="section-title">${escapeHtml(translate('experience-title'))}</h2>
-          <span class="section-index">02</span>
+          <span class="section-index">03</span>
         </header>
         <div class="experience-list reveal-stagger">
           ${experienceData

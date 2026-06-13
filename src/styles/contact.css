@@ -60,6 +60,13 @@
   color: var(--text-light);
 }
 
+.contact-value {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  color: var(--text-light);
+  justify-self: start;
+}
+
 @media (max-width: 540px) {
   .contact-links li {
     grid-template-columns: 1fr;

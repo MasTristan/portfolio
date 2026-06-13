@@ -1,74 +1,81 @@
 .skills-grid {
   display: grid;
-  grid-template-columns: 9rem 1fr;
-  gap: 2rem 2rem;
-}
-
-.skill-category {
-  display: contents;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 2.5rem 2.5rem;
 }
 
 .skill-category-label {
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 400;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--text-muted);
-  padding-top: 0.15rem;
-  margin: 0;
+  margin: 0 0 1.1rem;
 }
 
-/* First category (Delivery & Leadership) gets a subtle accent treatment */
-.skill-category:first-of-type .skill-category-label {
-  color: var(--accent-color);
-  opacity: 0.85;
-}
-
-.skill-category:first-of-type .skill-chip {
-  color: var(--text-strong);
-}
-
-.skill-chips {
+.skill-list {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem 1.1rem;
-  border-bottom: 1px solid var(--border-color);
-  padding-bottom: 1.5rem;
+  flex-direction: column;
+  gap: 0.65rem;
 }
 
-.skills-grid > .skill-category:last-child .skill-chips {
+.skill-item {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.skill-list > .skill-item:last-child {
   border-bottom: 0;
   padding-bottom: 0;
 }
 
-.skill-chip {
-  font-family: var(--font-mono);
-  font-size: 0.9rem;
-  font-weight: 400;
+.skill-name {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
   color: var(--text-color);
-  white-space: nowrap;
 }
 
-.skill-chip + .skill-chip::before {
-  content: "·";
-  margin-right: 1.1rem;
-  margin-left: -0.55rem;
+.skill-level {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding: 0.15rem 0.55rem;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+}
+
+.skill-level--expert {
+  color: var(--accent-color);
+}
+
+.skill-level--advanced {
+  color: var(--text-color);
+  opacity: 0.85;
+}
+
+.skill-level--intermediate {
   color: var(--text-muted);
 }
 
 @media (max-width: 640px) {
   .skills-grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 2rem;
   }
 
   .skill-category-label {
-    text-transform: uppercase;
     font-size: 0.74rem;
     letter-spacing: 0.06em;
-    margin-bottom: 0.4rem;
   }
 }
